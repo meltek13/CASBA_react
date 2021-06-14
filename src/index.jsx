@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Sign_in from 'pages/sign_in'
 import Sign_up from 'pages/sign_up'
+import NewFlatSharing from 'pages/new_flatSharing'
 import Profil from "./pages/profil";
 import store from "./store-redux/store.js";
 import { Provider } from "react-redux";
@@ -16,29 +17,37 @@ import Calendar from './pages/calendar'
 
 
 const App = () => (
-  <Router>
-    <Provider store={store}>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/sign_in">
-          <Sign_in />
-        </Route>
-        <Route path="/sign_up">
-          <Sign_up />
-        </Route>
-        <Route path="/profil">
-          <Profil />
-        </Route>
-        <Route path="/calendar">
-          <Calendar />
-        </Route>
-      </Switch>
-      <Footer />
-    </Provider>
-  </Router>
+
+
+  <div id="app-container">
+    <Router>
+        <Provider store={store}>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/sign_in">
+              <Sign_in />
+            </Route>
+            <Route path="/sign_up">
+              <Sign_up />
+            </Route>
+            <Route path="/profil">
+              <Profil />
+            </Route>
+           <Route path="/new_flat_sharing">
+             <NewFlatSharing />
+           </Route>
+          <Route path="/calendar">
+            <Calendar />
+          </Route>
+          </Switch>
+          <Footer />
+        </Provider>
+    </Router>
+  </div>
+
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));

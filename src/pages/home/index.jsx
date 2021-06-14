@@ -16,6 +16,7 @@ const Home =()=>{
              <div>Photos</div>
              <div>Mets à jour ton status</div>
              <div>Laches tes commaitaires</div>
+             <Link to="/new_flat_sharing">Créér une nouvelle collocation</Link>
         </div>
        
     )
