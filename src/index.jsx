@@ -9,13 +9,21 @@ import './index.css'
 import Home from "pages/home"
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Sign_in from 'pages/sign_in'
+import Sign_up from 'pages/sign_up'
 
 const App = () => (
 <Router>
   <Navbar/>
   <Switch>
-    <Route path="/">
+    <Route path="/" exact>
       <Home />
+    </Route>
+    <Route path="/sign_in">
+      <Sign_in />
+    </Route>
+    <Route path="/sign_up">
+      <Sign_up />
     </Route>
   </Switch>
  <Footer/>
