@@ -1,9 +1,10 @@
+
 import React from 'react'
 import {
-  Link,
+  Link
 } from 'react-router-dom';
 import Cookies from "js-cookie";
-
+import "./navbar.css";
 const Navbar = () => {
   //const dispatch = useDispatch();
   //const loged = useSelector((state) => state.loged);
@@ -26,10 +27,14 @@ const Navbar = () => {
         });
   };
 
-  return(
+
+const Navbar = () => {
+  return (
     <div className="navbar">
       <div className="content-link">
-        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/">
+          Home
+        </Link>
       </div>
       <div className="content-link">
         <Link className="link" to="/sign_in">Se connecter</Link>
@@ -41,7 +46,7 @@ const Navbar = () => {
         <a href="" onClick={handleClick}>Se deconnecter</a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
