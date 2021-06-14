@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Sign_in from 'pages/sign_in'
 import Sign_up from 'pages/sign_up'
+import Profil from "./pages/profil";
 import store from "./store-redux/store.js";
 import { Provider } from "react-redux";
 
@@ -27,6 +28,9 @@ const App = () => (
         </Route>
         <Route path="/sign_up">
           <Sign_up />
+        </Route>
+        <Route path="/profil">
+          <Profil />
         </Route>
       </Switch>
       <Footer />
