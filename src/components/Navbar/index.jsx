@@ -1,34 +1,29 @@
-
-import React from 'react'
-import {
-  Link
-} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./navbar.css";
-const Navbar = () => {
-  //const dispatch = useDispatch();
-  //const loged = useSelector((state) => state.loged);
 
+const Navbar = () => {
   const handleClick = (e) => {
+    //const dispatch = useDispatch();
+    //const loged = useSelector((state) => state.loged);
     e.preventDefault();
- 
+
     fetch("http://localhost:3000/users/sign_out", {
-        method: "delete",
-        headers: {
-          Authorization: Cookies.get("token"),
-          "Content-Type": "application/json",
-        }, 
-      })
-        .then((response) => response.json())
-        .then((userdata) => {
-          console.log(userdata)
-          Cookies.remove("token");
-          //dispatch(logOut());
-        });
+      method: "delete",
+      headers: {
+        Authorization: Cookies.get("token"),
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((userdata) => {
+        console.log(userdata);
+        Cookies.remove("token");
+        //dispatch(logOut());
+      });
   };
 
-
-const Navbar = () => {
   return (
     <div className="navbar">
       <div className="content-link">
@@ -37,13 +32,19 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="content-link">
-        <Link className="link" to="/sign_in">Se connecter</Link>
+        <Link className="link" to="/sign_in">
+          Se connecter
+        </Link>
       </div>
       <div className="content-link">
-        <Link className="link" to="/sign_up">S'inscrire</Link>
+        <Link className="link" to="/sign_up">
+          S'inscrire
+        </Link>
       </div>
       <div className="content-link">
-        <a href="" onClick={handleClick}>Se deconnecter</a>
+        <a href="" onClick={handleClick}>
+          Se deconnecter
+        </a>
       </div>
     </div>
   );
