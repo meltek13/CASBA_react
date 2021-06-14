@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import Home from "pages/home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Profil from "./pages/profil";
 import Sign_in from "pages/sign_in";
 import Sign_up from "pages/sign_up";
 
@@ -23,6 +24,9 @@ const App = () => (
         </Route>
         <Route path="/sign_up">
           <Sign_up />
+        </Route>
+        <Route path="/profil">
+          <Profil />
         </Route>
       </Switch>
       <Footer />
