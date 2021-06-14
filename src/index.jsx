@@ -17,29 +17,33 @@ import { Provider } from "react-redux";
 
 
 const App = () => (
-  <Router>
-    <Provider store={store}>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/sign_in">
-          <Sign_in />
-        </Route>
-        <Route path="/sign_up">
-          <Sign_up />
-        </Route>
-        <Route path="/new_flat_sharing">
-          <NewFlatSharing />
-        </Route>
-        <Route path="/profil">
-          <Profil />
-        </Route>
-      </Switch>
-      <Footer />
-    </Provider>
-  </Router>
+
+  <div id="app-container">
+    <Router>
+        <Provider store={store}>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/sign_in">
+              <Sign_in />
+            </Route>
+            <Route path="/sign_up">
+              <Sign_up />
+            </Route>
+            <Route path="/profil">
+              <Profil />
+            </Route>
+           <Route path="/new_flat_sharing">
+             <NewFlatSharing />
+           </Route>
+          </Switch>
+          <Footer />
+        </Provider>
+    </Router>
+  </div>
+
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
