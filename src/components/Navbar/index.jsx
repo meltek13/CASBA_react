@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
 import "./navbar.css";
+import Cookies from "js-cookie";
+import { useSelector, useDispatch } from "react-redux";
+import { logOut } from "store-redux/index";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const loged = useSelector((state) => state.loged);
+
   const handleClick = (e) => {
-    //const dispatch = useDispatch();
-    //const loged = useSelector((state) => state.loged);
     e.preventDefault();
 
     fetch("http://localhost:3000/users/sign_out", {
@@ -20,7 +23,7 @@ const Navbar = () => {
       .then((userdata) => {
         console.log(userdata);
         Cookies.remove("token");
-        //dispatch(logOut());
+        dispatch(logOut());
       });
   };
 
@@ -31,21 +34,29 @@ const Navbar = () => {
           Home
         </Link>
       </div>
-      <div className="content-link">
-        <Link className="link" to="/sign_in">
-          Se connecter
-        </Link>
-      </div>
-      <div className="content-link">
-        <Link className="link" to="/sign_up">
-          S'inscrire
-        </Link>
-      </div>
-      <div className="content-link">
-        <a href="" onClick={handleClick}>
-          Se deconnecter
-        </a>
-      </div>
+
+      {loged ? (
+        <>
+          <div className="content-link">
+            <a href="" className="link" onClick={handleClick}>
+              Se deconnecter
+            </a>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="content-link">
+            <Link className="link" to="/sign_in">
+              Se connecter
+            </Link>
+          </div>
+          <div className="content-link">
+            <Link className="link" to="/sign_up">
+              S'inscrire
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 };
