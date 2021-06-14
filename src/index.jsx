@@ -12,11 +12,12 @@ import NewFlatSharing from 'pages/new_flatSharing'
 import Profil from "./pages/profil";
 import store from "./store-redux/store.js";
 import { Provider } from "react-redux";
-
+import Calendar from './pages/calendar'
 
 
 
 const App = () => (
+
 
   <div id="app-container">
     <Router>
@@ -38,6 +39,9 @@ const App = () => (
            <Route path="/new_flat_sharing">
              <NewFlatSharing />
            </Route>
+          <Route path="/calendar">
+            <Calendar />
+          </Route>
           </Switch>
           <Footer />
         </Provider>

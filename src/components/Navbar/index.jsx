@@ -47,6 +47,11 @@ const Navbar = () => {
               Se deconnecter
             </a>
           </div>
+          <div className="content-link">
+            <Link className="link" to="/calendar">
+              Calendrier
+            </Link>
+          </div>
         </>
       ) : (
         <>
