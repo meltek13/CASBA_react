@@ -3,7 +3,8 @@ html {
   padding:0 ;
 }
 #app-container{
-  width: 640px;
+  width: 840px;
   height: 100vh;
   margin: auto;
+  background-color: brown;
 }
