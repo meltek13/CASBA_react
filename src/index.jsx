@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Sign_in from 'pages/sign_in'
 import Sign_up from 'pages/sign_up'
 import NewFlatSharing from 'pages/new_flatSharing'
+import Profil from "./pages/profil";
 import store from "./store-redux/store.js";
 import { Provider } from "react-redux";
 
@@ -31,6 +32,9 @@ const App = () => (
         </Route>
         <Route path="/new_flat_sharing">
           <NewFlatSharing />
+        </Route>
+        <Route path="/profil">
+          <Profil />
         </Route>
       </Switch>
       <Footer />
