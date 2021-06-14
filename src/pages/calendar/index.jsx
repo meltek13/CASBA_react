@@ -31,9 +31,14 @@ const Timetable = () => {
       .then((response) => response.json())
       .then((response) => setEvent(response))
   }, [])
-  // console.log(event)
-  event.map(elem => elem.timedate === value.toString() && console.log(elem.title))
 
+  const destroyEvent = (id) => {
+    fetch('http://localhost:3000/calendars/' + id,{
+      method: 'DELETE'
+    })
+    window.location.reload(false);
+  }
+  event.map(elem => elem.timedate === value.toString() && console.log(elem === null))
   return (
     <>
       <div className="content-calendar">
@@ -50,17 +55,16 @@ const Timetable = () => {
               <div className="contain-text" key={elem.id}>
                 <p className="text-pop">Titre:{elem.title}</p>
                 <p className="text-pop">Description: {elem.description}</p>
+                <button onClick={() =>  destroyEvent(elem.id)}>Supprimer l'evenement</button>
               </div>
             )}  
           </div>
-          
           <div className="popUpcreate">
             <form>
               <input className="form-calendar" onChange={event => setTitle(event.target.value)} placeholder="Titre"/>
               <input className="form-calendar" onChange={event => setDescription(event.target.value)} placeholder="Description"/>
               <button className="form-calendar" onClick={createEvent}>Soummetre</button>
             </form>
-            {/* <h1 className="form-calendar">{value.toString()}</h1> */}
           </div>
           </>
           }
