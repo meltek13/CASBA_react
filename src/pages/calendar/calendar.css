@@ -1,0 +1,31 @@
+.calendar{
+  width: 50%;
+}
+
+.content-calendar{
+  display: flex;
+  justify-content: center;
+}
+
+.popUpcreate{
+  display: flex;
+  justify-content: center;
+}
+
+.form-calendar{
+  display: block;
+}
+
+.popUp-container{
+  width: 50%;
+}
+
+.contain-text{
+  border: 1px solid black;
+  margin: 20px;
+}
+
+.text-pop{
+  display: flex;
+  justify-content: center;
+}
