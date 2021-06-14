@@ -12,7 +12,7 @@ const Profil = () => {
   const history = useHistory();
 
   const fetchFunction = () => {
-    fetch("http://localhost:3000/members", {
+    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "get",
       headers: {
         Authorization: Cookies.get("token"),
@@ -22,8 +22,8 @@ const Profil = () => {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
-        setEmail(response.current_user.email);
-        setId(response.current_user.id);
+        setEmail(response.email);
+        setId(response.id);
       });
   };
 
@@ -31,7 +31,7 @@ const Profil = () => {
     fetchFunction();
   }, []);
 
-  const deleteAccount = (e) => {
+  const deleteAccount = () => {
     fetch(`http://localhost:3000/members/${id}`, {
       method: "delete",
       headers: {
