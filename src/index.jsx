@@ -11,7 +11,7 @@ import Sign_up from 'pages/sign_up'
 import Profil from "./pages/profil";
 import store from "./store-redux/store.js";
 import { Provider } from "react-redux";
-
+import Calendar from './pages/calendar'
 
 
 
@@ -31,6 +31,9 @@ const App = () => (
         </Route>
         <Route path="/profil">
           <Profil />
+        </Route>
+        <Route path="/calendar">
+          <Calendar />
         </Route>
       </Switch>
       <Footer />
