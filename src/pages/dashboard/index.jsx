@@ -47,7 +47,7 @@ const Dashboard =()=>{
                 <button onClick={changeNews} className="btn-dashboard-nav">Actus coloc</button>
                 <button onClick={changePicture} className="btn-dashboard-nav">Photos</button>
                 <button onClick={changeCalendar} className="btn-dashboard-nav">Calendrier</button>
-                <button onClick={changeExpenses} className="btn-dashboard-nav">Dépenses</button>
+                <button onClick={changeExpenses} className="btn-dashboard-nav">Portefeuille</button>
             </div>
             <div className="content-dashboard">
                 {news &&
