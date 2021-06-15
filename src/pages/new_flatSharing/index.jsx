@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState} from "react";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
@@ -7,6 +7,7 @@ import { Form, Input, Button, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import Add_colocs_svg from 'assets/img/add_coloc.svg';
 import './new_flatSharing.css';
+
 const NewFlatSharing = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -17,19 +18,19 @@ const NewFlatSharing = () => {
 
 
 const SetEmailRoomMate = values => {
-  
   values.users.forEach(roommate => setRoomMate(oldArray => [...oldArray, roommate.email]))
-  console.log(roomMate)
   fetchFunction()
+  console.log(roomMate)
+ 
 }
 
   const fetchFunction = (e) => {
-
     const data = {
       title,
       description,
       admin_id,
     };
+
 
     fetch("http://localhost:3000/flatsharings", {
       method: "post",
@@ -41,6 +42,7 @@ const SetEmailRoomMate = values => {
           title: data.title,
           description: data.description,
           admin_id: data.admin_id,
+         
         },
       }),
     })
@@ -50,6 +52,8 @@ const SetEmailRoomMate = values => {
           history.push("/dashboard/" + userdata.flatsharing.id);
       });
   };
+
+ 
 
   return (
 
