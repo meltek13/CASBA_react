@@ -2,27 +2,31 @@
   width: 50%;
 }
 
-.content-calendar{
-  display: flex;
-  justify-content: center;
-}
 
 .popUpcreate{
   display: flex;
   justify-content: center;
+  width: 50%;
 }
 
 .form-calendar{
   display: block;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .popUp-container{
   width: 50%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .contain-text{
-  border: 1px solid black;
-  margin: 20px;
+  border-bottom: 1px solid black;
+  padding: 5px;
 }
 
 .text-pop{
