@@ -1,0 +1,13 @@
+.profil-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 255px;
+  height: 400px;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.avatar {
+  max-width: 250px;
+  max-height: 250px;
+}

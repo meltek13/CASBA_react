@@ -1,0 +1,15 @@
+.nav-dashboard{
+  width: 100%;
+  background-color: darkgray;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-dashboard-nav{
+  background-color: darkgray;
+  border: none;
+}
+
+.btn-dashboard-nav:hover{
+  cursor: pointer;
+}

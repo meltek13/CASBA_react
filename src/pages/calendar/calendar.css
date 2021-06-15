@@ -1,12 +1,10 @@
-.calendar{
-  width: 50%;
+.content-calendar{
+  margin-top: 20px;
 }
 
-
 .popUpcreate{
-  display: flex;
-  justify-content: center;
   width: 50%;
+  margin: 10px;
 }
 
 .form-calendar{
@@ -17,19 +15,42 @@
 
 .popUp-container{
   width: 50%;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 
 .contain-text{
-  border-bottom: 1px solid black;
+  border: 1px solid black;
   padding: 5px;
 }
 
 .text-pop{
   display: flex;
   justify-content: center;
+}
+.popUp{
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.button-delete{
+  background-color:tomato;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.button-delete:hover{
+  cursor: pointer;
+}
+
+.button-create{
+  background-color:skyblue;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.button-create:hover{
+  cursor: pointer;
 }

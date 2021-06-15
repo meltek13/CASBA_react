@@ -7,9 +7,12 @@ import Signup_svg from 'assets/img/signup.svg';
 import Add_colocs_svg from 'assets/img/add_coloc.svg';
 import Enjoy_svg from 'assets/img/enjoy.svg';
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 const Landing_page = () => {
+
+  const loged = useSelector((state) => state.loged);
 
   return(
     <>
@@ -32,13 +35,20 @@ const Landing_page = () => {
                   <li><strong>Poster des photos</strong> </li>
                   <li><strong> Mettre un évennement dans le calendrier commun</strong></li>
                 </ul> 
-            </div>
-            <div id="btn-cta-group">
-              <Link to="/sign_up"><button className="btn-cta">S'inscrire</button></Link>
-              <Link to="/sign_in"><button className="btn-cta">Se connecter</button></Link>
-              <Link to="/new_flat_sharing"><button className="btn-cta">Créer une collocation</button></Link>
-            </div>
-        </div>
+            </div>      
+            {loged ?(
+              <div id="btn-cta-group">
+                <Link to="/new_flat_sharing"><button className="btn-cta">Créer une collocation</button></Link>
+              </div>
+              ) : (
+                <div id="btn-cta-group">
+                  <Link to="/sign_up"><button className="btn-cta">S'inscrire</button></Link>
+                  <Link to="/sign_in"><button className="btn-cta">Se connecter</button></Link>
+                  <Link to="/new_flat_sharing"><button className="btn-cta">Créer une collocation</button></Link>
+                </div>
+              )
+            }
+          </div>
 
         <div>
         <hr />

@@ -1,6 +1,47 @@
 .input-log-signin{
   display: block;
-  width: 30%;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 50px;
   align-items: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 20px;
 }
+
+.input-log-signin:focus{
+  outline: none;
+}
+
+.Register{
+  border: 1px solid black;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  padding: 60px;
+  width: 25%;
+  height: 50%;
+}
+
+.btn-signup{
+  background-color: skyblue;
+  border: none;
+  width: 100%;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 915px) {
+  .btn-signup{
+    font-size: 10px;
+  }
+  .Register{
+    width: 50%;
+    padding: 10px;
+  }
+} 
+@media screen and (max-width: 1650px) {
+  .Register{
+    padding: 40px;
+  }
+} 
