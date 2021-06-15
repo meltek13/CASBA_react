@@ -40,3 +40,8 @@
     padding: 10px;
   }
 } 
+@media screen and (max-width: 1650px) {
+  .Register{
+    padding: 40px;
+  }
+} 
