@@ -49,6 +49,10 @@ hr{
 }
 /* btn-cta-group */
 
+.btn-cta{
+  color: black;
+  margin-right: 10px;
+}
 /* container-cards */
 
 #container-cards-infos{
