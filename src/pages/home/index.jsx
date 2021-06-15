@@ -1,25 +1,59 @@
-import React from "react"
+import React from 'react';
+import './home.css';
 import { Link } from "react-router-dom";
+const Home = () => {
 
-const Home =()=>{
+  let dateFormatMonth = new Intl.DateTimeFormat("fr-FR",{month:"short"});
+  let dateFormatDay = new Intl.DateTimeFormat("fr-FR",{day:"numeric"});
 
-    return (
-        <div> 
-             <h1>Bienvenue sur CASBA</h1>
-             <p>CASBA est un site qui v'as t'aider à organiser ta colloc, c'est simple <Link to="/sign_up"> inscris toi </Link> ou  <Link to="/sign_in">
-             connect toi</Link> si tu as déjà un compte,</p>
-             <p>ensuite soit tu créer une nouvelle collocation, soit t'en rejoins une (on t'enverras un lien dans ce cas là)</p>
-             <p>Accède à des tas d'outils que nous concoctons specialement pour toi !</p>
-
-             <div>Calendrier</div>
-             <div>Tricount</div>
-             <div>Photos</div>
-             <div>Mets à jour ton status</div>
-             <div>Laches tes commaitaires</div>
-             <Link to="/new_flat_sharing">Créér une nouvelle collocation</Link>
+  let newDate =  new Date()
+  return(
+    <>
+      <div id="container-home">
+        <div id="jumbo-bg-home">
+          <h1 id="title-jumbo">Bonjour<span id="Username"> Username,</span> </h1>
         </div>
-       
-    )
+        <hr />
+        <div id="content-coloc">
+          <h2>Voici les news de la coloc : </h2>
+          <div id="box-tool">
+            {/*----Calendar--------*/}
+            <div className="tool">
+              <p className="title-tool">Calendrier 🗓️ </p>
+              <div className="card-body ">
+                  <div className="card-header header-one">{dateFormatMonth.format(newDate)}</div>
+                  <div className="card-content">{dateFormatDay.format(newDate)}</div>
+              </div>
+            </div>
+            {/*----Events--------*/}
+            <div className="tool">
+              <p className="title-tool">Évennements 🎟️</p>
+              <div className="card-body body-two">
+                  <div className="event-card">Event</div>
+                  <div className="event-card">Event</div>
+                  <div className="event-card">Event</div>
+                  <div className="event-card">Event</div>
+              </div>
+            </div>
+            {/*------Expenses--------*/}
+            <div className="tool">
+              <p className="title-tool">Dépenses 💶</p>
+              <div className="card-body body-three ">
+                  <div className="card-header header-three">Tu dois :</div>
+                  <div className="card-content"> 30€ <br />
+                    <span className="content-text">à MelFlix pour 🍩</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div id="container-pics-coms">
+          <h2> Photos:</h2>
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default Home
+export default Home;

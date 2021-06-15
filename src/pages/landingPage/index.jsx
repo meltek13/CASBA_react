@@ -15,7 +15,6 @@ const Landing_page = () => {
     <>
       <div id="container-lp">
         <div id="jumbo-img">
-          
           <h1 id="title-page">Bienvenue sur  
             Casba <img id="img-title" src={Home_svg} alt="illustration" />
             </h1>
@@ -29,9 +28,9 @@ const Landing_page = () => {
               de bons moments avec tes colocataires tout en restant au courant de ce qui se passe dans la collocation. <br />
               Grace aux outils de l'application tu pourras: </p>
                 <ul>
-                  <li>gérer et <strong>suivre les dépenses</strong> (courses, factures...)</li>
-                  <li><strong>poster des photos</strong> </li>
-                  <li><strong> mettre un évennement dans le calendrier</strong> commun</li>
+                  <li><strong>Gérer et suivre les dépenses</strong> (courses, factures...)</li>
+                  <li><strong>Poster des photos</strong> </li>
+                  <li><strong> Mettre un évennement dans le calendrier commun</strong></li>
                 </ul> 
             </div>
             <div id="btn-cta-group">
