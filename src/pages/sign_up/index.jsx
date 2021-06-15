@@ -15,6 +15,16 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const loged = useSelector((state) => state.loged);
 
+  const findFlat = (user_id) => {
+    fetch("http://localhost:3000/flatsharings", {
+      method: "get",
+    })
+      .then((response) => response.json())
+      .then((response) => {response.forEach(flat => {if (flat.admin_id === parseInt(user_id)) {
+        history.push("/dashboard/" + flat.id)
+      } else {history.push("/")}} )});
+  };
+
   const fetchFunction = (e) => {
     confirmPassword === password && e.preventDefault();
     const data = {
@@ -45,7 +55,7 @@ const SignUp = () => {
           console.log(userdata);
           Cookies.set("current_user_id", userdata.user.id);
           dispatch(logIn());
-          history.push("/");
+          findFlat(Cookies.get("current_user_id"))
         }
       });
   };
