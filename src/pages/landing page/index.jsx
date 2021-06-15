@@ -14,15 +14,17 @@ const Landing_page = () => {
     <>
       <div id="container-lp">
         <div id="jumbo-img">
-          <img id="img-title" src={Home_svg} alt="illustration" />
-          <h1 id="title-page">Casba</h1>
+          
+          <h1 id="title-page">Bienvenue sur  
+            Casba <img id="img-title" src={Home_svg} alt="illustration" />
+            </h1>
         </div>
         <hr />
         <div id="container-infos">
           <img id="img-infos" src={Welcome_svg} alt="illustration" />
           <div>
-              <h3 id="title-infos">une application qui te facilite la vie au sein de ta cohabitation</h3>
-              <p id="text-infos">Casba c'est une nouvelle façon de vivre de participer, échanger et partager <br />
+              <h3 id="title-infos">Une application qui te facilite la vie au sein de ta cohabitation</h3>
+              <p id="text-infos">Casba c'est une nouvelle façon de participer, d'échanger et de partager <br />
               de bons moments avec tes colocataires tout en restant au courant de ce qui se passe dans la collocation. 
               </p>
             </div>
@@ -43,7 +45,7 @@ const Landing_page = () => {
                 <div className="img-text-card">
                   <img src={Signup_svg} alt="illustration" />
                 </div>
-                <p className="title-card">Inscrit toi</p>
+                <p className="title-card">Inscris toi</p>
               </div>
               {/*------------Card-----------------*/}
               <div className="card-infos">
@@ -66,7 +68,7 @@ const Landing_page = () => {
                 <div className="img-text-card">
                   <img src={Enjoy_svg} alt="illustration" />
                 </div>
-                <p className="title-card">Coloc créée ! </p>
+                <p className="title-card">Profites avec tes colocs</p>
               </div>
             </div>
       

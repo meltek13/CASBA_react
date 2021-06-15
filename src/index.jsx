@@ -12,7 +12,7 @@ import NewFlatSharing from 'pages/new_flatSharing'
 import Profil from "./pages/profil";
 import store from "./store-redux/store.js";
 import { Provider } from "react-redux";
-
+import Landing_page from './pages/landing page/index'
 
 
 
@@ -25,6 +25,9 @@ const App = () => (
           <Switch>
             <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/landing_page">
+              <Landing_page />
             </Route>
             <Route path="/sign_in">
               <Sign_in />
