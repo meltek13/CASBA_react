@@ -39,18 +39,13 @@ const Navbar = () => {
         <>
           <div className="content-link">
             <Link className="link" to="/profil">
-              my Profil
+              Mon profil
             </Link>
           </div>
           <div className="content-link">
-            <a href="" className="link" onClick={handleClick}>
-              Se deconnecter
-            </a>
-          </div>
-          <div className="content-link">
-            <Link className="link" to="/calendar">
-              Calendrier
-            </Link>
+            <button href="" className="link btn-nav" onClick={handleClick}>
+              Deconnecter
+            </button>
           </div>
         </>
       ) : (

@@ -7,7 +7,7 @@
   left: 0;
   top: 0;
   background-color: #3f3d56;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .content-link {
@@ -38,13 +38,24 @@ html {
 .link {
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   transition: all 100ms ease-in-out;
 }
 
 .link:hover {
-  font-size: 22.5px;
+  font-size: 18px;
   text-decoration: none;
   color: orange;
+}
+
+.btn-nav{
+  padding: 0;
+  width: 20px;
+  background-color: #3f3d56;
+  border: none;
+}
+
+.btn-nav:hover{
+  cursor: pointer;
 }
