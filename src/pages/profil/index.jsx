@@ -5,12 +5,25 @@ import { useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
 import { useHistory } from "react-router-dom";
 import ButtonDelete from "../../components/ButtonDelete";
+import "./profil.css";
 
 const Profil = () => {
   const [email, setEmail] = useState("");
   const [id, setId] = useState("");
+  const [avatar, setAvatar] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+
+  // fonction a  utiliser en local pour les images
+  const decodeUrlForImage = (imageUrl) => {
+    let link = imageUrl;
+    let linkStart = link.substring(0, 16);
+    let linkMiddle = ":3000/";
+    let linkEnd = link.substring(17, link.length);
+    let constructor = linkStart + linkMiddle + linkEnd;
+
+    return constructor;
+  };
 
   const fetchFunction = () => {
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
@@ -25,6 +38,9 @@ const Profil = () => {
         console.log(response);
         setEmail(response.email);
         setId(response.id);
+        if (response.avatar !== null) {
+          setAvatar(response.avatar.url);
+        }
       });
   };
 
@@ -50,11 +66,29 @@ const Profil = () => {
   };
   return (
     <>
-      <div>
-        <h2> Bonjour, {email}</h2>
-        <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
-        <Link to="/edit_profil"> Edit profil</Link>
-      </div>
+      {avatar ? (
+        <div>
+          <h2> Bonjour, {email}</h2>
+          <img
+            className="avatar"
+            src={decodeUrlForImage(avatar)}
+            alt="avatar"
+          />
+          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
+          <Link to="/edit_profil"> Edit profil</Link>
+        </div>
+      ) : (
+        <div>
+          <h2> Bonjour, {email}</h2>
+          <img
+            className="avatar"
+            src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+            alt="avatar par defaut"
+          />
+          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
+          <Link to="/edit_profil"> Edit profil</Link>
+        </div>
+      )}
     </>
   );
 };
