@@ -18,7 +18,6 @@ const NewFlatSharing = () => {
 const SetEmailRoomMate = values => {
   
   values.users.forEach(roommate => setRoomMate(oldArray => [...oldArray, roommate.email]))
-  
   console.log(roomMate)
   fetchFunction()
 }
