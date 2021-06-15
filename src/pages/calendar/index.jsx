@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.css'
-
+import ButtonDelete from "components/ButtonDelete";
 
 const Timetable = () => {
   
@@ -38,7 +38,7 @@ const Timetable = () => {
     })
     window.location.reload(false);
   }
-  event.map(elem => elem.timedate === value.toString() && console.log(elem === null))
+
   return (
     <>
       <div className="content-calendar">
@@ -50,12 +50,13 @@ const Timetable = () => {
       </div>
         {popUp && 
         <>
+        <div className="popUp">
           <div className="popUp-container">
-            {event.map(elem => elem.timedate === value.toString() && 
+            {event.map(elem => elem.timedate === value.toString() && event.length > 0 &&
               <div className="contain-text" key={elem.id}>
                 <p className="text-pop">Titre:{elem.title}</p>
                 <p className="text-pop">Description: {elem.description}</p>
-                <button onClick={() =>  destroyEvent(elem.id)}>Supprimer l'evenement</button>
+                <button className="button-delete" onClick={() =>  destroyEvent(elem.id)}>Supprimer l'evenement</button>
               </div>
             )}  
           </div>
@@ -63,9 +64,10 @@ const Timetable = () => {
             <form>
               <input className="form-calendar" onChange={event => setTitle(event.target.value)} placeholder="Titre"/>
               <input className="form-calendar" onChange={event => setDescription(event.target.value)} placeholder="Description"/>
-              <button className="form-calendar" onClick={createEvent}>Soummetre</button>
+              <button className="form-calendar button-create" onClick={createEvent}>Soummetre</button>
             </form>
           </div>
+        </div>
           </>
           }
     </>
