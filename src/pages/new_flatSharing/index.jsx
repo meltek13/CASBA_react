@@ -24,8 +24,7 @@ const SetEmailRoomMate = values => {
 }
 
   const fetchFunction = (e) => {
-    
-    
+
     const data = {
       title,
       description,
@@ -48,7 +47,7 @@ const SetEmailRoomMate = values => {
       .then((response) => response.json())
       .then((userdata) => {
           console.log(userdata);
-          history.push("/");
+          history.push("/dashboard/" + userdata.flatsharing.id);
       });
   };
 
