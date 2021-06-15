@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cookies, { remove } from "js-cookie";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
 import { useHistory } from "react-router-dom";
@@ -52,6 +53,7 @@ const Profil = () => {
       <div>
         <h2> Bonjour, {email}</h2>
         <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
+        <Link to="/edit_profil"> Edit profil</Link>
       </div>
     </>
   );
