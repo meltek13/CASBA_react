@@ -3,19 +3,33 @@ import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import { logIn } from "store-redux";
-
+import { Form, Input, Button, Space } from 'antd';
+import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const NewFlatSharing = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [roomMate, setRoomMate] = useState([]);
   const history = useHistory();
   const loged = useSelector((state) => state.loged);
+  const admin_id = Cookies.get("current_user_id")
+
+
+const SetEmailRoomMate = values => {
+  
+  values.users.forEach(roommate => setRoomMate(oldArray => [...oldArray, roommate.email]))
+  
+  console.log(roomMate)
+  fetchFunction()
+}
 
   const fetchFunction = (e) => {
-    e.preventDefault();
+    
+    
     const data = {
       title,
       description,
+      admin_id,
     };
 
     fetch("http://localhost:3000/flatsharings", {
@@ -27,14 +41,11 @@ const NewFlatSharing = () => {
         flatsharing: {
           title: data.title,
           description: data.description,
+          admin_id: data.admin_id,
         },
       }),
     })
-      .then((response) => {
-        Cookies.set("tokenFlatsharing", response.headers.get("authorization"));
-        console.log(Cookies.get("tokenFlatsharing"));
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((userdata) => {
           console.log(userdata);
           history.push("/");
@@ -42,30 +53,52 @@ const NewFlatSharing = () => {
   };
 
   return (
-    <div className="Register">
-      <h2 className="create-flatsharing">Créer une nouvelle collocation</h2>
 
-      <form>
-        <input
-          className="input-title"
-          type="title"
-          name="Title"
-          placeholder="Titre"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          className="input-description"
-          type="description"
-          name="Description"
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <button id="btn-create-flatsharing" type="submit" onClick={fetchFunction}>
-          Creer
-        </button>
-      </form>
+<div className="Register">
+<h2 className="create-flatsharing">Créer une nouvelle collocation</h2>
+    <Form name="dynamic_form_nest_item" onFinish={SetEmailRoomMate} autoComplete="off">
+      <h4>Comment voulez vous appelez votre colloc ?</h4>
+    <Input placeholder="Le nom de votre collocation"
+     value={title}
+     onChange={(e) => setTitle(e.target.value)}
+    />
+      <h4>Décrivez en quelques mots votre "chez-vous" </h4>
+    <Input placeholder="Description"
+     value={description}
+     onChange={(e) => setDescription(e.target.value)}
+     />
+    <h4>Ajoutez vos collocataires en leur envoyant un mail</h4>
+      <Form.List name="users">
+        {(fields, { add, remove }) => (
+          <>
+            {fields.map(({ key, name, fieldKey, ...restField }) => (
+              <Space key={key} style={{ display: 'flex' }} align="baseline">
+                <Form.Item
+                  {...restField}
+                  name={[name, 'email']}
+                  fieldKey={[fieldKey, 'email']}
+                  rules={[{ required: true, message: 'email manquant' }]}
+                >
+                  <Input placeholder="Envoyer un email à" />
+                </Form.Item>
+                <MinusCircleOutlined onClick={() => remove(name)} />
+              </Space>
+            ))}
+            <Form.Item>
+            
+              <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+                Ajouter un collocataire 
+              </Button>
+            </Form.Item>
+          </>
+        )}
+      </Form.List>
+      <Form.Item>
+        <Button type="primary" htmlType="submit" >
+          Creer 
+        </Button>
+      </Form.Item>
+    </Form>
     </div>
   );
 };
