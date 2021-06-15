@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignIn from "pages/sign_in";
 import SignUp from "pages/sign_up";
+import Dashboard from "pages/dashboard";
 import NewFlatSharing from "pages/new_flatSharing";
 import Profil from "./pages/profil";
 import EditProfil from "pages/editProfil";
@@ -39,6 +40,9 @@ const App = () => (
           </Route>
           <Route path="/new_flat_sharing">
             <NewFlatSharing />
+          </Route>
+          <Route path="/dashboard/:id">
+            <Dashboard />
           </Route>
           <Route path="/calendar">
             <Calendar />

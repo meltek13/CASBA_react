@@ -57,7 +57,7 @@ const SetEmailRoomMate = values => {
 <div className="Register">
 <h2 className="create-flatsharing">Créer une nouvelle collocation</h2>
     <Form name="dynamic_form_nest_item" onFinish={SetEmailRoomMate} autoComplete="off">
-      <h4>Comment voulez vous appelez votre colloc ?</h4>
+      <h4>Comment voulez vous appeler votre colloc ?</h4>
     <Input placeholder="Le nom de votre collocation"
      value={title}
      onChange={(e) => setTitle(e.target.value)}
@@ -67,7 +67,7 @@ const SetEmailRoomMate = values => {
      value={description}
      onChange={(e) => setDescription(e.target.value)}
      />
-    <h4>Ajoutez vos collocataires en leur envoyant un mail</h4>
+    <h4>Invitez vos collocataires à rejoindre Casba</h4>
       <Form.List name="users">
         {(fields, { add, remove }) => (
           <>
@@ -79,7 +79,7 @@ const SetEmailRoomMate = values => {
                   fieldKey={[fieldKey, 'email']}
                   rules={[{ required: true, message: 'email manquant' }]}
                 >
-                  <Input placeholder="Envoyer un email à" />
+                  <Input placeholder="Envoyer une invitation à" />
                 </Form.Item>
                 <MinusCircleOutlined onClick={() => remove(name)} />
               </Space>
@@ -89,6 +89,7 @@ const SetEmailRoomMate = values => {
               <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
                 Ajouter un collocataire 
               </Button>
+           
             </Form.Item>
           </>
         )}
