@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import { logIn } from "store-redux";
 import { Form, Input, Button, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-
+import Add_colocs_svg from 'assets/img/add_coloc.svg';
+import './new_flatSharing.css';
 const NewFlatSharing = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -53,7 +54,8 @@ const SetEmailRoomMate = values => {
   return (
 
 <div>
-<h2 className="create-flatsharing">Créer une nouvelle collocation</h2>
+<img id="page-svg" src={Add_colocs_svg} alt="illustration" />
+<h1 className="create-flatsharing">Créer une nouvelle collocation</h1>
     <Form name="dynamic_form_nest_item" onFinish={SetEmailRoomMate} autoComplete="off">
       <h4>Comment voulez vous appeler votre colloc ?</h4>
     <Input placeholder="Le nom de votre collocation"
