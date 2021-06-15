@@ -1,11 +1,12 @@
 import React from 'react';
-import './landing_page.css';
+import './landingPage.css';
 import Home_svg from 'assets/img/home.svg';
 import Welcome_svg from 'assets/img/welcome.svg';
 import Colocs_svg from 'assets/img/colocs.svg';
 import Signup_svg from 'assets/img/signup.svg';
 import Add_colocs_svg from 'assets/img/add_coloc.svg';
 import Enjoy_svg from 'assets/img/enjoy.svg';
+import { Link } from "react-router-dom";
 
 
 const Landing_page = () => {
@@ -25,12 +26,18 @@ const Landing_page = () => {
           <div>
               <h3 id="title-infos">Une application qui te facilite la vie au sein de ta cohabitation</h3>
               <p id="text-infos">Casba c'est une nouvelle façon de participer, d'échanger et de partager <br />
-              de bons moments avec tes colocataires tout en restant au courant de ce qui se passe dans la collocation. 
-              </p>
+              de bons moments avec tes colocataires tout en restant au courant de ce qui se passe dans la collocation. <br />
+              Grace aux outils de l'application tu pourras: </p>
+                <ul>
+                  <li>gérer et <strong>suivre les dépenses</strong> (courses, factures...)</li>
+                  <li><strong>poster des photos</strong> </li>
+                  <li><strong> mettre un évennement dans le calendrier</strong> commun</li>
+                </ul> 
             </div>
             <div id="btn-cta-group">
-              <button className="btn-cta">S'inscrire</button>
-              <button className="btn-cta">Se connecter</button>
+              <Link to="/sign_up"><button className="btn-cta">S'inscrire</button></Link>
+              <Link to="/sign_in"><button className="btn-cta">Se connecter</button></Link>
+              <Link to="/new_flat_sharing"><button className="btn-cta">Créer une collocation</button></Link>
             </div>
         </div>
 
