@@ -11,14 +11,14 @@ import SignIn from 'pages/sign_in'
 import SignUp from 'pages/sign_up'
 import NewFlatSharing from 'pages/new_flatSharing'
 import Profil from "./pages/profil";
+import EditProfil from "pages/editProfil";
 import store from "./store-redux/store.js";
-import Calendar from './pages/calendar'
-
-
+import Calendar from "./pages/calendar";
 
 const App = () => (
   <div id="app-container">
     <Router>
+
         <Provider store={store}>
           <Navbar />
           <Switch>
@@ -40,12 +40,11 @@ const App = () => (
           <Route path="/calendar">
             <Calendar />
           </Route>
-          </Switch>
-          <Footer />
-        </Provider>
+        </Switch>
+        <Footer />
+      </Provider>
     </Router>
   </div>
-
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
