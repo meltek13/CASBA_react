@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logIn } from "store-redux/index";
 import "./sign_up.css";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -88,6 +89,7 @@ const SignUp = () => {
             placeholder="Mot de passe de confirmation"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+          <p>Déjà inscris ? <Link to="/sign_in">connectez-vous</Link></p>
           <button className="btn-signup" type="submit" onClick={fetchFunction}>
             S'inscrire
           </button>

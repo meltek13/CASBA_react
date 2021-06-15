@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logIn } from "store-redux/index";
+import { Link } from "react-router-dom";
 import "./sign_in.css";
 
 const SignIn = (user_id) => {
@@ -80,6 +81,7 @@ const SignIn = (user_id) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p>Pas encore de compte ? <Link to="/sign_up">inscrivez-vous</Link></p>
         <button id="btn-signin" type="submit" onClick={fetchFunction}>
           Se connecter
         </button>
