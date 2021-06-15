@@ -67,26 +67,26 @@ const Profil = () => {
   return (
     <>
       {avatar ? (
-        <div>
-          <h2> Bonjour, {email}</h2>
+        <div className="profil-card">
           <img
             className="avatar"
             src={decodeUrlForImage(avatar)}
             alt="avatar"
           />
-          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
+          <p>{email}</p>
           <Link to="/edit_profil"> Edit profil</Link>
+          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
         </div>
       ) : (
-        <div>
-          <h2> Bonjour, {email}</h2>
+        <div className="profil-card">
           <img
             className="avatar"
             src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
             alt="avatar par defaut"
           />
-          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
+          <p>{email}</p>
           <Link to="/edit_profil"> Edit profil</Link>
+          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
         </div>
       )}
     </>
