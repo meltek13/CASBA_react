@@ -54,7 +54,7 @@ const SetEmailRoomMate = values => {
 
   return (
 
-<div className="Register">
+<div>
 <h2 className="create-flatsharing">Créer une nouvelle collocation</h2>
     <Form name="dynamic_form_nest_item" onFinish={SetEmailRoomMate} autoComplete="off">
       <h4>Comment voulez vous appeler votre colloc ?</h4>
