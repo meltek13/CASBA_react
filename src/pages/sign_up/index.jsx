@@ -54,7 +54,6 @@ const SignUp = () => {
     <>
       <div className="Register">
         <h2 className="h2-signup">Créer un compte</h2>
-
         <form>
           <input
             className="input-log-signin"

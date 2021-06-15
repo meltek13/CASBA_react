@@ -58,7 +58,7 @@ const SignIn = () => {
           className="input-log-signin"
           type="Email"
           name="Email"
-          placeholder="email"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -66,7 +66,7 @@ const SignIn = () => {
           className="input-log-signin"
           type="Password"
           name="Password"
-          placeholder="password"
+          placeholder="Mot de passe"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
