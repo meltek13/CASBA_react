@@ -1,4 +1,4 @@
-import { React, useState} from "react";
+import { React, useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
@@ -11,27 +11,12 @@ import './new_flatSharing.css';
 const NewFlatSharing = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [roomMate, setRoomMate] = useState([]);
   const history = useHistory();
   const loged = useSelector((state) => state.loged);
   const admin_id = Cookies.get("current_user_id")
 
-
-const SetEmailRoomMate = values => {
-  values.users.forEach(roommate => setRoomMate(oldArray => [...oldArray, roommate.email]))
-  fetchFunction()
-  console.log(roomMate)
- 
-}
-
-  const fetchFunction = (e) => {
-    const data = {
-      title,
-      description,
-      admin_id,
-    };
-
-
+  const fetchFunction = (array) => {
+  
     fetch("http://localhost:3000/flatsharings", {
       method: "post",
       headers: {
@@ -39,10 +24,10 @@ const SetEmailRoomMate = values => {
       },
       body: JSON.stringify({
         flatsharing: {
-          title: data.title,
-          description: data.description,
-          admin_id: data.admin_id,
-         
+          title: title,
+          description: description,
+          admin_id: admin_id,
+          pending_invitation: array
         },
       }),
     })
@@ -53,6 +38,15 @@ const SetEmailRoomMate = values => {
       });
   };
 
+
+
+const SetEmailRoomMate = values => {
+  const array = []
+  values.users.forEach(roommate => array.push(roommate.email))
+  fetchFunction(array)
+}
+
+ 
  
 
   return (
@@ -81,8 +75,9 @@ const SetEmailRoomMate = values => {
                   {...restField}
                   name={[name, 'email']}
                   fieldKey={[fieldKey, 'email']}
-                  rules={[{ required: true, message: 'email manquant' }]}
+                  rules={[{ required: true, message: 'email manquant' }]}                 
                 >
+                  
                   <Input placeholder="Envoyer une invitation à" />
                 </Form.Item>
                 <MinusCircleOutlined onClick={() => remove(name)} />
