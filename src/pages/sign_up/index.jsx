@@ -64,7 +64,7 @@ const SignUp = () => {
   return (
     <>
       <div className="Register">
-        <h2 className="h2-signup">Créer un compte</h2>
+        {/* <h2 className="h2-signup">Créer un compte</h2> */}
         <form>
           <input
             className="input-log-signin"
@@ -86,7 +86,7 @@ const SignUp = () => {
             className="input-log-signin"
             type="Password"
             name="Password"
-            placeholder="Mot de passe de confirmation"
+            placeholder="Confirmation"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <p>Déjà inscris ? <Link to="/sign_in">connectez-vous</Link></p>
