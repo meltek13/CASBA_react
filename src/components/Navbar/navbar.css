@@ -15,6 +15,25 @@
 
   position: relative;
 }
+html {
+  max-height: 400px;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 0;
+    position: fixed;
+    top: 90%;
+  }
+  .content-link {
+    padding: 10px;
+  }
+}
 
 .link {
   text-decoration: none;

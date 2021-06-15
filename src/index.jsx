@@ -1,25 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './index.css'
+import { Provider } from "react-redux";
 import "antd/dist/antd.css";
+import './index.css'
 import Home from "pages/home"
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Sign_in from 'pages/sign_in'
-import Sign_up from 'pages/sign_up'
+import SignIn from 'pages/sign_in'
+import SignUp from 'pages/sign_up'
 import NewFlatSharing from 'pages/new_flatSharing'
 import Profil from "./pages/profil";
+import EditProfil from "pages/editProfil";
 import store from "./store-redux/store.js";
+
 import { Provider } from "react-redux";
 import Landing_page from './pages/landing page/index'
-
+import Calendar from "./pages/calendar";
 
 
 const App = () => (
-
   <div id="app-container">
     <Router>
+
         <Provider store={store}>
           <Navbar />
           <Switch>
@@ -30,10 +33,10 @@ const App = () => (
               <Landing_page />
             </Route>
             <Route path="/sign_in">
-              <Sign_in />
+              <SignIn />
             </Route>
             <Route path="/sign_up">
-              <Sign_up />
+              <SignUp />
             </Route>
             <Route path="/profil">
               <Profil />
@@ -41,12 +44,14 @@ const App = () => (
            <Route path="/new_flat_sharing">
              <NewFlatSharing />
            </Route>
-          </Switch>
-          <Footer />
-        </Provider>
+          <Route path="/calendar">
+            <Calendar />
+          </Route>
+        </Switch>
+        <Footer />
+      </Provider>
     </Router>
   </div>
-
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
