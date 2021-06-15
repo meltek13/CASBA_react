@@ -43,9 +43,6 @@ const App = () => (
           <Route path="/dashboard/:id">
             <Dashboard />
           </Route>
-          <Route path="/calendar">
-            <Calendar />
-          </Route>
         </Switch>
         <Footer />
       </Provider>
