@@ -51,8 +51,6 @@ const SignIn = () => {
 
   return (
     <div className="Register">
-      <h2 className="h2-signup">Se connecter</h2>
-
       <form>
         <input
           className="input-log-signin"
@@ -70,7 +68,7 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button id="btn-signin" type="submit" onClick={fetchFunction}>
+        <button className="btn-signup" type="submit" onClick={fetchFunction}>
           Se connecter
         </button>
       </form>
