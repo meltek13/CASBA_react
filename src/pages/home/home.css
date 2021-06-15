@@ -1,0 +1,122 @@
+#container-home{
+  height: 100vh;
+  width: 100%;
+}
+#jumbo-bg-home{
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 150px;
+}
+
+#title-jumbo{
+  position: absolute;
+  z-index: 2;
+  color: black ;
+  font-size: 48px;
+}
+
+#box-tool{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 250px;
+}
+.tool{
+  position: relative;
+}
+.title-tool{
+  font-size: 36px;
+  font-weight: 600;
+  width: auto;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+.card-body{
+  position: relative;
+  width: 150px;
+  height: 120px;
+  border-radius: 6px;
+  background-color: #ffff;
+  border: 1px solid #ee6c4d;
+  box-shadow: 2px 2px 0.1rem #ffff;
+  padding: 0;
+}
+
+.card-header{
+  position: relative;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffff;
+  text-transform: uppercase;
+}
+.header-one{
+  background-color: #ee6c4d;
+}
+
+.card-content{
+  position: relative;
+  text-align: center;
+  font-weight: 400;
+  font-size: 40px;
+}
+/*---------Card 2-------*/
+.body-two{
+  display: block;
+  position: relative;
+  overflow-y: scroll;
+  width: 280px;
+}
+.body-two{
+  border: 1px solid #e56b6f;
+}
+
+.event-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #b56576;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*---------Card 3-------*/
+.body-three{
+  border: 1px solid #b56576;
+}
+.header-three{
+  background-color: #6d597a;
+}
+.body-three .card-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.content-text{
+  position: relative;
+  font-size: 12px;
+  bottom: 10px;
+}
+/*---------Fin Card -------*/
+
+#container-pics-coms{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 250px;
+}

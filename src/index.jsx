@@ -15,6 +15,8 @@ import EditProfil from "pages/editProfil";
 import store from "./store-redux/store.js";
 import LandingPage from "./pages/landingPage/index";
 import Calendar from "./pages/calendar";
+import Home from 'pages/home';
+
 
 const App = () => (
   <div id="app-container">
@@ -31,6 +33,9 @@ const App = () => (
           <Route path="/sign_up">
             <SignUp />
           </Route>
+          <Route path="/home" >
+              <Home/>
+            </Route>
           <Route path="/profil">
             <Profil />
           </Route>
