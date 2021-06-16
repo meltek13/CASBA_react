@@ -1,10 +1,8 @@
 import { createStore, combineReducers } from "redux";
 import userReducer from "./usersLog/userReducer";
-import flatReducer from "./flatLog/flatReducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
-  flat: flatReducer,
 });
 
 const Store = createStore(
