@@ -14,9 +14,10 @@
 }
 
 .Register{
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   min-height: 450px;
   min-width: 400px;
+  box-shadow: 1px 1px 12px #DBDBDB;
 }
 
 .btn-signup{
