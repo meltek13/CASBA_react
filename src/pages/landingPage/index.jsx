@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 const Landing_page = () => {
 
-  const loged = useSelector((state) => state.loged);
+  const loged = useSelector((state) => state.user.loged);
 
   return(
     <>
