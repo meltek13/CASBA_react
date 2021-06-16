@@ -82,6 +82,7 @@ const Profil = () => {
 
   return (
     <>
+      <div id="profil-container">
       {avatar ? (
         <div className="profil-card">
           <img
@@ -123,6 +124,7 @@ const Profil = () => {
           <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
         </div>
       )}
+      </div>
     </>
   );
 };
