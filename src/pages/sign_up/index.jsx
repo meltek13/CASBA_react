@@ -14,16 +14,23 @@ const SignUp = () => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const loged = useSelector((state) => state.loged);
+
+  const loged = useSelector((state) => state.user.loged);
 
   const findFlat = (user_id) => {
     fetch("http://localhost:3000/flatsharings", {
       method: "get",
     })
       .then((response) => response.json())
-      .then((response) => {response.forEach(flat => {if (flat.admin_id === parseInt(user_id)) {
-        history.push("/dashboard/" + flat.id)
-      } else {history.push("/")}} )});
+      .then((response) => {
+        response.forEach((flat) => {
+          if (flat.admin_id === parseInt(user_id)) {
+            history.push("/dashboard/" + flat.id);
+          } else {
+            history.push("/");
+          }
+        });
+      });
   };
 
   const fetchFunction = (e) => {
@@ -56,7 +63,9 @@ const SignUp = () => {
           console.log(userdata);
           Cookies.set("current_user_id", userdata.user.id);
           dispatch(logIn());
-          findFlat(Cookies.get("current_user_id"))
+
+          findFlat(Cookies.get("current_user_id"));
+          history.push("/");
         }
       });
   };
@@ -89,7 +98,9 @@ const SignUp = () => {
             placeholder="Confirmation"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <p>Déjà inscris ? <Link to="/sign_in">connectez-vous</Link></p>
+          <p>
+            Déjà inscris ? <Link to="/sign_in">connectez-vous</Link>
+          </p>
           <button className="btn-signup" type="submit" onClick={fetchFunction}>
             S'inscrire
           </button>

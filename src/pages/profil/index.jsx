@@ -11,6 +11,7 @@ import "./profil.css";
 const Profil = () => {
   const [email, setEmail] = useState("");
   const [id, setId] = useState("");
+  const [nickName, setNickName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [uploadAvatar, setUploadAvatar] = useState("");
   const dispatch = useDispatch();
@@ -40,6 +41,9 @@ const Profil = () => {
         console.log(response);
         setEmail(response.email);
         setId(response.id);
+        if (response.nickname !== "") {
+          setNickName(response.nickname);
+        }
         if (response.avatar !== null) {
           setAvatar(response.avatar.url);
         }
@@ -99,6 +103,7 @@ const Profil = () => {
             />
             <ButtonUpdate action={upload} name="Upload" />
           </form>
+          <p>{nickName}</p>
           <p>{email}</p>
           <Link to="/edit_profil"> Edit profil</Link>
           <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
@@ -119,6 +124,7 @@ const Profil = () => {
             />
             <ButtonUpdate action={upload} name="Upload" />
           </form>
+          <p>{nickName}</p>
           <p>{email}</p>
           <Link to="/edit_profil"> Edit profil</Link>
           <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />

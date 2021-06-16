@@ -14,9 +14,10 @@ html {
   border-right: 0.2px solid rgb(216, 216, 216);
   padding: 25px;
 }
+
 @media (max-width: 700px) {
   html {
-    margin: 0;
+    margin: 10px !important;
   }
   #app-container {
     width: 100%;
