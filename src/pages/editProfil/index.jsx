@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const EditProfil = () => {
   const [email, setEmail] = useState("");
+  const [nickName, setNickName] = useState("");
   const history = useHistory();
 
   const update = (e) => {
@@ -13,6 +14,7 @@ const EditProfil = () => {
     const formData = new FormData();
 
     formData.append("email", email);
+    formData.append("nickname", nickName);
 
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "PUT",
@@ -32,6 +34,11 @@ const EditProfil = () => {
           className="form"
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Email"
+        />
+        <input
+          className="form"
+          onChange={(event) => setNickName(event.target.value)}
+          placeholder="Nickname"
         />
 
         <ButtonUpdate action={update} name="Modifier mon profil" />

@@ -14,7 +14,7 @@ const NewFlatSharing = () => {
   const history = useHistory();
   const loged = useSelector((state) => state.loged);
   const admin_id = Cookies.get("current_user_id")
-
+  const { TextArea } = Input;
   const fetchFunction = (array) => {
   
     fetch("http://localhost:3000/flatsharings", {
@@ -60,11 +60,16 @@ const SetEmailRoomMate = values => {
      value={title}
      onChange={(e) => setTitle(e.target.value)}
     />
+    <br/>
+    <br/>
       <h4>Décrivez en quelques mots votre "chez-vous" </h4>
-    <Input placeholder="Description"
-     value={description}
-     onChange={(e) => setDescription(e.target.value)}
-     />
+      <TextArea 
+      placeholder="Description ..."
+      value={description}
+      onChange={(e) => setDescription(e.target.value)}
+      rows={3} />
+     <br/>
+     <br/>
     <h4>Invitez vos collocataires à rejoindre Casba</h4>
       <Form.List name="users">
         {(fields, { add, remove }) => (
@@ -78,7 +83,7 @@ const SetEmailRoomMate = values => {
                   rules={[{ required: true, message: 'email manquant' }]}                 
                 >
                   
-                  <Input placeholder="Envoyer une invitation à" />
+                  <Input placeholder="Jean@gmail.com" />
                 </Form.Item>
                 <MinusCircleOutlined onClick={() => remove(name)} />
               </Space>

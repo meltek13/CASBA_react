@@ -60,6 +60,7 @@ const Dashboard =()=>{
                 <button onClick={changePicture} className="btn-dashboard-nav">Photos 📷</button>
                 <button onClick={changeCalendar} className="btn-dashboard-nav">Calendrier 🗓️</button>
                 <button onClick={changeExpenses} className="btn-dashboard-nav">Dépenses 💶</button>
+
             </div>
             <div className="content-dashboard">        
                 {news &&
