@@ -69,7 +69,7 @@ const Dashboard =()=>{
             </h3>   
                 <p>{room?.admin?.email}</p>  
                 {room?.guest?.map(user => 
-                    <p key={user.email}>{user.email}</p>
+                    <p key={user?.id}>{user?.email}</p>
                 )} 
                 {news &&
                     <News />
