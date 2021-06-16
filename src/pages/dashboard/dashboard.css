@@ -1,16 +1,22 @@
 .nav-dashboard{
   width: 100%;
-  height: 100px;
-  background-color: darkgray;
+
   display: flex;
   justify-content: space-around;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .btn-dashboard-nav{
-  background-color: darkgray;
+  background-color: white;
   border: none;
+  font-size: large;
 }
 
 .btn-dashboard-nav:hover{
   cursor: pointer;
+}
+.title-dashboard{
+  margin-top: 5%;
+  text-align: center;
 }
