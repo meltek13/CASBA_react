@@ -1,11 +1,15 @@
-.Register{
-  position: relative;
-  width: 50% !important;
-}
+
 
 .btn-signup{
   background-color: skyblue;
   border: none;
   width: 100%;
   font-size: 25px;
+}
+.invisible{
+  display: none;
+}
+
+.invisible2{
+  display: none;
 }
