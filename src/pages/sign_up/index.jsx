@@ -14,7 +14,8 @@ const SignUp = () => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const loged = useSelector((state) => state.loged);
+
+  const loged = useSelector((state) => state.user.loged);
 
   const findFlat = (user_id) => {
     fetch("http://localhost:3000/flatsharings", {
@@ -62,6 +63,7 @@ const SignUp = () => {
           console.log(userdata);
           Cookies.set("current_user_id", userdata.user.id);
           dispatch(logIn());
+
           findFlat(Cookies.get("current_user_id"));
           history.push("/");
         }

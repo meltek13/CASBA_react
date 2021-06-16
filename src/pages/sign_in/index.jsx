@@ -12,7 +12,7 @@ const SignIn = (user_id) => {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
-  const loged = useSelector((state) => state.loged);
+  const loged = useSelector((state) => state.user.loged);
 
   const findFlat = (user_id) => {
     fetch("http://localhost:3000/flatsharings", {

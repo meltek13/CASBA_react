@@ -4,10 +4,12 @@ import "./navbar.css";
 import Cookies from "js-cookie";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
+import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const loged = useSelector((state) => state.loged);
+  const loged = useSelector((state) => state.user.loged);
+  const history = useHistory();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ const Navbar = () => {
         console.log(userdata);
         Cookies.remove("token");
         dispatch(logOut());
+        history.push("/sign_in");
       });
   };
 
