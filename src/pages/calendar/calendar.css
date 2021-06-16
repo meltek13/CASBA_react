@@ -3,6 +3,12 @@
   
 }
 
+.calendar{
+  box-shadow: 1px 1px 12px #DBDBDB;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
 .popUpcreate{
   width: 50%;
   margin: 10px;
@@ -21,7 +27,7 @@
 }
 
 .contain-text{
-  border: 1px solid black;
+  border: 1px solid lightgray;
   padding: 5px;
 }
 

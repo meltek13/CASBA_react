@@ -10,7 +10,6 @@ import Cookies from "js-cookie";
 const Dashboard =()=>{
 
     const { id } = useParams() 
-
     const [news, setNews] = useState(true)
     const [picture, setPicture] = useState(false)
     const [calendar, setCalendar] = useState(false)
