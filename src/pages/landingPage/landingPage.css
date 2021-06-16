@@ -64,7 +64,7 @@ hr{
 .btn-cta:hover{
   color:#1990FF ; 
 }
-.btn-cta-sign-up{
+.btn-cta-blue{
   background-color: #1990FF;
   color:white;
   border-radius:3px;
@@ -75,7 +75,7 @@ hr{
   font-weight: 500;
 }
 
-.btn-cta-sign-up:hover{
+.btn-cta-blue:hover{
   background-color: #3da0fc;
 }
 /* container-cards */

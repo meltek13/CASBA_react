@@ -44,6 +44,7 @@ const Timetable = () => {
     <>
       <div className="content-calendar">
         <Calendar
+          className="calendar"
           onChange={onChange}
           value={value}
           onClickDay={changePopUp}

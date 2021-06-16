@@ -51,8 +51,6 @@ const SignIn = (user_id) => {
         response.forEach((flat) => {
           if (flat.admin_id === parseInt(user_id)) {
             history.push("/dashboard/" + flat.id);
-          } else {
-            history.push("/");
           }
         });
       });
@@ -88,7 +86,7 @@ const SignIn = (user_id) => {
             Cookies.set("current_user_id", userdata.user.id);
             dispatch(logIn());
             findFlat(Cookies.get("current_user_id"));
-            history.push("/");
+            history.push("/new_flat_sharing");
           }
         });
   }
