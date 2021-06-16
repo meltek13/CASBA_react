@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { logIn } from "store-redux/index";
+import { flatOff, flatOn, logIn } from "store-redux/index";
 import { Link } from "react-router-dom";
 import "./sign_in.css";
 
@@ -13,6 +13,7 @@ const SignIn = (user_id) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const loged = useSelector((state) => state.user.loged);
+  const dashboard = useSelector((state) => state.flat.dashboard);
 
   const findFlat = (user_id) => {
     fetch("http://localhost:3000/flatsharings", {
@@ -22,9 +23,13 @@ const SignIn = (user_id) => {
       .then((response) => {
         response.forEach((flat) => {
           if (flat.admin_id === parseInt(user_id)) {
+            dispatch(flatOn());
+            console.log(dashboard);
             history.push("/dashboard/" + flat.id);
           } else {
             history.push("/");
+            dispatch(flatOff());
+            console.log(dashboard);
           }
         });
       });
