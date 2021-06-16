@@ -22,34 +22,38 @@ const App = () => (
   <div id="app-container">
     <Router>
       <Provider store={store}>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact>
-            <LandingPage />
-          </Route>
-          <Route path="/sign_in">
-            <SignIn />
-          </Route>
-          <Route path="/sign_up">
-            <SignUp />
-          </Route>
-          <Route path="/home" >
-              <Home/>
+        <div>
+          <Navbar />
+        </div>
+        <div>
+          <Switch>
+            <Route path="/" exact>
+              <LandingPage />
             </Route>
-          <Route path="/profil">
-            <Profil />
-          </Route>
-          <Route path="/edit_profil">
-            <EditProfil />
-          </Route>
-          <Route path="/new_flat_sharing">
-            <NewFlatSharing />
-          </Route>
-          <Route path="/dashboard/:id">
-            <Dashboard />
-          </Route>
-        </Switch>
-        <Footer />
+            <Route path="/sign_in">
+              <SignIn />
+            </Route>
+            <Route path="/sign_up">
+              <SignUp />
+            </Route>
+            <Route path="/home" >
+                <Home/>
+              </Route>
+            <Route path="/profil">
+              <Profil />
+            </Route>
+            <Route path="/edit_profil">
+              <EditProfil />
+            </Route>
+            <Route path="/new_flat_sharing">
+              <NewFlatSharing />
+            </Route>
+            <Route path="/dashboard/:id">
+              <Dashboard />
+            </Route>
+          </Switch>
+          <Footer />
+        </div>
       </Provider>
     </Router>
   </div>

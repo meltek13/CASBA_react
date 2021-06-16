@@ -9,7 +9,7 @@ hr{
 #jumbo-img{
   display: flex;
   align-items: center;
-  height: 200px;
+  height: 180px;
 }
 
 #img-title{
@@ -27,7 +27,7 @@ hr{
   display: block;
   position: relative;
   width: 100%;
-  height: 340px;
+  height: 380px;
 }
 
 #infos{
@@ -59,7 +59,7 @@ hr{
   position: relative;
   display: block;
   height: 300px;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 .container-cards{
   display: flex;
