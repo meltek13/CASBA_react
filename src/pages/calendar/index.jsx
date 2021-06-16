@@ -2,10 +2,11 @@ import React, {useEffect, useState} from "react"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.css'
-import ButtonDelete from "components/ButtonDelete";
-
+import { useParams } from "react-router-dom";
 const Timetable = () => {
   
+  const { id } = useParams()
+
   const [value, onChange] = useState(new Date());
   const [popUp, setPopUp] = useState(false);
   const [title, setTitle] = useState('');
@@ -17,17 +18,17 @@ const Timetable = () => {
   }
 
   const createEvent = () => {
-    fetch("http://localhost:3000/calendars", {
+    fetch("http://localhost:3000//dashboard/" + id + "/calendars", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({"title": title, "description": description, "timedate": value.toString()})
+      body: JSON.stringify({"title": title, "description": description, "timedate": value.toString(), "dashboard": id})
     })
   }
 
   useEffect(() => {
-    fetch('http://localhost:3000/calendars')
+    fetch("http://localhost:3000//dashboard/" + id + "/calendars")
       .then((response) => response.json())
       .then((response) => setEvent(response))
   }, [])
