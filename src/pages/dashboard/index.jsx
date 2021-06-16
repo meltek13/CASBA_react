@@ -16,6 +16,7 @@ const Dashboard =()=>{
     const [calendar, setCalendar] = useState(false)
     const [expense, setExpense ] = useState(false)
     const [data, setData] = useState('')
+    const [room, setRoom] = useState([])
 
     const changeNews = () => {
         setNews(true)
@@ -47,10 +48,38 @@ const Dashboard =()=>{
     
 
     useEffect(() => {
+        findRoom()
+    },[])
+
+    useEffect(() => {
+        findUserRoom()
+    },[data])
+
+    const findRoom = () => {
         fetch('http://localhost:3000/flatsharings/' + id)
         .then((response) => response.json())
-        .then((response) => response.admin_id.toString() === Cookies.get("current_user_id") && setData(response))
-    },[])
+        .then((response) => setData(response))
+    }
+
+    const findUserRoom = () => {
+        fetch('http://localhost:3000/members')
+            .then((response) => response.json())
+            .then((response) =>  {
+                setRoom(response.users.filter((user) => {
+                    if(user.id === data.admin_id){
+                            return true
+                    }
+                    if(data.pending_invitation?.length){
+                        if(data.pending_invitation.find(guest => guest === user.email) ){
+                            return true
+                        }
+                    } return false
+                }))
+            })
+    }    
+
+
+
 
     return (
         <>
@@ -62,7 +91,8 @@ const Dashboard =()=>{
                 <button onClick={changeExpenses} className="btn-dashboard-nav">Dépenses 💶</button>
 
             </div>
-            <div className="content-dashboard">        
+            <div className="content-dashboard">    
+            <h3>Toute les personnes de la colocs: {room.map((user) => <p key={user.id}>{user.email}</p>)}</h3>    
                 {news &&
                     <News />
                 }
