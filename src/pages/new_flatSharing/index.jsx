@@ -8,6 +8,7 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import Add_colocs_svg from 'assets/img/add_coloc.svg';
 import './new_flatSharing.css';
 
+
 const NewFlatSharing = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -15,7 +16,8 @@ const NewFlatSharing = () => {
   const loged = useSelector((state) => state.loged);
   const admin_id = Cookies.get("current_user_id")
   const { TextArea } = Input;
-  const fetchFunction = (array) => {
+
+  const fetchFunction = (array_email_invitation) => {
   
     fetch("http://localhost:3000/flatsharings", {
       method: "post",
@@ -27,7 +29,7 @@ const NewFlatSharing = () => {
           title: title,
           description: description,
           admin_id: admin_id,
-          pending_invitation: array
+          pending_invitation: array_email_invitation
         },
       }),
     })
@@ -41,9 +43,9 @@ const NewFlatSharing = () => {
 
 
 const SetEmailRoomMate = values => {
-  const array = []
-  values.users.forEach(roommate => array.push(roommate.email))
-  fetchFunction(array)
+  const array_email_invitation = []
+  values.users.forEach(roommate => array_email_invitation.push(roommate.email))
+  fetchFunction(array_email_invitation)
 }
 
  
