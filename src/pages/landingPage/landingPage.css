@@ -20,6 +20,7 @@ hr{
   font-size: 4em;
   height: 100px;
   margin-left: 10px;
+
 }
 
 /* container infos */
@@ -51,7 +52,31 @@ hr{
 
 .btn-cta{
   color: black;
+  border-radius:3px;
+  border:none;
+  background-color: whitesmoke;
   margin-right: 10px;
+  padding:8px;
+  cursor:pointer;
+  font-weight: 500;
+}
+
+.btn-cta:hover{
+  color:#1990FF ; 
+}
+.btn-cta-sign-up{
+  background-color: #1990FF;
+  color:white;
+  border-radius:3px;
+  border:none;
+  margin-right: 10px;
+  padding:8px;
+  cursor:pointer;
+  font-weight: 500;
+}
+
+.btn-cta-sign-up:hover{
+  background-color: #3da0fc;
 }
 /* container-cards */
 
@@ -80,6 +105,7 @@ hr{
   background-color: whitesmoke;
   
 }
+
 .img-text-card img{
   width: auto;
   height: 70px ;
