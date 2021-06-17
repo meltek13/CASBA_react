@@ -60,8 +60,11 @@ const Dashboard = () => {
     };
 
     const verifyPresenceOfData= (data)=>{
-        if (JSON.stringify(data) === "null" ) {return false } 
-        else {return data.idv}      
+        if (JSON.stringify(data) === "null" ){
+            return false 
+        }else {
+            return true
+        }      
     }
 
 
