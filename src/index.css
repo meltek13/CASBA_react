@@ -15,11 +15,20 @@ html {
   padding: 25px;
 }
 
-@media (max-width: 700px) {
-  html {
-    margin: 10px !important;
-  }
+@media (max-width: 1200px) {
   #app-container {
-    width: 100%;
+    width: 700px !important;
+  }
+}
+
+@media (max-width: 950px) {
+  #app-container {
+    width: 600px !important;
+  }
+}
+@media (max-width: 840px) {
+  #app-container {
+    width: 100% !important;
+    margin-top: 20px;
   }
 }
