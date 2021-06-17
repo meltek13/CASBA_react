@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Cookies, { remove } from "js-cookie";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logOut } from "store-redux/index";
 import { useHistory } from "react-router-dom";
-import ButtonDelete from "../../components/ButtonDelete";
+import { Link } from "react-router-dom";
+import BtnProfile from "../../components/BtnProfile";
 import ButtonUpdate from "../../components/ButtonUpdate";
 import "./profil.css";
+import {
+  EditOutlined,
+  SettingFilled,
+  EllipsisOutlined,
+} from "@ant-design/icons";
 
 const Profil = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +17,6 @@ const Profil = () => {
   const [nickName, setNickName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [uploadAvatar, setUploadAvatar] = useState("");
-  const dispatch = useDispatch();
   const history = useHistory();
 
   // fonction a  utiliser en local pour les images
@@ -28,6 +30,9 @@ const Profil = () => {
     return constructor;
   };
 
+  const refreshPage = () => {
+    window.location.reload(false);
+  };
   const fetchFunction = () => {
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "get",
@@ -54,23 +59,6 @@ const Profil = () => {
     fetchFunction();
   }, []);
 
-  const deleteAccount = () => {
-    fetch(`http://localhost:3000/members/${id}`, {
-      method: "delete",
-      headers: {
-        Authorization: Cookies.get("token"),
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        Cookies.remove("token");
-        Cookies.remove("current_user_id");
-        dispatch(logOut());
-        history.push("/");
-      });
-  };
-
   const upload = () => {
     const formData = new FormData();
     formData.append("avatar", uploadAvatar);
@@ -84,53 +72,116 @@ const Profil = () => {
       });
   };
 
+  useEffect(() => {
+    upload();
+  }, [uploadAvatar]);
+
   return (
     <>
-      <div id="profil-container">
       {avatar ? (
         <div className="profil-card">
-          <img
-            className="avatar"
-            src={decodeUrlForImage(avatar)}
-            alt="avatar"
-          />
-          <form>
-            <input
-              type="file"
-              accept="image/*"
-              multiple={false}
-              onChange={(event) => setUploadAvatar(event.target.files[0])}
-            />
-            <ButtonUpdate action={upload} name="Upload" />
-          </form>
-          <p>{nickName}</p>
-          <p>{email}</p>
-          <Link to="/edit_profil"> Edit profil</Link>
-          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
+          <div>
+            <form>
+              <div className="profil-card-top">
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="file"
+                  id="file"
+                  class="inputfile"
+                  multiple={false}
+                  onChange={(event) => setUploadAvatar(event.target.files[0])}
+                />
+                <label for="file">
+                  <img
+                    className="avatar"
+                    src={decodeUrlForImage(avatar)}
+                    alt="avatar"
+                  />
+                </label>
+              </div>
+            </form>
+          </div>
+          <div className="profil-card-bottom">
+            <p>
+              <strong>Nickname :</strong> {nickName}
+            </p>
+            <p>
+              <strong>Email :</strong> {email}
+            </p>
+            <p>
+              <strong>Status :</strong>
+            </p>
+          </div>
+
+          <div className="nav-profil">
+            <div>
+              <Link to="/edit_profil">
+                <SettingFilled />
+              </Link>
+            </div>
+            <div className="separate">|</div>
+            <div>
+              <EditOutlined />
+            </div>
+            <div className="separate">|</div>
+            <div>
+              <EllipsisOutlined />
+            </div>
+          </div>
         </div>
       ) : (
         <div className="profil-card">
-          <img
-            className="avatar"
-            src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-            alt="avatar par defaut"
-          />
-          <form>
-            <input
-              type="file"
-              accept="image/*"
-              multiple={false}
-              onChange={(event) => setUploadAvatar(event.target.files[0])}
-            />
-            <ButtonUpdate action={upload} name="Upload" />
-          </form>
-          <p>{nickName}</p>
-          <p>{email}</p>
-          <Link to="/edit_profil"> Edit profil</Link>
-          <ButtonDelete action={deleteAccount} name="Supprimer mon compte" />
+          <div>
+            <form>
+              <div className="profil-card-top">
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="file"
+                  id="file"
+                  class="inputfile"
+                  multiple={false}
+                  onChange={(event) => setUploadAvatar(event.target.files[0])}
+                />
+                <label for="file">
+                  <img
+                    className="avatar"
+                    src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                    alt="avatar par defaut"
+                  />
+                </label>
+              </div>
+            </form>
+          </div>
+          <div className="profil-card-bottom">
+            <p>
+              <strong>Nickname :</strong> {nickName}
+            </p>
+            <p>
+              <strong>Email :</strong> {email}
+            </p>
+            <p>
+              <strong>Status :</strong>
+            </p>
+          </div>
+          <div className="nav-profil">
+            <div>
+              <Link to="/edit_profil">
+                <SettingFilled />
+              </Link>
+            </div>
+            <div className="separate">|</div>
+            <div>
+              <EditOutlined />
+            </div>
+            <div className="separate">|</div>
+            <div>
+              <EllipsisOutlined />
+            </div>
+          </div>
         </div>
       )}
-      </div>
     </>
   );
 };
