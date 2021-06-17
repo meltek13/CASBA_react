@@ -11,6 +11,9 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const loged = useSelector((state) => state.user.loged);
   const history = useHistory();
+  const flat_id = Cookies.get("flat_id")
+  const url_dashboard = "/dashboard/" + flat_id
+
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -26,6 +29,7 @@ const Navbar = () => {
       .then((userdata) => {
         console.log(userdata);
         Cookies.remove("token");
+        Cookies.remove("flat_id");
         dispatch(logOut());
         history.push("/sign_in");
       });
@@ -38,11 +42,16 @@ const Navbar = () => {
           <img id="home-logo" src={Home_svg}/>
         </Link>
       </div>
-      <div className="content-link">
+      {flat_id ? (<div className="content-link">
+        <Link className="link" to={url_dashboard}>
+          Dashboard
+        </Link>
+      </div>) : (<div className="content-link">
         <Link className="link" to="/">
           Home
         </Link>
-      </div>
+      </div>) }
+      
 
       {loged ? (
         <>

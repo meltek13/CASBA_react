@@ -64,12 +64,16 @@ const SignUp = () => {
       .then((response) => response.json())
       .then((response) => {
         response.forEach((flat) => {
-          if (flat.admin_id === parseInt(user_id)) {
-            history.push("/dashboard/" + flat.id);
-          } else {
-            history.push("/");
+           flat.flat_mate.forEach((mate)=>{
+            if (mate !== null){
+             if (mate.id === parseInt(user_id) ) {
+               Cookies.set("flat_id", flat.id);
+               history.push("/dashboard/" + flat.id);
+            } 
           }
+          })
         });
+        
       });
   };
 
@@ -192,12 +196,12 @@ const SignUp = () => {
 
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Submit
+          S'inscrire
         </Button>
         <br/>
         <br/>
           <p>
-            Déjà inscris ? <Link to="/sign_in">connectez-vous</Link>
+            Déjà inscrit ? <Link to="/sign_in">connectez-vous</Link>
           </p>
       </Form.Item>
     </Form>
