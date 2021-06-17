@@ -6,16 +6,28 @@ import News from "pages/news";
 import Picture from "pages/picture"
 import Expense from "pages/expense";
 import Cookies from "js-cookie";
+import { Tooltip} from 'antd';
 
 const Dashboard =()=>{
 
     const { id } = useParams() 
     const [news, setNews] = useState(true)
     const [picture, setPicture] = useState(false)
+    const [avatar, setAvatar] = useState("")
     const [calendar, setCalendar] = useState(false)
     const [expense, setExpense ] = useState(false)
     const [room, setRoom] = useState([])
+    const defaultImage = "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
 
+    const decodeUrlForImage = (imageUrl) => {
+        let link = imageUrl;
+        let linkStart = link.substring(0, 16);
+        let linkMiddle = ":3000/";
+        let linkEnd = link.substring(17, link.length);
+        let constructor = linkStart + linkMiddle + linkEnd;
+    
+        return constructor;
+      };
     const changeNews = () => {
         setNews(true)
         setPicture(false)
@@ -51,8 +63,31 @@ const Dashboard =()=>{
     const findUserRoom = () => {
         fetch('http://localhost:3000/flatsharings/'+ id +'/dashboard')
         .then((response) => response.json())
-        .then((response) => setRoom(response))
+        .then((response) => {
+            console.log(response)
+            setRoom(response)
+            })
     }    
+
+    const findAvatar = (id) => {
+        fetch("http://localhost:3000/members/" + id, {
+          method: "get",
+          headers: {
+            Authorization: Cookies.get("token"),
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            if (response.avatar !== null) {
+                setAvatar(response.avatar.url)
+              return true;
+            } else {
+                setAvatar("https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png")
+              return false
+            }
+          });
+      };
     return (
         <>
             <div className="nav-dashboard">
@@ -66,9 +101,29 @@ const Dashboard =()=>{
             <h3>
                 Toute les personnes de la colocs: 
             </h3>   
-                <p>{room?.admin?.email}</p>  
+               <Tooltip placement="bottom" title={room?.admin?.email}>
+                    <label for="file">
+                    <img
+                      className="avatar_dashboard"
+                      
+                      src={findAvatar(room?.admin?.id) ? (decodeUrlForImage(avatar)) : (avatar)}
+                      alt="avatar"
+                    />
+                  </label>
+                  </Tooltip> 
                 {room?.guest?.map(user => 
-                    <p key={user?.id}>{user?.email}</p>
+                <Tooltip placement="bottom" title={user.email}>
+                    <label for="file">
+                        
+                    <img
+                      className="avatar_dashboard"
+                      src={findAvatar(user.id) ? (decodeUrlForImage(avatar)) : (avatar)}
+                      alt="avatar"
+                    />
+                  </label>
+                  </Tooltip> 
+                  
+                 
                 )} 
                 {news &&
                     <News />

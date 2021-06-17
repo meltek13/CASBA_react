@@ -17,7 +17,7 @@ const EditProfil = () => {
 
   const update = (e) => {
     e.preventDefault();
-
+    
     const formData = new FormData();
 
     if (email && nickName) {
