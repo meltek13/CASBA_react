@@ -1,0 +1,21 @@
+@import "~antd/dist/antd.css";
+
+.login-form {
+  max-width: 300px;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}
+
+.editProfil {
+  padding: 30px;
+  border: 1px solid lightgrey;
+
+  box-shadow: 1px 1px 12px #dbdbdb;
+}
