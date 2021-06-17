@@ -9,13 +9,14 @@ import Cookies from "js-cookie";
 import { Tooltip} from 'antd';
 
 const Dashboard = () => {
-  const { id } = useParams();
-  const [news, setNews] = useState(true);
-  const [picture, setPicture] = useState(false);
-  const [calendar, setCalendar] = useState(false);
-  const [expense, setExpense] = useState(false);
-  const [room, setRoom] = useState([]);
-
+    const { id } = useParams() 
+    const [news, setNews] = useState(true)
+    const [picture, setPicture] = useState(false)
+    const [avatar, setAvatar] = useState("")
+    const [calendar, setCalendar] = useState(false)
+    const [expense, setExpense ] = useState(false)
+    const [room, setRoom] = useState([])
+ 
 
   const changeNews = () => {
     setNews(true);
@@ -45,14 +46,7 @@ const Dashboard = () => {
     setExpense(true);
   };
 
-    const { id } = useParams() 
-    const [news, setNews] = useState(true)
-    const [picture, setPicture] = useState(false)
-    const [avatar, setAvatar] = useState("")
-    const [calendar, setCalendar] = useState(false)
-    const [expense, setExpense ] = useState(false)
-    const [room, setRoom] = useState([])
-    const defaultImage = "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+    
 
     const decodeUrlForImage = (imageUrl) => {
         let link = imageUrl;
@@ -63,8 +57,6 @@ const Dashboard = () => {
     
         return constructor;
       };
-
-
 
 
   useEffect(() => {
@@ -81,6 +73,7 @@ const Dashboard = () => {
     }    
 
     const findAvatar = (id) => {
+        
         fetch("http://localhost:3000/members/" + id, {
           method: "get",
           headers: {
@@ -90,8 +83,8 @@ const Dashboard = () => {
         })
           .then((response) => response.json())
           .then((response) => {
-            if (response.avatar !== null) {
-                setAvatar(response.avatar.url)
+            if (response.avatar) {
+                setAvatar(response.avatar)
               return true;
             } else {
                 setAvatar("https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png")
@@ -120,9 +113,7 @@ const Dashboard = () => {
         </button>
       </div>
             <div className="content-dashboard">    
-            <h3>
-                Toute les personnes de la colocs: 
-            </h3>   
+             
                <Tooltip placement="bottom" title={room?.admin?.email}>
                     <label for="file">
                     <img
