@@ -1,22 +1,44 @@
-.nav-dashboard{
-  width: 100%;
-
+.nav-dashboard {
   display: flex;
-  justify-content: space-around;
-  margin-top: 5%;
+
+  margin-top: 0;
   margin-bottom: 5%;
 }
 
-.btn-dashboard-nav{
+.btn-dashboard-nav {
   background-color: white;
   border: none;
-  font-size: large;
+  font-size: 6rem;
+  transition: all 100ms ease-in-out;
+}
+.btn-dashboard-nav span {
+  display: none;
+  font-size: 1rem;
 }
 
-.btn-dashboard-nav:hover{
+.btn-dashboard-nav:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
-.title-dashboard{
+.btn-dashboard-nav:hover strong {
+  filter: blur(1px);
+}
+
+.btn-dashboard-nav:hover span {
+  border-radius: 5px;
+  padding: 5px 20px 5px 5px;
+  display: block;
+  z-index: 100;
+  margin: 15px;
+  width: 100px;
+  position: absolute;
+  top: 55px;
+  left: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.title-dashboard {
   margin-top: 5%;
   text-align: center;
 }
