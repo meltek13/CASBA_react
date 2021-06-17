@@ -4,7 +4,7 @@ import "./navbar.css";
 import Cookies from "js-cookie";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
-import Home_svg from 'assets/img/home.svg';
+import Home_svg from "assets/img/home.svg";
 import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
@@ -37,9 +37,9 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <div className="content-link">
+      <div className="content-link first">
         <Link className=" home-link" to="/">
-          <img id="home-logo" src={Home_svg}/>
+          <img id="home-logo" src={Home_svg} />
         </Link>
       </div>
       {flat_id ? (<div className="content-link">
