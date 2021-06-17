@@ -12,7 +12,7 @@ html {
   margin: auto;
   border-left: 0.2px solid rgb(216, 216, 216);
   border-right: 0.2px solid rgb(216, 216, 216);
-  padding: 25px;
+  padding: 20px;
 }
 
 @media (max-width: 1200px) {
