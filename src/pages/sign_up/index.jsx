@@ -69,6 +69,7 @@ const SignUp = () => {
              if (mate.id === parseInt(user_id) ) {
                Cookies.set("flat_id", flat.id);
                history.push("/dashboard/" + flat.id);
+
             } 
           }
           })

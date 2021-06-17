@@ -13,6 +13,7 @@ const Dashboard = () => {
     const [news, setNews] = useState(true)
     const [picture, setPicture] = useState(false)
     const [avatar, setAvatar] = useState("")
+    const [avatarAdmin, setAvatarAdmin] = useState("")
     const [calendar, setCalendar] = useState(false)
     const [expense, setExpense ] = useState(false)
     const [room, setRoom] = useState([])
@@ -46,7 +47,9 @@ const Dashboard = () => {
     setExpense(true);
   };
 
-    
+  
+
+
 
     const decodeUrlForImage = (imageUrl) => {
         let link = imageUrl;
@@ -54,7 +57,6 @@ const Dashboard = () => {
         let linkMiddle = ":3000/";
         let linkEnd = link.substring(17, link.length);
         let constructor = linkStart + linkMiddle + linkEnd;
-    
         return constructor;
       };
 
@@ -67,21 +69,19 @@ const Dashboard = () => {
         fetch('http://localhost:3000/flatsharings/'+ id +'/dashboard')
         .then((response) => response.json())
         .then((response) => {
-            
+            findAvatarAdmin(response.admin.id)
             setRoom(response)
             })
     }    
-const verifyPresenceOfData= (data)=>{
- if (JSON.stringify(data) === "null" ){
-     console.log(data)
-     return false
- } else {
-     
-     return true
- }
+     const verifyPresenceOfData= (data)=>{
+         if (JSON.stringify(data) === "null" ){
+             return false
+         } else {
+             return data.id
+         }      
+     }
 
-}
-    const findAvatar = (id) => {
+    const findAvatarAdmin = (id) => {
         
         fetch("http://localhost:3000/members/" + id, {
           method: "get",
@@ -93,60 +93,84 @@ const verifyPresenceOfData= (data)=>{
           .then((response) => response.json())
           .then((response) => {
             if (response.avatar) {
-                setAvatar(response.avatar)
-              return true;
+                setAvatarAdmin(decodeUrlForImage(response.avatar.url)) 
             } else {
-                setAvatar("https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png")
-              return false
+                setAvatarAdmin("https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png")  
             }
           });
       };
+
+      const findAvatarGuest= (id) => {
+        if (id===false){
+            return "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+        }else {
+        fetch("http://localhost:3000/members/" + id, {
+          method: "get",
+          headers: {
+            Authorization: Cookies.get("token"),
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            if (response.avatar) {
+                return decodeUrlForImage(response.avatar.url)
+               
+            } else {
+                return "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                
+            }
+          });
+        }
+      };
+
     return (
-        <>
-       <div className="nav-dashboard">
-        <button onClick={changeNews} className="btn-dashboard-nav">
-          <span>Actus coloc</span>
-          <strong>📰</strong>
-        </button>
-        <button onClick={changePicture} className="btn-dashboard-nav">
-          <strong>📷</strong>
-          <span>Photos</span>
-        </button>
-        <button onClick={changeCalendar} className="btn-dashboard-nav">
-          <strong>🗓️</strong>
-          <span>Calendrier</span>
-        </button>
-        <button onClick={changeExpenses} className="btn-dashboard-nav">
-          <strong>💰</strong>
-          <span>Dépenses</span>
-        </button>
-      </div>
+        <div>
+            <div className="nav-dashboard">
+                <button onClick={changeNews} className="btn-dashboard-nav">
+                    <span>Actus coloc</span>
+                    <strong>📰</strong>
+                </button>
+                <button onClick={changePicture} className="btn-dashboard-nav">
+                    <strong>📷</strong>
+                    <span>Photos</span>
+                </button>
+                <button onClick={changeCalendar} className="btn-dashboard-nav">
+                    <strong>🗓️</strong>
+                    <span>Calendrier</span>
+                </button>
+                <button onClick={changeExpenses} className="btn-dashboard-nav">
+                    <strong>💰</strong>
+                    <span>Dépenses</span>
+                </button>
+            </div>
+
             <div className="content-dashboard">    
              
-               <Tooltip placement="bottom" title={room?.admin?.email}>
+                <Tooltip placement="bottom" title={room?.admin?.email}>
                     <label for="file">
-                    <img
-                      className="avatar_dashboard"
-                      
-                      src={findAvatar(room?.admin?.id) ? (decodeUrlForImage(avatar)) : (avatar)}
-                      alt="avatar"
-                    />
-                  </label>
-                  </Tooltip> 
-                {room?.guest?.map(user => 
-                <Tooltip placement="bottom" title={verifyPresenceOfData(user)?(user.email):("non inscrit")}>
-                    <label for="file">
-                        
-                    <img
-                      className="avatar_dashboard"
-                      src={verifyPresenceOfData(user)?  (findAvatar(user.id) ? (decodeUrlForImage(avatar)) : (avatar)) : (avatar)}
-                      alt="avatar"
-                    />
-                  </label>
-                  </Tooltip> 
+                        <img
+                        className="avatar_dashboard"
+                        src={avatarAdmin}
+                        alt="avatar"
+                        />
+                    </label>
+                </Tooltip> 
                   
-                 
+                {room?.guest?.map(user => 
+     
+                    <Tooltip placement="bottom" title={verifyPresenceOfData(user)?(user.email):("non inscrit")}>
+                        <label for="file">
+                            <img
+                            className="avatar_dashboard"
+                            src={findAvatarGuest(verifyPresenceOfData(user))}
+                            alt="avatar"
+                            />
+                        </label>
+                    </Tooltip> 
+
                 )} 
+            
                 {news &&
                     <News />
                 }
@@ -160,7 +184,8 @@ const verifyPresenceOfData= (data)=>{
                     <Expense />
                 }
             </div>
-       </>
+        <div/>
+    </div>
     )
 }
 
