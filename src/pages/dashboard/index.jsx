@@ -67,11 +67,20 @@ const Dashboard = () => {
         fetch('http://localhost:3000/flatsharings/'+ id +'/dashboard')
         .then((response) => response.json())
         .then((response) => {
-            console.log(response)
+            
             setRoom(response)
             })
     }    
+const verifyPresenceOfData= (data)=>{
+ if (JSON.stringify(data) === "null" ){
+     console.log(data)
+     return false
+ } else {
+     
+     return true
+ }
 
+}
     const findAvatar = (id) => {
         
         fetch("http://localhost:3000/members/" + id, {
@@ -125,12 +134,12 @@ const Dashboard = () => {
                   </label>
                   </Tooltip> 
                 {room?.guest?.map(user => 
-                <Tooltip placement="bottom" title={user.email}>
+                <Tooltip placement="bottom" title={verifyPresenceOfData(user)?(user.email):("non inscrit")}>
                     <label for="file">
                         
                     <img
                       className="avatar_dashboard"
-                      src={findAvatar(user.id) ? (decodeUrlForImage(avatar)) : (avatar)}
+                      src={verifyPresenceOfData(user)?  (findAvatar(user.id) ? (decodeUrlForImage(avatar)) : (avatar)) : (avatar)}
                       alt="avatar"
                     />
                   </label>
