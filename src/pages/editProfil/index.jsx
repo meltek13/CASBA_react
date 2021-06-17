@@ -20,8 +20,14 @@ const EditProfil = () => {
 
     const formData = new FormData();
 
-    formData.append("email", email);
-    formData.append("nickname", nickName);
+    if (email && nickName) {
+      formData.append("email", email);
+      formData.append("nickname", nickName);
+    } else if (email && !nickName) {
+      formData.append("email", email);
+    } else {
+      formData.append("nickname", nickName);
+    }
 
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "PUT",
