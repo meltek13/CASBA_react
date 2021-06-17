@@ -41,7 +41,7 @@ const EditProfil = () => {
   };
 
   const deleteAccount = () => {
-    fetch(`http://localhost:3000/members/` + +Cookies.get("current_user_id"), {
+    fetch(`http://localhost:3000/members/` + Cookies.get("current_user_id"), {
       method: "delete",
       headers: {
         Authorization: Cookies.get("token"),
