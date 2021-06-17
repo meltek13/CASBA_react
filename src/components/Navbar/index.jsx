@@ -1,4 +1,4 @@
-import React from "react";
+import {React} from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import Cookies from "js-cookie";
@@ -34,6 +34,8 @@ const Navbar = () => {
         history.push("/sign_in");
       });
   };
+
+  
 
   return (
     <div className="navbar">
