@@ -38,11 +38,11 @@ const Landing_page = () => {
             </div>      
             {loged ?(
               <div id="btn-cta-group">
-                <Link to="/new_flat_sharing"><button className="btn-cta">Créer une collocation</button></Link>
+                <Link to="/new_flat_sharing"><button className="btn-cta-blue">Créer une collocation</button></Link>
               </div>
               ) : (
                 <div id="btn-cta-group">
-                  <Link to="/sign_up"><button className="btn-cta-sign-up">S'inscrire </button></Link>
+                  <Link to="/sign_up"><button className="btn-cta-blue">S'inscrire </button></Link>
                   <Link to="/sign_in"><button className="btn-cta">Se connecter</button></Link>
                   <Link to="/new_flat_sharing"><button className="btn-cta">Créer une collocation</button></Link>
                 </div>

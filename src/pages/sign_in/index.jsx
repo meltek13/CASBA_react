@@ -31,6 +31,8 @@ const SignIn = (user_id) => {
     },
   };
   
+
+
   const verifyEmail =() => {
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if ( re.test(email)) {
@@ -50,9 +52,19 @@ const SignIn = (user_id) => {
       .then((response) => {
         response.forEach((flat) => {
           if (flat.admin_id === parseInt(user_id)) {
+            Cookies.set("flat_id", flat.id);
             history.push("/dashboard/" + flat.id);
+          } 
+          else flat.flat_mate.forEach((mate)=>{
+            if (mate !== null){
+             if (mate.id === parseInt(user_id) ) {
+              Cookies.set("flat_id", flat.id);
+               history.push("/dashboard/" + flat.id);
+            } 
           }
+          })
         });
+        
       });
   };
 
@@ -80,7 +92,8 @@ const SignIn = (user_id) => {
         })
         .then((userdata) => {
           if (Cookies.get("token") === "null") {
-            document.querySelector(".invisible").classList.remove("invisible")
+            document.querySelector(".alert").classList.remove("invisible")
+           
           } else {
             console.log(userdata);
             Cookies.set("current_user_id", userdata.user.id);
@@ -90,11 +103,13 @@ const SignIn = (user_id) => {
           }
         });
   }
+
+
   
   return (
 <div>
   <h1>Connexion</h1>
-  <Alert className="invisible" message="Mot de passe ou email invalide" type="warning" showIcon closable  />
+  <Alert className="alert invisible" message="Mot de passe ou email invalide" type="warning" showIcon closable  />
   
 <div className="Register">
 
@@ -145,7 +160,7 @@ const SignIn = (user_id) => {
 
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit" >
-          Submit
+          Se connecter
         </Button>
          <br/>
          <br/>
