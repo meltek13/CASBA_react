@@ -31,13 +31,15 @@ const NewFlatSharing = () => {
     })
       .then((response) => response.json())
       .then((userdata) => {
+
         console.log(userdata)
-        test( userdata.flatsharing.id)
+        Cookies.set("flat_id", userdata.flatsharing.id);   
+        associateFlatToAdmin( userdata.flatsharing.id)
         history.push("/dashboard/" + userdata.flatsharing.id);
       })
     
   };
-  const test = (Id_flat) => {
+  const associateFlatToAdmin = (Id_flat) => {
   
     const formData = new FormData();
       formData.append("flatsharing_id", Id_flat);

@@ -50,11 +50,11 @@ const MiniAvatar = ({ user }) => {
             }
           });
         
-          const update = (e) => {
+          const update = (status) => {
             
-            console.log(e)
+            console.log(status)
             const formData = new FormData();
-              formData.append("status", e);
+              formData.append("status", status);
 
             fetch("http://localhost:3000/members/" + user.id, {
               method: "PUT",
@@ -80,7 +80,7 @@ const MiniAvatar = ({ user }) => {
 
         <Select defaultValue={user.status} className="SelectStatus" style={{ width: 150 }} onChange={update}>
             {data.status.map(data => 
-                <Option value={data.status}>{data.status}</Option>
+                <Option value={data.status} key={data.slug}>{data.status}</Option>
              )}
         </Select>
       </div>

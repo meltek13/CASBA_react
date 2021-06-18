@@ -1,4 +1,5 @@
 {
+
     "status": [
       {
         "slug": "working",
@@ -12,9 +13,13 @@
         "slug": "wc",
         "status": "Au toilette"
       },
+     {
+      "slug": "dating",
+      "status": "Tinder 🔞"
+    },
       {
-        "slug": "dating",
-        "status": "Tinder"
+        "slug": "chill",
+        "status": "Je chill"
       },
       {
         "slug": "drunk",
