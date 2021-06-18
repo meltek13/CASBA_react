@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Cookies, { remove } from "js-cookie";
+import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import BtnProfile from "../../components/BtnProfile";
-import ButtonUpdate from "../../components/ButtonUpdate";
+import { Input } from "antd";
 import "./profil.css";
 import {
+  UserOutlined,
   EditOutlined,
   SettingFilled,
   EllipsisOutlined,
@@ -13,11 +13,10 @@ import {
 
 const Profil = () => {
   const [email, setEmail] = useState("");
-  const [id, setId] = useState("");
   const [nickName, setNickName] = useState("");
   const [avatar, setAvatar] = useState("");
-  const [uploadAvatar, setUploadAvatar] = useState("");
   const history = useHistory();
+  const [uploadAvatar, setUploadAvatar] = useState("");
 
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
@@ -30,9 +29,6 @@ const Profil = () => {
     return constructor;
   };
 
-  const refreshPage = () => {
-    window.location.reload(false);
-  };
   const fetchFunction = () => {
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "get",
@@ -45,7 +41,6 @@ const Profil = () => {
       .then((response) => {
         console.log(response);
         setEmail(response.email);
-        setId(response.id);
         if (response.nickname !== "") {
           setNickName(response.nickname);
         }
@@ -54,14 +49,28 @@ const Profil = () => {
         }
       });
   };
-
   useEffect(() => {
     fetchFunction();
   }, []);
-
-  const upload = () => {
+  
+  const updateNickname = (nickname) => {
     const formData = new FormData();
-    formData.append("avatar", uploadAvatar);
+      formData.append("nickname", nickname);
+    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+      method: "PUT",
+      body: formData,
+    })
+      .catch((error) => console.log(error))
+      .then((response) => {
+        console.log(response); 
+      });
+  };
+
+  
+
+  const upload = (avatar) => {
+    const formData = new FormData();
+    formData.append("avatar", avatar);
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
@@ -69,12 +78,11 @@ const Profil = () => {
       .catch((error) => console.log(error))
       .then((response) => {
         console.log(response);
+        history.go(0)
       });
   };
 
-  useEffect(() => {
-    upload();
-  }, [uploadAvatar]);
+
 
   return (
     <>
@@ -90,8 +98,9 @@ const Profil = () => {
                   id="file"
                   className="inputfile"
                   multiple={false}
-                  onChange={(event) => setUploadAvatar(event.target.files[0])}
+                  onChange={(event) => upload(event.target.files[0])}
                 />
+
                 <label className="avatar" for="file">
                   <div className="cross">
                       <div className="tt">
@@ -99,6 +108,7 @@ const Profil = () => {
                         <div className="vertical"></div>
                       </div>
                   </div>
+                //<label htmlFor="file">
                   <img
                     className="avatar-img"
                     src={decodeUrlForImage(avatar)}
@@ -110,7 +120,12 @@ const Profil = () => {
           </div>
           <div className="profil-card-bottom">
             <p>
-              <strong>Nickname :</strong> {nickName}
+              <strong>Nickname :</strong> 
+              <Input
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder={nickName}
+            onChange={event => updateNickname(event.target.value)}
+          />
             </p>
             <p>
               <strong>Email :</strong> {email}
@@ -146,7 +161,7 @@ const Profil = () => {
                   accept="image/*"
                   name="file"
                   id="file"
-                  class="inputfile"
+                  className="inputfile"
                   multiple={false}
                   onChange={(event) => setUploadAvatar(event.target.files[0])}
                 />
@@ -157,6 +172,7 @@ const Profil = () => {
                         <div className="vertical"></div>
                       </div>
                   </div>
+                //<label htmlFor="file">
                   <img
                     className="avatar-img"
                     src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"

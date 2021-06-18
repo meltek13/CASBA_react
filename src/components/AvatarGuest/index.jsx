@@ -1,24 +1,30 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Cookies from "js-cookie";
-import { Modal, Popover} from 'antd';
+
+import { Modal, Popover, Select } from 'antd';
 import "./avatarGuest.css"
+import data from "data/status.json";
 
-const MiniAvatar = ({user}) => {
 
+const MiniAvatar = ({ user }) => {
     const [avatar, setAvatar] = useState("")
+    const [status, setStatus] = useState("status")
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const { Option } = Select;
 
-    const showModal = () => {
-      setIsModalVisible(true);
-    };
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
-    const handleOk = () => {
-      setIsModalVisible(false);
-    };
 
-    const handleCancel = () => {
-      setIsModalVisible(false);
-    };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
 
         fetch("http://localhost:3000/members/" + user.id, {
           method: "get",
@@ -44,30 +50,52 @@ const MiniAvatar = ({user}) => {
             }
           });
         
-      
+          const update = (e) => {
+            
+            console.log(e)
+            const formData = new FormData();
+              formData.append("status", e);
 
-      return (
-    <div>
-        <Popover content={user.email}>
+            fetch("http://localhost:3000/members/" + user.id, {
+              method: "PUT",
+              body: formData,
+            })
+              .catch((error) => console.log(error))
+              .then((response) => {
+                console.log(response);
+              });
+          };
         
-            <label for="file" onClick={showModal}>
-                <img
-                className="avatar_dashboard"
-                src={avatar}
-                alt="avatar"
-                />
-            </label>
-            </Popover> 
 
-        <Modal title={user.email} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            <img
-                className="avatar_modal"
-                src={avatar}
-                alt="avatar"
-            />
-        </Modal>
+
+  return (
+    <div>
+          
+      <div className="AvatarAndStatus">
+        <Popover content={user.email}>
+          <label htmlFor="file" onClick={showModal}>
+            <img className="avatar_dashboard" src={avatar} alt="avatar" />
+          </label>
+        </Popover>
+
+        <Select defaultValue={user.status} className="SelectStatus" style={{ width: 150 }} onChange={update}>
+            {data.status.map(data => 
+                <Option value={data.status}>{data.status}</Option>
+             )}
+        </Select>
+      </div>
+
+      <Modal
+        title={user.email}
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <img className="avatar_modal" src={avatar} alt="avatar" />
+      </Modal>
+
     </div>
-      )
-}
+  );
+};
 
-export default MiniAvatar
+export default MiniAvatar;
