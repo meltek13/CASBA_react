@@ -8,6 +8,7 @@ import Add_colocs_svg from "assets/img/add_coloc.svg";
 import Enjoy_svg from "assets/img/enjoy.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
 
 const Landing_page = () => {
   const loged = useSelector((state) => state.user.loged);
@@ -49,6 +50,7 @@ const Landing_page = () => {
             </ul>
           </div>
           {loged ? (
+            !Cookies.get("flat_id") &&
             <div id="btn-cta-group">
               <Link to="/new_flat_sharing">
                 <button className="btn-cta-blue">Créer une collocation</button>

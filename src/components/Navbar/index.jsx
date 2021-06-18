@@ -13,7 +13,7 @@ const Navbar = () => {
   const history = useHistory();
   const flat_id = Cookies.get("flat_id");
   const url_dashboard = "/dashboard/" + flat_id;
-
+  console.log(flat_id)
   const handleClick = (e) => {
     e.preventDefault();
 

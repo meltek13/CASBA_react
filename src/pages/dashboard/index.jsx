@@ -112,7 +112,8 @@ const Dashboard = () => {
                         < MiniAvatar user={user} key={user.id}/>
                         </div>
                             :
-                       (<Popover content={"non inscrit"}>
+                            <div>
+                        <Popover content={"non inscrit"}>
                             <label for="file">
                                 <img
                                 className="avatar_dashboard"
@@ -120,7 +121,8 @@ const Dashboard = () => {
                                 alt="avatar"
                                 />
                             </label>
-                        </Popover> )
+                        </Popover> 
+                        </div>
                 )} 
 
             </div>
