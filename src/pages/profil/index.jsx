@@ -46,7 +46,7 @@ const Profil = () => {
         }
         if (response.avatar !== null) {
           setAvatar(response.avatar.url);
-        }
+        } 
       });
   };
   useEffect(() => {
@@ -66,8 +66,6 @@ const Profil = () => {
       });
   };
 
-  
-
   const upload = (avatar) => {
     const formData = new FormData();
     formData.append("avatar", avatar);
@@ -83,10 +81,81 @@ const Profil = () => {
   };
 
 
-
   return (
-    <>
-      {avatar ? (
+    <div>
+        {avatar ? (
+            <div className="profil-card">
+                <div>
+                    <form>
+                        <div className="profil-card-top">
+                            <input
+                            type="file"
+                            accept="image/*"
+                            name="file"
+                            id="file"
+                            className="inputfile"
+                            multiple={false}
+                            onChange={(event) => upload(event.target.files[0])}
+                            />
+
+                            <label className="avatar" htmlFor="file">
+                                <div className="cross">
+                                    <div className="tt">
+                                        <div className="horizontal"></div>
+                                            <div className="vertical"></div>
+                                    </div>
+                                </div>
+                                <img
+                                className="avatar-img"
+                                src={decodeUrlForImage(avatar)}
+                                alt="avatar"
+                                />
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div className="profil-card-bottom">
+                    <p>
+                        <strong>Nickname :</strong> 
+                        <Input
+                        prefix={<UserOutlined className="site-form-item-icon" />}
+                        placeholder={nickName}
+                        onChange={event => updateNickname(event.target.value)}
+                        />
+                    </p>
+                    <p>
+                        <strong>Email :</strong> {email}
+                    </p>
+                    <p>
+                        <strong>Status :</strong>
+                    </p>
+                </div>
+
+                <div className="nav-profil">
+                    <div>
+                        <Link to="/edit_profil">
+                            <SettingFilled />
+                        </Link>
+                    </div>
+
+                    <div className="separate">
+                      |
+                    </div>
+
+                    <div>
+                        <EditOutlined />
+                    </div>
+
+                    <div className="separate">
+                      |
+                    </div>
+
+                    <div>
+                        <EllipsisOutlined />
+                    </div>
+                </div>
+            </div>
+      ) : (
         <div className="profil-card">
           <div>
             <form>
@@ -100,7 +169,6 @@ const Profil = () => {
                   multiple={false}
                   onChange={(event) => upload(event.target.files[0])}
                 />
-
                 <label className="avatar" for="file">
                   <div className="cross">
                       <div className="tt">
@@ -108,71 +176,6 @@ const Profil = () => {
                         <div className="vertical"></div>
                       </div>
                   </div>
-                //<label htmlFor="file">
-                  <img
-                    className="avatar-img"
-                    src={decodeUrlForImage(avatar)}
-                    alt="avatar"
-                  />
-                </label>
-              </div>
-            </form>
-          </div>
-          <div className="profil-card-bottom">
-            <p>
-              <strong>Nickname :</strong> 
-              <Input
-            prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder={nickName}
-            onChange={event => updateNickname(event.target.value)}
-          />
-            </p>
-            <p>
-              <strong>Email :</strong> {email}
-            </p>
-            <p>
-              <strong>Status :</strong>
-            </p>
-          </div>
-
-          <div className="nav-profil">
-            <div>
-              <Link to="/edit_profil">
-                <SettingFilled />
-              </Link>
-            </div>
-            <div className="separate">|</div>
-            <div>
-              <EditOutlined />
-            </div>
-            <div className="separate">|</div>
-            <div>
-              <EllipsisOutlined />
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="profil-card">
-          <div>
-            <form>
-              <div className="profil-card-top">
-                <input
-                  type="file"
-                  accept="image/*"
-                  name="file"
-                  id="file"
-                  className="inputfile"
-                  multiple={false}
-                  onChange={(event) => setUploadAvatar(event.target.files[0])}
-                />
-                <label className="avatar" for="file">
-                  <div className="cross">
-                      <div className="tt">
-                        <div className="horizontal"></div>
-                        <div className="vertical"></div>
-                      </div>
-                  </div>
-                //<label htmlFor="file">
                   <img
                     className="avatar-img"
                     src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
@@ -210,7 +213,8 @@ const Profil = () => {
           </div>
         </div>
       )}
-    </>
+      
+    </div>
   );
 };
 
