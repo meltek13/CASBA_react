@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Input } from "antd";
 import "./profil.css";
@@ -14,6 +15,7 @@ const Profil = () => {
   const [email, setEmail] = useState("");
   const [nickName, setNickName] = useState("");
   const [avatar, setAvatar] = useState("");
+  const history = useHistory();
   const [uploadAvatar, setUploadAvatar] = useState("");
 
   // fonction a  utiliser en local pour les images
