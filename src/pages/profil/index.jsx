@@ -100,9 +100,17 @@ const Profil = () => {
                   multiple={false}
                   onChange={(event) => upload(event.target.files[0])}
                 />
-                <label htmlFor="file">
+
+                <label className="avatar" for="file">
+                  <div className="cross">
+                      <div className="tt">
+                        <div className="horizontal"></div>
+                        <div className="vertical"></div>
+                      </div>
+                  </div>
+                //<label htmlFor="file">
                   <img
-                    className="avatar"
+                    className="avatar-img"
                     src={decodeUrlForImage(avatar)}
                     alt="avatar"
                   />
@@ -157,9 +165,16 @@ const Profil = () => {
                   multiple={false}
                   onChange={(event) => setUploadAvatar(event.target.files[0])}
                 />
-                <label htmlFor="file">
+                <label className="avatar" for="file">
+                  <div className="cross">
+                      <div className="tt">
+                        <div className="horizontal"></div>
+                        <div className="vertical"></div>
+                      </div>
+                  </div>
+                //<label htmlFor="file">
                   <img
-                    className="avatar"
+                    className="avatar-img"
                     src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
                     alt="avatar par defaut"
                   />
