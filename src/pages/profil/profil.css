@@ -4,9 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 300px;
   height: 400px;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -20,13 +19,13 @@
   max-height: 500px;
   border-radius: 50%;
   border: 4px solid rgb(245, 245, 38);
-  margin-top: 5px;
+  margin-top: 25px;
   position: relative;
 }
 
-.cross{
-  left:0;
-  right:0;
+.cross {
+  left: 0;
+  right: 0;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -35,15 +34,19 @@
   bottom: 0;
 }
 
-.horizontal{ 
+.horizontal {
   background-color: black;
   height: 15px;
   width: 50px;
   top: 17.5px;
   position: absolute;
 }
-.tt{width: 50px; height: 50px; position: relative}
-.vertical{
+.tt {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+.vertical {
   background-color: black;
   height: 50px;
   width: 15px;
@@ -58,7 +61,7 @@
   position: absolute;
 }
 
-.avatar-img:hover{
+.avatar-img:hover {
   opacity: 0.5;
 }
 
@@ -79,7 +82,7 @@
   display: inline-block;
 }
 
-.inputfile + .avatar  {
+.inputfile + .avatar {
   cursor: pointer; /* "hand" cursor */
 }
 
@@ -88,13 +91,27 @@
   align-self: flex-start;
   margin-left: 20px;
 }
-.nav-profil {
-  display: flex;
-  list-style: none;
-  width: 100%;
-  justify-content: space-around;
-  margin-top: 20px;
-}
+
 .separate {
   color: gray;
+}
+
+.input-nickname {
+  border: none;
+  width: 140px;
+}
+
+.edit-email {
+  margin-left: 7px;
+}
+.nickname {
+  display: flex;
+  align-items: baseline;
+}
+
+.border {
+  border-color: rgb(208, 233, 255);
+  border-radius: 5px;
+  border: 1px;
+  outline: none;
 }

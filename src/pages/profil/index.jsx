@@ -4,12 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Input } from "antd";
 import "./profil.css";
-import {
-  UserOutlined,
-  EditOutlined,
-  SettingFilled,
-  EllipsisOutlined,
-} from "@ant-design/icons";
+import { EditOutlined, SettingFilled } from "@ant-design/icons";
 
 const Profil = () => {
   const [email, setEmail] = useState("");
@@ -46,23 +41,23 @@ const Profil = () => {
         }
         if (response.avatar !== null) {
           setAvatar(response.avatar.url);
-        } 
+        }
       });
   };
   useEffect(() => {
     fetchFunction();
   }, []);
-  
+
   const updateNickname = (nickname) => {
     const formData = new FormData();
-      formData.append("nickname", nickname);
+    formData.append("nickname", nickname);
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
     })
       .catch((error) => console.log(error))
       .then((response) => {
-        console.log(response); 
+        console.log(response);
       });
   };
 
@@ -76,144 +71,83 @@ const Profil = () => {
       .catch((error) => console.log(error))
       .then((response) => {
         console.log(response);
-        history.go(0)
+        history.go(0);
       });
   };
 
+  const inputNickname = document.querySelector(".input-nickname");
+
+  const borderSolid = () => {
+    inputNickname.style.border = "1px solid rgb(208, 233, 255)";
+  };
+
+  const borderNone = () => {
+    inputNickname.style.border = "none";
+  };
 
   return (
     <div>
-        {avatar ? (
-            <div className="profil-card">
-                <div>
-                    <form>
-                        <div className="profil-card-top">
-                            <input
-                            type="file"
-                            accept="image/*"
-                            name="file"
-                            id="file"
-                            className="inputfile"
-                            multiple={false}
-                            onChange={(event) => upload(event.target.files[0])}
-                            />
+      <div className="profil-card">
+        <div>
+          <form>
+            <div className="profil-card-top">
+              <input
+                type="file"
+                accept="image/*"
+                name="file"
+                id="file"
+                className="inputfile"
+                multiple={false}
+                onChange={(event) => upload(event.target.files[0])}
+              />
 
-                            <label className="avatar" htmlFor="file">
-                                <div className="cross">
-                                    <div className="tt">
-                                        <div className="horizontal"></div>
-                                            <div className="vertical"></div>
-                                    </div>
-                                </div>
-                                <img
-                                className="avatar-img"
-                                src={decodeUrlForImage(avatar)}
-                                alt="avatar"
-                                />
-                            </label>
-                        </div>
-                    </form>
-                </div>
-                <div className="profil-card-bottom">
-                    <p>
-                        <strong>Nickname :</strong> 
-                        <Input
-                        prefix={<UserOutlined className="site-form-item-icon" />}
-                        placeholder={nickName}
-                        onChange={event => updateNickname(event.target.value)}
-                        />
-                    </p>
-                    <p>
-                        <strong>Email :</strong> {email}
-                    </p>
-                    <p>
-                        <strong>Status :</strong>
-                    </p>
-                </div>
-
-                <div className="nav-profil">
-                    <div>
-                        <Link to="/edit_profil">
-                            <SettingFilled />
-                        </Link>
-                    </div>
-
-                    <div className="separate">
-                      |
-                    </div>
-
-                    <div>
-                        <EditOutlined />
-                    </div>
-
-                    <div className="separate">
-                      |
-                    </div>
-
-                    <div>
-                        <EllipsisOutlined />
-                    </div>
-                </div>
-            </div>
-      ) : (
-        <div className="profil-card">
-          <div>
-            <form>
-              <div className="profil-card-top">
-                <input
-                  type="file"
-                  accept="image/*"
-                  name="file"
-                  id="file"
-                  className="inputfile"
-                  multiple={false}
-                  onChange={(event) => upload(event.target.files[0])}
-                />
-                <label className="avatar" for="file">
-                  <div className="cross">
-                      <div className="tt">
-                        <div className="horizontal"></div>
-                        <div className="vertical"></div>
-                      </div>
+              <label className="avatar" htmlFor="file">
+                <div className="cross">
+                  <div className="tt">
+                    <div className="horizontal"></div>
+                    <div className="vertical"></div>
                   </div>
+                </div>
+                {avatar ? (
+                  <img
+                    className="avatar-img"
+                    src={decodeUrlForImage(avatar)}
+                    alt="avatar"
+                  />
+                ) : (
                   <img
                     className="avatar-img"
                     src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
                     alt="avatar par defaut"
                   />
-                </label>
-              </div>
-            </form>
-          </div>
-          <div className="profil-card-bottom">
-            <p>
-              <strong>Nickname :</strong> {nickName}
-            </p>
-            <p>
-              <strong>Email :</strong> {email}
-            </p>
-            <p>
-              <strong>Status :</strong>
-            </p>
-          </div>
-          <div className="nav-profil">
-            <div>
-              <Link to="/edit_profil">
-                <SettingFilled />
-              </Link>
+                )}
+              </label>
             </div>
-            <div className="separate">|</div>
-            <div>
-              <EditOutlined />
-            </div>
-            <div className="separate">|</div>
-            <div>
-              <EllipsisOutlined />
-            </div>
-          </div>
+          </form>
         </div>
-      )}
-      
+        <div className="profil-card-bottom">
+          <p className="nickname">
+            <strong>Pseudo :</strong>
+            <form>
+              <Input
+                className="input-nickname edit-email"
+                placeholder={nickName}
+                onChange={(event) => updateNickname(event.target.value)}
+              />
+              <Link to="#" className="edit-email" onClick={borderSolid}>
+                <EditOutlined />
+              </Link>
+              <div onClick={borderNone} type="submit"></div>
+            </form>
+          </p>
+          <p>
+            <strong>Email :</strong> {email}
+            <Link className="edit-email" to="/edit_profil">
+              <SettingFilled />
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
