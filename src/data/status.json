@@ -1,89 +1,88 @@
 {
-    "status": [
-      {
-        "slug": "working",
-        "status": "Au travail"
-      },
-      {
-        "slug": "meeting",
-        "status": "En reunion"
-      },
-      {
-        "slug": "wc",
-        "status": "Au toilette"
-      },
-      {
-        "slug": "dating",
-        "status": "Tinder"
-      },
-      {
-        "slug": "drunk",
-        "status": "Bourré"
-      },
-      {
-        "slug": "smoke",
-        "status": "Je fume"
-      },
-      {
-        "slug": "sleep",
-        "status": "Je dors"
-      },
-      {
-        "slug": "Chase",
-        "status": "Je chasse"
-      },
-      {
-        "slug": "ciname",
-        "status": "Au cinema"
-      },
-      {
-        "slug": "lazying",
-        "status": "Flemmard"
-      },
-      {
-        "slug": "hungry",
-        "status": "J'ai faim"
-      },
-      {
-        "slug": "i_am_Charlie",
-        "status": "Je suis Charlie"
-      },
-      {
-        "slug": "netflix",
-        "status": "Netflix"
-      },
-      {
-        "slug": "house",
-        "status": "A la maison"
-      },
-      {
-        "slug": "Gaming",
-        "status": "Je geek"
-      },
-      {
-        "slug": "Off",
-        "status": "Absent"
-      },
-      {
-        "slug": "clean",
-        "status": "Je fais le menage"
-      },
-      {
-        "slug": "sport",
-        "status": "Time to sport"
-      },
-      {
-        "slug": "read",
-        "status": "Je lis un livre"
-      },
-      {
-        "slug": "moon",
-        "status": "Sur la lune"
-      },
-      {
-        "slug": "garden",
-        "status": "Je Jardine"
-      }
-    ]
-  }
-  
+  "status": [
+    {
+      "slug": "working",
+      "status": "Au travail"
+    },
+    {
+      "slug": "meeting",
+      "status": "En reunion"
+    },
+    {
+      "slug": "wc",
+      "status": "Au toilette"
+    },
+    {
+      "slug": "dating",
+      "status": "Tinder 🔞"
+    },
+    {
+      "slug": "drunk",
+      "status": "Bourré"
+    },
+    {
+      "slug": "smoke",
+      "status": "Je fume"
+    },
+    {
+      "slug": "sleep",
+      "status": "Je dors"
+    },
+    {
+      "slug": "Chase",
+      "status": "Je chasse"
+    },
+    {
+      "slug": "ciname",
+      "status": "Au cinema"
+    },
+    {
+      "slug": "lazying",
+      "status": "Flemmard"
+    },
+    {
+      "slug": "hungry",
+      "status": "J'ai faim"
+    },
+    {
+      "slug": "i_am_Charlie",
+      "status": "Je suis Charlie"
+    },
+    {
+      "slug": "netflix",
+      "status": "Netflix"
+    },
+    {
+      "slug": "house",
+      "status": "A la maison"
+    },
+    {
+      "slug": "Gaming",
+      "status": "Je geek"
+    },
+    {
+      "slug": "Off",
+      "status": "Absent"
+    },
+    {
+      "slug": "clean",
+      "status": "Je fais le menage"
+    },
+    {
+      "slug": "sport",
+      "status": "Time to sport"
+    },
+    {
+      "slug": "read",
+      "status": "Je lis un livre"
+    },
+    {
+      "slug": "moon",
+      "status": "Sur la lune"
+    },
+    {
+      "slug": "garden",
+      "status": "Je Jardine"
+    }
+  ]
+}
