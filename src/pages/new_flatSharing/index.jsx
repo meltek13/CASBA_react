@@ -5,6 +5,7 @@ import { Form, Input, Button, Space } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import Add_colocs_svg from "assets/img/add_coloc.svg";
 import "./new_flatSharing.css";
+import { useEffect } from "react";
 
 const NewFlatSharing = () => {
   const [title, setTitle] = useState("");
@@ -30,8 +31,24 @@ const NewFlatSharing = () => {
     })
       .then((response) => response.json())
       .then((userdata) => {
-        console.log(userdata);
+        console.log(userdata)
+        test( userdata.flatsharing.id)
         history.push("/dashboard/" + userdata.flatsharing.id);
+      })
+    
+  };
+  const test = (Id_flat) => {
+  
+    const formData = new FormData();
+      formData.append("flatsharing_id", Id_flat);
+
+    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+      method: "PUT",
+      body: formData,
+    })
+      .catch((error) => console.log(error))
+      .then((response) => {
+        console.log(response);
       });
   };
 
