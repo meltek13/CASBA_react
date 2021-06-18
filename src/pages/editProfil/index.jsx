@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import ButtonUpdate from "../../components/ButtonUpdate";
 import { useHistory } from "react-router-dom";
-import BtnProfile from "../../components/BtnProfile";
 import { useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
 import "./editProfil.css";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
 const EditProfil = () => {
@@ -17,7 +15,7 @@ const EditProfil = () => {
 
   const update = (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
 
     if (email && nickName) {
