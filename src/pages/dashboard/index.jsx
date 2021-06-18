@@ -6,7 +6,7 @@ import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
 import Cookies from "js-cookie";
-import { Tooltip} from 'antd';
+import { Popover} from 'antd';
 import MiniAvatar from "components/AvatarGuest"
 
 const Dashboard = () => {
@@ -49,16 +49,6 @@ const Dashboard = () => {
          setExpense(true);
     };
 
-
-    const decodeUrlForImage = (imageUrl) => {
-         let link = imageUrl;
-         let linkStart = link.substring(0, 16);
-         let linkMiddle = ":3000/";
-         let linkEnd = link.substring(17, link.length);
-         let constructor = linkStart + linkMiddle + linkEnd;
-        return constructor;
-    };
-
     const verifyPresenceOfData= (data)=>{
         if (JSON.stringify(data) === "null" ){
             return false 
@@ -68,37 +58,17 @@ const Dashboard = () => {
     }
 
 
-    useEffect(() => {
-        findUserRoom();
-    }, []);
-
     const findUserRoom = () => {
         fetch('http://localhost:3000/flatsharings/'+ id +'/dashboard')
         .then((response) => response.json())
         .then((response) => {
-            findAvatarAdmin(response.admin.id)
             setRoom(response)
             })
     }    
-     
 
-    const findAvatarAdmin = (id) => {
-        
-        fetch("http://localhost:3000/members/" + id, {
-            method: "get",
-            headers: {
-                Authorization: Cookies.get("token"),
-                "Content-Type": "application/json",
-            },
-        })
-            .then((response) => response.json())
-            .then((response) => {
-            if (response.avatar) { setAvatarAdmin(decodeUrlForImage(response.avatar.url))} 
-            else {setAvatarAdmin("https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png")}
-          });
-      };
-
-     
+    useEffect(() => {
+        findUserRoom();
+    }, []);
 
     return (
         <div>
@@ -121,33 +91,44 @@ const Dashboard = () => {
                 </button>
             </div>
 
-            <div className="content-dashboard">    
-             
-                <Tooltip placement="bottom" title={room?.admin?.email}>
-                    <label for="file">
-                        <img
-                        className="avatar_dashboard"
-                        src={avatarAdmin}
-                        alt="avatar"
-                        />
-                    </label>
-                </Tooltip> 
-                  
+            <div className="Mini_avatar_display">
+                
+                { room?.admin? 
+                    (< MiniAvatar user={room.admin} key={room.admin.id}/>)
+                        : 
+                    (<Popover content={"non inscrit"}>
+                        <label for="file">
+                            <img
+                            className="avatar_dashboard"
+                            src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                            alt="avatar"
+                            />
+                        </label>
+                    </Popover> )
+                }
+               
+                 
                 {room?.guest?.map(user => 
-                 verifyPresenceOfData(user)? 
-                    < MiniAvatar user={user} key={user.id}/>
-                    :
-                    (<Tooltip placement="bottom" title={"non inscrit"}>
-                     <label for="file">
-                     <img
-                     className="avatar_dashboard"
-                     src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-                     alt="avatar"
-                     />
-                 </label>
-             </Tooltip> )
+                    verifyPresenceOfData(user)? 
+                    <div>
+                        < MiniAvatar user={user} key={user.id}/>
+                        <p>En reunion</p>
+                        </div>
+                            :
+                       (<Popover content={"non inscrit"}>
+                            <label for="file">
+                                <img
+                                className="avatar_dashboard"
+                                src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                                alt="avatar"
+                                />
+                            </label>
+                        </Popover> )
                 )} 
-            
+            </div>
+
+            <div className="content-dashboard">    
+
                 {news &&
                     <News />
                 }

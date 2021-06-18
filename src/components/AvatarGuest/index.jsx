@@ -1,9 +1,24 @@
 import React, { useState} from "react";
 import Cookies from "js-cookie";
-import { Tooltip} from 'antd';
+import { Modal, Popover} from 'antd';
+import "./avatarGuest.css"
 
 const MiniAvatar = ({user}) => {
+
     const [avatar, setAvatar] = useState("")
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const showModal = () => {
+      setIsModalVisible(true);
+    };
+
+    const handleOk = () => {
+      setIsModalVisible(false);
+    };
+
+    const handleCancel = () => {
+      setIsModalVisible(false);
+    };
 
         fetch("http://localhost:3000/members/" + user.id, {
           method: "get",
@@ -32,15 +47,26 @@ const MiniAvatar = ({user}) => {
       
 
       return (
-        <Tooltip placement="bottom" title={user.email}>
-        <label for="file">
+    <div>
+        <Popover content={user.email}>
+        
+            <label for="file" onClick={showModal}>
+                <img
+                className="avatar_dashboard"
+                src={avatar}
+                alt="avatar"
+                />
+            </label>
+            </Popover> 
+
+        <Modal title={user.email} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
             <img
-            className="avatar_dashboard"
-            src={avatar}
-            alt="avatar"
+                className="avatar_modal"
+                src={avatar}
+                alt="avatar"
             />
-        </label>
-    </Tooltip> 
+        </Modal>
+    </div>
       )
 }
 
