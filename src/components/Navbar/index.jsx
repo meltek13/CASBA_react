@@ -1,4 +1,4 @@
-import {React} from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import Cookies from "js-cookie";
@@ -11,9 +11,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const loged = useSelector((state) => state.user.loged);
   const history = useHistory();
-  const flat_id = Cookies.get("flat_id")
-  const url_dashboard = "/dashboard/" + flat_id
-
+  const flat_id = Cookies.get("flat_id");
+  const url_dashboard = "/dashboard/" + flat_id;
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -35,25 +34,26 @@ const Navbar = () => {
       });
   };
 
-  
-
   return (
     <div className="navbar">
       <div className="content-link first">
         <Link className=" home-link" to="/">
-          <img id="home-logo" src={Home_svg} />
+          <img id="home-logo" src={Home_svg} alt="home logo" />
         </Link>
       </div>
-      {flat_id ? (<div className="content-link">
-        <Link className="link" to={url_dashboard}>
-          Dashboard
-        </Link>
-      </div>) : (<div className="content-link">
-        <Link className="link" to="/">
-          Home
-        </Link>
-      </div>) }
-      
+      {flat_id ? (
+        <div className="content-link">
+          <Link className="link" to={url_dashboard}>
+            Dashboard
+          </Link>
+        </div>
+      ) : (
+        <div className="content-link">
+          <Link className="link" to="/">
+            Home
+          </Link>
+        </div>
+      )}
 
       {loged ? (
         <>

@@ -7,6 +7,7 @@ import "./editProfil.css";
 import { Form, Input, Button} from "antd";
 import {  MailOutlined } from "@ant-design/icons";
 
+
 const EditProfil = () => {
   const [email, setEmail] = useState("");
   const history = useHistory();
@@ -14,7 +15,7 @@ const EditProfil = () => {
 
   const update = (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
       formData.append("email", email);
 
