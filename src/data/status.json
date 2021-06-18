@@ -14,11 +14,27 @@
       },
       {
         "slug": "dating",
-        "status": "En date"
+        "status": "Tinder"
       },
       {
         "slug": "drunk",
         "status": "Bourré"
+      },
+      {
+        "slug": "smoke",
+        "status": "Je fume"
+      },
+      {
+        "slug": "sleep",
+        "status": "Je dors"
+      },
+      {
+        "slug": "Chase",
+        "status": "Je chasse"
+      },
+      {
+        "slug": "ciname",
+        "status": "Au cinema"
       },
       {
         "slug": "lazying",
@@ -61,12 +77,12 @@
         "status": "Je lis un livre"
       },
       {
-        "slug": "read",
-        "status": "Je lis un livre"
+        "slug": "moon",
+        "status": "Sur la lune"
       },
       {
-        "slug": "read",
-        "status": "Je lis un livre"
+        "slug": "garden",
+        "status": "Je Jardine"
       }
     ]
   }
