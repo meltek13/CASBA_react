@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Cookies, { remove } from "js-cookie";
-import { useHistory } from "react-router-dom";
+import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
-import BtnProfile from "../../components/BtnProfile";
-import ButtonUpdate from "../../components/ButtonUpdate";
+
 import "./profil.css";
 import {
   EditOutlined,
@@ -13,11 +11,9 @@ import {
 
 const Profil = () => {
   const [email, setEmail] = useState("");
-  const [id, setId] = useState("");
   const [nickName, setNickName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [uploadAvatar, setUploadAvatar] = useState("");
-  const history = useHistory();
 
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
@@ -30,9 +26,6 @@ const Profil = () => {
     return constructor;
   };
 
-  const refreshPage = () => {
-    window.location.reload(false);
-  };
   const fetchFunction = () => {
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "get",
@@ -45,7 +38,6 @@ const Profil = () => {
       .then((response) => {
         console.log(response);
         setEmail(response.email);
-        setId(response.id);
         if (response.nickname !== "") {
           setNickName(response.nickname);
         }
@@ -88,11 +80,11 @@ const Profil = () => {
                   accept="image/*"
                   name="file"
                   id="file"
-                  class="inputfile"
+                  className="inputfile"
                   multiple={false}
                   onChange={(event) => setUploadAvatar(event.target.files[0])}
                 />
-                <label for="file">
+                <label htmlFor="file">
                   <img
                     className="avatar"
                     src={decodeUrlForImage(avatar)}
@@ -140,11 +132,11 @@ const Profil = () => {
                   accept="image/*"
                   name="file"
                   id="file"
-                  class="inputfile"
+                  className="inputfile"
                   multiple={false}
                   onChange={(event) => setUploadAvatar(event.target.files[0])}
                 />
-                <label for="file">
+                <label htmlFor="file">
                   <img
                     className="avatar"
                     src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
