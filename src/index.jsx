@@ -15,6 +15,7 @@ import EditProfil from "pages/editProfil";
 import store from "./store-redux/store.js";
 import LandingPage from "./pages/landingPage/index";
 import Home from "pages/home";
+import Expense from "pages/expense";
 
 const App = () => (
   <div id="app-container">
@@ -48,6 +49,9 @@ const App = () => (
             </Route>
             <Route path="/dashboard/:id">
               <Dashboard />
+            </Route>
+            <Route path="/expense">
+              <Expense />
             </Route>
           </Switch>
           <Footer />

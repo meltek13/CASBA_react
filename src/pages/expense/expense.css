@@ -1,0 +1,12 @@
+#container_expense{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#expense-svg{
+  margin-top: 60px;
+  margin-bottom: 20px;
+  width: 350px;
+}
