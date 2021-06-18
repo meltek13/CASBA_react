@@ -1,6 +1,6 @@
 .nav-dashboard {
   display: flex;
-  margin-top: 0;
+  justify-content: space-around;
   margin-bottom: 5%;
 }
 .Mini_avatar_display{

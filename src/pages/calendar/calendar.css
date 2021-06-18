@@ -25,6 +25,8 @@
 .popUp-container{
   width: 50%;
   margin: 10px;
+  overflow-y:scroll;
+  height: 150px;
 }
 
 .contain-text{
