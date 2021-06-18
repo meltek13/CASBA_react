@@ -4,12 +4,12 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
 import "./editProfil.css";
-import { Form, Input, Button } from "antd";
-import { UserOutlined, MailOutlined } from "@ant-design/icons";
+import { Form, Input, Button} from "antd";
+import {  MailOutlined } from "@ant-design/icons";
+
 
 const EditProfil = () => {
   const [email, setEmail] = useState("");
-  const [nickName, setNickName] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -17,15 +17,7 @@ const EditProfil = () => {
     e.preventDefault();
 
     const formData = new FormData();
-
-    if (email && nickName) {
       formData.append("email", email);
-      formData.append("nickname", nickName);
-    } else if (email && !nickName) {
-      formData.append("email", email);
-    } else {
-      formData.append("nickname", nickName);
-    }
 
     fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
       method: "PUT",
@@ -37,6 +29,7 @@ const EditProfil = () => {
         history.push("/profil");
       });
   };
+
 
   const deleteAccount = () => {
     fetch(`http://localhost:3000/members/` + Cookies.get("current_user_id"), {
@@ -64,21 +57,6 @@ const EditProfil = () => {
           remember: true,
         }}
       >
-        <Form.Item
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Nickname!",
-            },
-          ]}
-        >
-          <Input
-            prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Nickname"
-            onChange={(event) => setNickName(event.target.value)}
-          />
-        </Form.Item>
         <Form.Item
           name="email"
           rules={[

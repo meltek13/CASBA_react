@@ -88,40 +88,42 @@ const Dashboard = () => {
         </button>
       </div>
 
-      <div className="Mini_avatar_display">
-        {room?.admin ? (
-          <MiniAvatar user={room.admin} key={room.admin.id} />
-        ) : (
-          <Popover content={"non inscrit"}>
-            <label htmlFor="file">
-              <img
-                className="avatar_dashboard"
-                src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-                alt="avatar"
-              />
-            </label>
-          </Popover>
-        )}
+     
+            <div className="Mini_avatar_display">
+                
+                { room?.admin? 
+                    (< MiniAvatar user={room.admin} key={room.admin.id}/>)
+                        : 
+                    (<Popover content={"non inscrit"}>
+                        <label for="file">
+                            <img
+                            className="avatar_dashboard"
+                            src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                            alt="avatar"
+                            />
+                        </label>
+                    </Popover> )
+                }
+               
+                 
+                {room?.guest?.map(user => 
+                    verifyPresenceOfData(user)? 
+                        <div>
+                        < MiniAvatar user={user} key={user.id}/>
+                        </div>
+                            :
+                       (<Popover content={"non inscrit"}>
+                            <label for="file">
+                                <img
+                                className="avatar_dashboard"
+                                src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                                alt="avatar"
+                                />
+                            </label>
+                        </Popover> )
+                )} 
 
-        {room?.guest?.map((user) =>
-          verifyPresenceOfData(user) ? (
-            <div>
-              <MiniAvatar user={user} key={user.id} />
-              <p>En reunion</p>
             </div>
-          ) : (
-            <Popover content={"non inscrit"}>
-              <label htmlFor="file">
-                <img
-                  className="avatar_dashboard"
-                  src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-                  alt="avatar"
-                />
-              </label>
-            </Popover>
-          )
-        )}
-      </div>
 
       <div className="content-dashboard">
         {news && <News />}
