@@ -31,6 +31,7 @@ const NewFlatSharing = () => {
       .then((response) => response.json())
       .then((userdata) => {
         console.log(userdata);
+        Cookies.set("flat_id", userdata.flatsharing.id);
         history.push("/dashboard/" + userdata.flatsharing.id);
       });
   };
