@@ -112,7 +112,6 @@ const Dashboard = () => {
                     verifyPresenceOfData(user)? 
                     <div>
                         < MiniAvatar user={user} key={user.id}/>
-                        <p>En reunion</p>
                         </div>
                             :
                        (<Popover content={"non inscrit"}>
