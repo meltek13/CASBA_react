@@ -7,6 +7,7 @@ import Picture from "pages/picture";
 import Expense from "pages/expense";
 import { Popover } from "antd";
 import MiniAvatar from "components/AvatarGuest";
+import url from "data/url.json"
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const Dashboard = () => {
   const [calendar, setCalendar] = useState(false);
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
-
+ 
   const changeNews = () => {
     setNews(true);
     setPicture(false);
@@ -53,7 +54,7 @@ const Dashboard = () => {
   };
 
   const findUserRoom = () => {
-    fetch("http://localhost:3000/flatsharings/" + id + "/dashboard")
+    fetch(url.url + "flatsharings/" + id + "/dashboard")
       .then((response) => response.json())
       .then((response) => {
         setRoom(response);

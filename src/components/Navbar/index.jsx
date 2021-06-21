@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
 import Home_svg from "assets/img/home.svg";
 import { useHistory } from "react-router-dom";
+import url from "data/url.json"
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const Navbar = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3000/users/sign_out", {
+    fetch(url.url + "users/sign_out", {
       method: "delete",
       headers: {
         Authorization: Cookies.get("token"),

@@ -4,7 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import "./calendar.css";
 import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
-
+import url from "data/url.json"
 const Timetable = () => {
   const { id } = useParams();
 
@@ -20,7 +20,7 @@ const Timetable = () => {
   };
 
   const createEvent = () => {
-    fetch("http://localhost:3000//dashboard/" + id + "/calendars", {
+    fetch(url.url + "dashboard/" + id + "/calendars", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -36,19 +36,19 @@ const Timetable = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000//dashboard/" + id + "/calendars")
+    fetch(url.url + "dashboard/" + id + "/calendars")
       .then((response) => response.json())
       .then((response) => setEvent(response));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/members/" + event.map((e) => e.by))
+    fetch(url.url +"/members/" + event.map((e) => e.by))
       .then((response) => response.json())
       .then((response) => setUserCreate((oldArray) => [...oldArray, response]));
   }, [event]);
 
   const destroyEvent = (id) => {
-    fetch("http://localhost:3000/calendars/" + id, {
+    fetch(url.url + "calendars/" + id, {
       method: "DELETE",
     });
     window.location.reload(false);

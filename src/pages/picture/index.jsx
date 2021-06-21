@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import FlatPictureUser from "components/FlatPicture";
+import url from "data/url.json"
 
 const Picture = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const Picture = () => {
   };
 
   const findUserRoom = () => {
-    fetch("http://localhost:3000/flatsharings/" + id + "/dashboard")
+    fetch(url.url + "flatsharings/" + id + "/dashboard")
       .then((response) => response.json())
       .then((response) => {
         setRoom(response);
@@ -33,7 +34,7 @@ const Picture = () => {
   const upload = (flatPicture) => {
     const formData = new FormData();
     formData.append("flat_picture", flatPicture);
-    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
     })
