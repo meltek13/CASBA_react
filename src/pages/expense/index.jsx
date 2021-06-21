@@ -38,7 +38,7 @@ const Expense = () => {
           concerned_colocs: [concernedColocsInput], 
           user_id:  Cookies.get("current_user_id"),
           flatsharing_id: Cookies.get("flat_id"),
-          split_amount_to_colocs: totalAmountInput / ([concernedColocsInput].length + 1)
+          split_amount_to_colocs: Math.ceil(input_total_corrected / ([concernedColocsInput].length + 1))
         },
       }),
     })
