@@ -9,7 +9,6 @@ import Expense from "pages/expense";
 import { Popover } from "antd";
 import MiniAvatar from "components/AvatarGuest";
 import url from "data/url.json"
-import Cookies from "js-cookie";
 
 
 const Dashboard = () => {

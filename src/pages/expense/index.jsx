@@ -15,6 +15,7 @@ const Expense = () => {
 
   const [totalAmountInput, setTotalAmountInput] = useState("");
   const onChangeTotalAmount = event => setTotalAmountInput(event.target.value);
+  const input_total_corrected = totalAmountInput.replace(",",".")
 
   const [concernedColocsInput, setConcernedColocsInput] = useState([]);
   const onChangeConcernedColocs = event => setConcernedColocsInput(event.target.value);
@@ -33,7 +34,7 @@ const Expense = () => {
           id_expense: Math.random().toString(20).substr(2),
           title:titleInput,
           date_of_expense: dateOfExpenseInput,
-          total_amount: totalAmountInput,
+          total_amount: input_total_corrected,
           concerned_colocs: [concernedColocsInput], 
           user_id:  Cookies.get("current_user_id"),
           flatsharing_id: Cookies.get("flat_id"),
@@ -90,7 +91,7 @@ const Expense = () => {
                                     id="username"
                                     className="c-form__input"
                                     placeholder=" "
-                                    pattern="^[0-9]{1,10}"
+                                    pattern="^[0-9]{1,10}\,"
                                     onChange = {onChangeTotalAmount}
                                     value={totalAmountInput}
                                     required/>
