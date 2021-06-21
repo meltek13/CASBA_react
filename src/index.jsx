@@ -18,13 +18,13 @@ import Home from "pages/home";
 import Expense from "pages/expense";
 
 const App = () => (
-  <div id="app-container">
+  <div >
     <Router>
       <Provider store={store}>
         <div>
           <Navbar />
         </div>
-        <div>
+        <div id="app-container">
           <Switch>
             <Route path="/" exact>
               <LandingPage />
