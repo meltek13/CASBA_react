@@ -1,8 +1,11 @@
 .nav-dashboard {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 5%;
+
 }
+
+
 .Mini_avatar_display {
   margin-bottom: 15px;
   justify-content: center;

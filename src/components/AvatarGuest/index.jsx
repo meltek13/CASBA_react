@@ -35,7 +35,6 @@ const MiniAvatar = ({ user }) => {
         })
           .then((response) => response.json())
           .then((response) => {
-              console.log(response)
             if (response.avatar) {
                  let link = response.avatar.url;
                  let linkStart = link.substring(0, 16);

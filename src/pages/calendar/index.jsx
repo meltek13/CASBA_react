@@ -54,7 +54,7 @@ const Timetable = () => {
     window.location.reload(false);
   };
 
-  console.log();
+ 
   return (
     <>
       <div className="content-calendar">
