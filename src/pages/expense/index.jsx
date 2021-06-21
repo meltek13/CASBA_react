@@ -21,7 +21,7 @@ const Expense = () => {
 
   const [onSubmit, setOnSubmit] = useState(false);
 
-  const fetchFunction = () => {
+  const ExpenseFetch = () => {
     
     fetch(url.url + "expenses", {
       method: "post",
@@ -30,11 +30,14 @@ const Expense = () => {
       },
       body: JSON.stringify({
         expense: {
+          id_expense: Math.random().toString(20).substr(2),
           title:titleInput,
           date_of_expense: dateOfExpenseInput,
           total_amount: totalAmountInput,
-          concerned_colocs: [concernedColocsInput],
-          user_id: 2
+          concerned_colocs: [concernedColocsInput], 
+          user_id:  Cookies.get("current_user_id"),
+          flatsharing_id: Cookies.get("flat_id"),
+          split_amount_to_colocs: totalAmountInput / ([concernedColocsInput].length + 1)
         },
       }),
     })
@@ -42,51 +45,93 @@ const Expense = () => {
       .then((response) =>  console.log(response));
   };
 
+  
 
   return(
     <>
-    <div id="container_expense">
-      <img id="expense-svg" src={Expense_svg} alt="" />
-      <h1 id="title-expense">Dépenses</h1>
-      <h3>Crées une demande de partage de frais liés à la coloc</h3>
-        <div className="body-form">
-          <div className="title-input">
-            <h3>Titre de la dépense</h3>
-            <label htmlFor="title">
-              <input  
-              onChange={onChangetitle} 
-              type="text" 
-              value={titleInput}
-              placeholder="Saisis un titre"/>
-            </label>
+      <div id="container_expense">
+        <img id="expense-svg" src={Expense_svg} alt="illustration tirelire cochon " />
+        <h2>Crées un dépense liée à la colocation</h2>
+        <div id="form-action">
+          <input className="c-checkbox" type="checkbox" id="start"/>
+          <input className="c-checkbox" type="checkbox" id="progress2"/>
+          <input className="c-checkbox" type="checkbox" id="progress3"/>
+          <input className="c-checkbox" type="checkbox" id="finish"/>
+          <div className="c-form__progress"></div>
+
+            <div className="c-formContainer">
+              {/* <div className="c-welcome">Welcome aboard!</div> */}
+              <form className="c-form" action="">
+                <div className="c-form__group">
+                  <label className="c-form__label" htmlFor="title-expense">
+                                <input
+                                    type="text"
+                                    id="username"
+                                    className="c-form__input"
+                                    placeholder=" "
+                                    pattern="[a-z0-9\s]+"
+                                    onChange= {onChangetitle}
+                                    required
+                                    value={titleInput}/>
+
+                                <label className="c-form__next" htmlFor="progress2" role="button">
+                                    <span className="c-form__nextIcon"></span>
+                                </label>
+
+                  <span className="c-form__groupLabel">Titre de la dépense</span>
+                  <b className="c-form__border"></b>
+                  </label>
+                </div>
+
+                <div className="c-form__group">
+                  <label className="c-form__label" htmlFor="total_amount">
+                                <input
+                                    type="text"
+                                    id="username"
+                                    className="c-form__input"
+                                    placeholder=" "
+                                    pattern="^[0-9]{1,10}"
+                                    onChange = {onChangeTotalAmount}
+                                    value={totalAmountInput}
+                                    required/>
+
+                                <label className="c-form__next" htmlFor="progress3" role="button">
+                                    <span className="c-form__nextIcon"></span>
+                                </label>
+
+                  <span className="c-form__groupLabel">Total de la dépense</span>
+                  <b className="c-form__border"></b>
+                  </label>
+                </div>
+
+                <div className="c-form__group">
+                  <label className="c-form__label" htmlFor="concerned_colocs">
+                                <input
+                                    type="number"
+                                    id="username"
+                                    className="c-form__input"
+                                    placeholder=" "
+                                    pattern="^[0-9]{1,10}"
+                                    onChange={onChangeConcernedColocs}
+                                    value={concernedColocsInput}
+                                    required/>
+
+                  <Link to='/expense-sucess'>
+                    <input id="btn-submit-expense" type="submit" value="créer" onClick={ExpenseFetch}/>
+                  </Link>             
+                  
+                  <span className="c-form__groupLabel">Colocs concernées</span>
+                  <b className="c-form__border"></b>
+                  </label>
+                </div>
+
+               <label className="c-form__toggle" htmlFor="start">Créer une Dépense</label>
+
+              </form>
+              
+            </div>
           </div>
-          <div className="DateOfExpense-input">
-            <h3>Date de la dépense</h3>
-            <input  
-            onChange={onChangeDateOfExpense} 
-            type="text" 
-            value={dateOfExpenseInput}
-            placeholder="Saisisla date de la dépense"/>
-          </div>
-          <div className="DateOfExpense-input">
-            <h3>Total de la facture</h3>
-            <input  
-            onChange={onChangeTotalAmount} 
-            type="text" 
-            value={totalAmountInput}
-            placeholder="Saisisla le total de la dépense"/>
-          </div>
-          <div className="ConcernedColocs-input">
-            <h3>Colocs concernés</h3>
-            <input  
-            onChange={onChangeConcernedColocs} 
-            type="text" 
-            value={concernedColocsInput}
-            placeholder=" Saisis les colocs concernés"/>
-          </div>
-          <button link='/Profil' onClick={fetchFunction} title='Valider'>Valider</button>
-        </div>
-     </div>
+      </div>
     </>
   )
 };

@@ -10,12 +10,6 @@
   height: 150px;
 }
 
-#title-jumbo {
-  position: absolute;
-  z-index: 2;
-  color: black;
-  font-size: 48px;
-}
 
 #box-tool {
   display: flex;
@@ -33,38 +27,7 @@
   margin-bottom: 20px;
   text-align: center;
 }
-.card-body {
-  position: relative;
-  width: 150px;
-  height: 120px;
-  border-radius: 6px;
-  background-color: #ffff;
-  border: 1px solid lightgray;
-  box-shadow: 2px 2px 0.1rem #ffff;
-  padding: 0;
-}
 
-.card-header {
-  position: relative;
-  text-align: center;
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-  font-size: 24px;
-  font-weight: 400;
-  color: black;
-  text-transform: uppercase;
-}
-.header-one {
-  background-color:skyblue;
-}
-
-.card-content {
-  position: relative;
-  text-align: center;
-  font-weight: 400;
-  font-size: 40px;
-}
 /*---------Card 2-------*/
 .body-two {
   display: block;
