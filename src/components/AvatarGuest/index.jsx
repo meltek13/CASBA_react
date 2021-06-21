@@ -8,7 +8,7 @@ import data from "data/status.json";
 
 const MiniAvatar = ({ user }) => {
     const [avatar, setAvatar] = useState("")
-    const [status, setStatus] = useState("status")
+    const [status, setStatus] = useState("status :")
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { Option } = Select;
 
@@ -77,14 +77,16 @@ const MiniAvatar = ({ user }) => {
             <img className="avatar_dashboard" src={avatar} alt="avatar" />
           </label>
         </Popover>
-
+        <p>Status </p>
         <Select defaultValue={user.status}   style={{ width: 150 }} onChange={update}>
             {data.status.map(data => 
                 <Option value={data.status} key={data.slug}>{data.status}</Option>
              )}
         </Select>
+        <p>Solde : 0€</p>
+        
       </div>
-
+        
       <Modal
         title={user.email}
         visible={isModalVisible}
