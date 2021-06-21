@@ -5,20 +5,19 @@ import Calendar from "../calendar";
 import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
-import Cookies from "js-cookie";
 import { Popover } from "antd";
 import MiniAvatar from "components/AvatarGuest";
+import url from "data/url.json"
+import Cookies from "js-cookie";
 
 const Dashboard = () => {
   const { id } = useParams();
   const [news, setNews] = useState(true);
   const [picture, setPicture] = useState(false);
-  const [avatar, setAvatar] = useState("");
-  const [avatarAdmin, setAvatarAdmin] = useState("");
   const [calendar, setCalendar] = useState(false);
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
-
+  
   let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
   let dateFormatDay = new Intl.DateTimeFormat("fr-FR", { weekday:"short", day: "numeric" });
   let newDate = new Date();
@@ -60,7 +59,7 @@ const Dashboard = () => {
   };
 
   const findUserRoom = () => {
-    fetch("http://localhost:3000/flatsharings/" + id + "/dashboard")
+    fetch(url.url + "flatsharings/" + id + "/dashboard")
       .then((response) => response.json())
       .then((response) => {
         Cookies.set("admin_email", response.admin.email);
@@ -76,14 +75,6 @@ const Dashboard = () => {
     <div>
       <h1 id="title-jumbo">Bonjour<span id="Username"> {Cookies.get('admin_email')}</span>
       </h1>
-      <div className="card-body ">
-                <div className="card-header header-one">
-                  {dateFormatMonth.format(newDate)}
-                </div>
-                <div className="card-content">
-                  {dateFormatDay.format(newDate)}
-                </div>
-              </div>
       <div className="nav-dashboard">
         <button onClick={changeNews} className="btn-dashboard-nav">
           <span>Actus coloc</span>
@@ -102,14 +93,14 @@ const Dashboard = () => {
           <span>Dépenses</span>
         </button>
       </div>
-
      
+  
             <div className="Mini_avatar_display">
                 
                 { room?.admin? 
                     (< MiniAvatar user={room.admin} key={room.admin.id}/>)
                         : 
-                    (<Popover content={"non inscrit"}>
+                    (<Popover placement="leftBottom" content={"non inscrit"}>
                         <label for="file">
                             <img
                             className="avatar_dashboard"
@@ -128,7 +119,7 @@ const Dashboard = () => {
                         </div>
                             :
                             <div>
-                        <Popover content={"non inscrit"}>
+                        <Popover placement="leftBottom" content={"non inscrit"}>
                             <label for="file">
                                 <img
                                 className="avatar_dashboard"
@@ -139,16 +130,18 @@ const Dashboard = () => {
                         </Popover> 
                         </div>
                 )} 
-
+ 
             </div>
+           
 
       <div className="content-dashboard">
-        
+        {News && <News /> }
         {picture && <Picture />}
         {calendar && <Calendar />}
         {expense && <Expense />}
       </div>
       <div />
+      
     </div>
   );
 };
