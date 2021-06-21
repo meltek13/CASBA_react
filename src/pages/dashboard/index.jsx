@@ -94,7 +94,7 @@ const Dashboard = () => {
                 { room?.admin? 
                     (< MiniAvatar user={room.admin} key={room.admin.id}/>)
                         : 
-                    (<Popover content={"non inscrit"}>
+                    (<Popover placement="leftBottom" content={"non inscrit"}>
                         <label for="file">
                             <img
                             className="avatar_dashboard"
@@ -113,7 +113,7 @@ const Dashboard = () => {
                         </div>
                             :
                             <div>
-                        <Popover content={"non inscrit"}>
+                        <Popover placement="leftBottom" content={"non inscrit"}>
                             <label for="file">
                                 <img
                                 className="avatar_dashboard"

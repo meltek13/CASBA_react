@@ -72,13 +72,13 @@ const MiniAvatar = ({ user }) => {
     <div>
           
       <div className="AvatarAndStatus">
-        <Popover content={user.email}>
+        <Popover placement="leftBottom" content={user.email}>
           <label htmlFor="file" onClick={showModal}>
             <img className="avatar_dashboard" src={avatar} alt="avatar" />
           </label>
         </Popover>
 
-        <Select defaultValue={user.status} className="SelectStatus" style={{ width: 150 }} onChange={update}>
+        <Select defaultValue={user.status}   style={{ width: 150 }} onChange={update}>
             {data.status.map(data => 
                 <Option value={data.status} key={data.slug}>{data.status}</Option>
              )}

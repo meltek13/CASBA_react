@@ -97,7 +97,10 @@
 }
 
 .input-nickname {
-  border: none;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-radius: 0px;
   width: 140px;
 }
 
