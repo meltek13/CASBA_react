@@ -39,7 +39,7 @@
   height: 120px;
   border-radius: 6px;
   background-color: #ffff;
-  border: 1px solid #ee6c4d;
+  border: 1px solid lightgray;
   box-shadow: 2px 2px 0.1rem #ffff;
   padding: 0;
 }
@@ -52,11 +52,11 @@
   border-radius: 5px;
   font-size: 24px;
   font-weight: 400;
-  color: #ffff;
+  color: black;
   text-transform: uppercase;
 }
 .header-one {
-  background-color: #ee6c4d;
+  background-color:skyblue;
 }
 
 .card-content {

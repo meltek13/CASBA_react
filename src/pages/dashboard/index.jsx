@@ -5,7 +5,6 @@ import Calendar from "../calendar";
 import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
-import Cookies from "js-cookie";
 import { Popover } from "antd";
 import MiniAvatar from "components/AvatarGuest";
 
@@ -13,8 +12,6 @@ const Dashboard = () => {
   const { id } = useParams();
   const [news, setNews] = useState(true);
   const [picture, setPicture] = useState(false);
-  const [avatar, setAvatar] = useState("");
-  const [avatarAdmin, setAvatarAdmin] = useState("");
   const [calendar, setCalendar] = useState(false);
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
@@ -87,8 +84,8 @@ const Dashboard = () => {
           <span>Dépenses</span>
         </button>
       </div>
-
      
+  
             <div className="Mini_avatar_display">
                 
                 { room?.admin? 
@@ -124,8 +121,9 @@ const Dashboard = () => {
                         </Popover> 
                         </div>
                 )} 
-
+ 
             </div>
+           
 
       <div className="content-dashboard">
         {news && <News />}
@@ -134,6 +132,7 @@ const Dashboard = () => {
         {expense && <Expense />}
       </div>
       <div />
+      
     </div>
   );
 };
