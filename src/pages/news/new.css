@@ -1,0 +1,12 @@
+.calendarDisplay{
+    display: flex;
+}
+
+.boxEventToday{
+    border: 1px solid skyblue;
+    border-radius: 2px;
+    width: 100%;
+    margin-left: 15px;
+    padding: 10px
+}
+

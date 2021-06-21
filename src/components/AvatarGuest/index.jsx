@@ -4,11 +4,11 @@ import Cookies from "js-cookie";
 import { Modal, Popover, Select } from 'antd';
 import "./avatarGuest.css"
 import data from "data/status.json";
-
+import url from "data/url.json"
 
 const MiniAvatar = ({ user }) => {
     const [avatar, setAvatar] = useState("")
-    const [status, setStatus] = useState("status")
+    const [status, setStatus] = useState("status :")
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { Option } = Select;
 
@@ -26,7 +26,7 @@ const MiniAvatar = ({ user }) => {
   };
 
 
-        fetch("http://localhost:3000/members/" + user.id, {
+        fetch(url.url + "members/" + user.id, {
           method: "get",
           headers: {
             Authorization: Cookies.get("token"),
@@ -35,7 +35,6 @@ const MiniAvatar = ({ user }) => {
         })
           .then((response) => response.json())
           .then((response) => {
-              console.log(response)
             if (response.avatar) {
                  let link = response.avatar.url;
                  let linkStart = link.substring(0, 16);
@@ -56,7 +55,7 @@ const MiniAvatar = ({ user }) => {
             const formData = new FormData();
               formData.append("status", status);
 
-            fetch("http://localhost:3000/members/" + user.id, {
+            fetch(url.url + "members/" + user.id, {
               method: "PUT",
               body: formData,
             })
@@ -72,19 +71,21 @@ const MiniAvatar = ({ user }) => {
     <div>
           
       <div className="AvatarAndStatus">
-        <Popover content={user.email}>
+        <Popover placement="leftBottom" content={user.email}>
           <label htmlFor="file" onClick={showModal}>
             <img className="avatar_dashboard" src={avatar} alt="avatar" />
           </label>
         </Popover>
-
-        <Select defaultValue={user.status} className="SelectStatus" style={{ width: 150 }} onChange={update}>
+        <p>Status </p>
+        <Select defaultValue={user.status}   style={{ width: 150 }} onChange={update}>
             {data.status.map(data => 
                 <Option value={data.status} key={data.slug}>{data.status}</Option>
              )}
         </Select>
+        <p>Solde : 0€</p>
+        
       </div>
-
+        
       <Modal
         title={user.email}
         visible={isModalVisible}

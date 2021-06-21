@@ -6,7 +6,7 @@ import { logOut } from "store-redux/index";
 import "./editProfil.css";
 import { Form, Input, Button} from "antd";
 import {  MailOutlined } from "@ant-design/icons";
-
+import url from "data/url.json"
 
 const EditProfil = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const EditProfil = () => {
     const formData = new FormData();
       formData.append("email", email);
 
-    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
     })
@@ -32,7 +32,7 @@ const EditProfil = () => {
 
 
   const deleteAccount = () => {
-    fetch(`http://localhost:3000/members/` + Cookies.get("current_user_id"), {
+    fetch(url.url +`members/` + Cookies.get("current_user_id"), {
       method: "delete",
       headers: {
         Authorization: Cookies.get("token"),

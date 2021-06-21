@@ -10,6 +10,7 @@ import MiniAvatar from "components/AvatarGuest";
 import url from "data/url.json"
 import Cookies from "js-cookie";
 
+
 const Dashboard = () => {
   const { id } = useParams();
   const [news, setNews] = useState(true);
