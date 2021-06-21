@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./dashboard.css";
 import Calendar from "../calendar";
 import News from "pages/news";
@@ -142,7 +143,7 @@ const Dashboard = () => {
            
 
       <div className="content-dashboard">
-        
+        {news && <News />} 
         {picture && <Picture />}
         {calendar && <Calendar />}
         {expense && <Expense />}
