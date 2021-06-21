@@ -123,23 +123,23 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h1>Inscription</h1>
-      <Alert
-        className="invisible2"
-        message="cet email est déjà associé à un compte"
-        type="warning"
-        showIcon
-        closable
-      />
-      <Alert
-        className="invisible"
-        message="Mot de passe ou email invalide"
-        type="error"
-        showIcon
-        closable
-      />
+    <div className="center">
       <div className="Register">
+        <h1>Inscription</h1>
+        <Alert
+          className="invisible2"
+          message="cet email est déjà associé à un compte"
+          type="warning"
+          showIcon
+          closable
+        />
+        <Alert
+          className="invisible"
+          message="Mot de passe ou email invalide"
+          type="error"
+          showIcon
+          closable
+        />
         <Form
           {...layout}
           name="basic"

@@ -4,8 +4,7 @@ html {
 }
 #app-container {
   position: relative;
-  display: flex;
-  justify-content: center;
+
   align-items: center;
   width: 920px !important;
   height: 100vh !important;
@@ -14,8 +13,10 @@ html {
   border-right: 0.2px solid rgb(216, 216, 216);
   padding: 20px;
 }
-
-
+.center {
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 1200px) {
   #app-container {
     width: 700px !important;
