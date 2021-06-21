@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { logIn } from "store-redux/index";
 import { Link } from "react-router-dom";
 import { Form, Input, Button, Checkbox, Alert } from "antd";
-
+import url from "data/url.json"
 import "./sign_in.css";
 
 const SignIn = (user_id) => {
@@ -41,7 +41,7 @@ const SignIn = (user_id) => {
   };
 
   const findFlat = (user_id) => {
-    fetch("http://localhost:3000/flatsharings", {
+    fetch(url.url + "flatsharings", {
       method: "get",
     })
       .then((response) => response.json())
@@ -69,7 +69,7 @@ const SignIn = (user_id) => {
       password,
     };
 
-    fetch("http://localhost:3000/users/sign_in", {
+    fetch(url.url + "users/sign_in", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import "./flatPicture.css";
+import url from "data/url.json"
 
 const FlatPictureUser = ({ user }) => {
   const [flatPicture, setFlatPicture] = useState("");
   const [email, setEmail] = useState("");
 
-  fetch("http://localhost:3000/members/" + user.id, {
+  fetch(url.url + "members/" + user.id, {
     method: "get",
     headers: {
       Authorization: Cookies.get("token"),

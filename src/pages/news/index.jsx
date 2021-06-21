@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Event from "components/eventByDay"
 import "./new.css"
+import url from "data/url.json"
 
 const News = () => {
   let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
@@ -15,19 +16,13 @@ const News = () => {
   let fulldate = JSON.stringify([`${month} ${day} ${year}`])
   let newDate = new Date()
 
- 
-  
-
- 
 const FindEvent = () =>{
-  fetch("http://localhost:3000/dashboard/" + id + "/calendars")
+  fetch(url.url + "dashboard/" + id + "/calendars")
       .then((response) => response.json())
       .then((response) => {
       response.forEach(event => {if (JSON.stringify([event.timedate.split(" ")[1] + " " + event.timedate.split(" ")[2] + " " + event.timedate.split(" ")[3]]) === fulldate){
         setEvent((oldArray) => [...oldArray, event])
       }} )
-      
-        
 
       });
     }

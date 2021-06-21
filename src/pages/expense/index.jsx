@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import Expense_svg from 'assets/img/expenses.svg'
-
+import url from "data/url.json"
 
 const Expense = () => {
   const [titleInput, settitleInput] = useState("");
@@ -23,7 +23,7 @@ const Expense = () => {
 
   const fetchFunction = () => {
     
-    fetch("http://localhost:3000/expenses", {
+    fetch(url.url + "expenses", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

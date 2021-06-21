@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Input } from "antd";
 import "./profil.css";
 import { EditOutlined, SettingFilled } from "@ant-design/icons";
+import url from "data/url.json"
 
 const Profil = () => {
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ const Profil = () => {
   };
 
   const fetchFunction = () => {
-    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "get",
       headers: {
         Authorization: Cookies.get("token"),
@@ -51,7 +52,7 @@ const Profil = () => {
   const updateNickname = (nickname) => {
     const formData = new FormData();
     formData.append("nickname", nickname);
-    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
     })
@@ -64,7 +65,7 @@ const Profil = () => {
   const upload = (avatar) => {
     const formData = new FormData();
     formData.append("avatar", avatar);
-    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
     })

@@ -5,7 +5,7 @@ import { Form, Input, Button, Space } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import Add_colocs_svg from "assets/img/add_coloc.svg";
 import "./new_flatSharing.css";
-import { useEffect } from "react";
+import url from "data/url.json"
 
 const NewFlatSharing = () => {
   const [title, setTitle] = useState("");
@@ -13,9 +13,9 @@ const NewFlatSharing = () => {
   const history = useHistory();
   const admin_id = Cookies.get("current_user_id");
   const { TextArea } = Input;
-
+ 
   const fetchFunction = (array_email_invitation) => {
-    fetch("http://localhost:3000/flatsharings", {
+    fetch(url.url + "flatsharings", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const NewFlatSharing = () => {
     const formData = new FormData();
       formData.append("flatsharing_id", Id_flat);
 
-    fetch("http://localhost:3000/members/" + Cookies.get("current_user_id"), {
+    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
     })

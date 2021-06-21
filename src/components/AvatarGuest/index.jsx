@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { Modal, Popover, Select } from 'antd';
 import "./avatarGuest.css"
 import data from "data/status.json";
-
+import url from "data/url.json"
 
 const MiniAvatar = ({ user }) => {
     const [avatar, setAvatar] = useState("")
@@ -26,7 +26,7 @@ const MiniAvatar = ({ user }) => {
   };
 
 
-        fetch("http://localhost:3000/members/" + user.id, {
+        fetch(url.url + "members/" + user.id, {
           method: "get",
           headers: {
             Authorization: Cookies.get("token"),
@@ -55,7 +55,7 @@ const MiniAvatar = ({ user }) => {
             const formData = new FormData();
               formData.append("status", status);
 
-            fetch("http://localhost:3000/members/" + user.id, {
+            fetch(url.url + "members/" + user.id, {
               method: "PUT",
               body: formData,
             })
