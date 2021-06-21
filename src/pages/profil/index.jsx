@@ -112,8 +112,7 @@ const Profil = () => {
                 {avatar ? (
                   <img
                     className="avatar-img"
-                    //src={decodeUrlForImage(avatar)}
-                    src={avatar}
+                    src={decodeUrlForImage(avatar)}
                     alt="avatar"
                   />
                 ) : (
