@@ -8,6 +8,8 @@ import Expense from "pages/expense";
 import { Popover } from "antd";
 import MiniAvatar from "components/AvatarGuest";
 import url from "data/url.json"
+import Cookies from "js-cookie";
+
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -74,14 +76,6 @@ const Dashboard = () => {
     <div>
       <h1 id="title-jumbo">Bonjour<span id="Username"> {Cookies.get('admin_email')}</span>
       </h1>
-      <div className="card-body ">
-                <div className="card-header header-one">
-                  {dateFormatMonth.format(newDate)}
-                </div>
-                <div className="card-content">
-                  {dateFormatDay.format(newDate)}
-                </div>
-              </div>
       <div className="nav-dashboard">
         <button onClick={changeNews} className="btn-dashboard-nav">
           <span>Actus coloc</span>
@@ -142,7 +136,7 @@ const Dashboard = () => {
            
 
       <div className="content-dashboard">
-        
+        {News && <News /> }
         {picture && <Picture />}
         {calendar && <Calendar />}
         {expense && <Expense />}
