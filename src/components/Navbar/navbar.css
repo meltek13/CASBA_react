@@ -1,12 +1,11 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  position: absolute;
   height: auto;
   width: 150px;
-  left: -150px;
   top: 50px;
-
+  left: 250px;
+  position: fixed;
   border-right: 0.2px solid rgb(216, 216, 216);
 }
 .content-link {
@@ -32,19 +31,20 @@
   background-color: whitesmoke;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1600px) {
   .navbar {
-    height: 100%;
-    width: 140px;
     border: none;
-
-    margin-left: 10px;
-  }
-  .content-link {
-    padding: 10px;
+    margin-left: -50px;
   }
   .link {
     font-size: 14px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    border: none;
+    margin-left: -150px;
   }
 }
 
