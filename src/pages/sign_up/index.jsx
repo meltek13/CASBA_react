@@ -85,7 +85,7 @@ const SignUp = () => {
         password,
       };
 
-      fetch(url.url + "users", {
+      fetch("https://casba-rails-api.herokuapp.com/users", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
