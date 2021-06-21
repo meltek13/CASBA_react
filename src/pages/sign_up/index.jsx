@@ -57,7 +57,7 @@ const SignUp = () => {
   };
 
   const findFlat = (user_id) => {
-    fetch("https://casba-rails-api.herokuapp.com/flatsharings", {
+    fetch(url.url + "flatsharings", {
       method: "get",
     })
       .then((response) => response.json())
@@ -85,7 +85,7 @@ const SignUp = () => {
         password,
       };
 
-      fetch("https://casba-rails-api.herokuapp.com/users", {
+      fetch(url.url + "users", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
