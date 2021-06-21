@@ -1,15 +1,21 @@
-
-
-.btn-signup{
+.btn-signup {
   background-color: skyblue;
   border: none;
   width: 100%;
   font-size: 25px;
 }
-.invisible{
+.invisible {
   display: none;
 }
 
-.invisible2{
+.invisible2 {
   display: none;
+}
+
+.Register h1 {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.Register {
+  margin-top: 40px;
 }

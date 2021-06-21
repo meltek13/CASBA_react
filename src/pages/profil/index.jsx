@@ -86,7 +86,7 @@ const Profil = () => {
   };
 
   return (
-    <div>
+    <div className="center">
       <div className="profil-card">
         <div>
           <form>

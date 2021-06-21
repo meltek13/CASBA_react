@@ -99,17 +99,17 @@ const SignIn = (user_id) => {
   };
 
   return (
-    <div>
-      <h1>Connexion</h1>
-      <Alert
-        className="alert invisible"
-        message="Mot de passe ou email invalide"
-        type="warning"
-        showIcon
-        closable
-      />
-
+    <div className="center">
       <div className="Register">
+        <h1>Connexion</h1>
+        <Alert
+          className="alert invisible"
+          message="Mot de passe ou email invalide"
+          type="warning"
+          showIcon
+          closable
+        />
+
         <Form
           {...layout}
           name="basic"
