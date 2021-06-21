@@ -18,7 +18,7 @@ const Navbar = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    fetch(url.url + "users/sign_out", {
+    fetch("https://casba-rails-api.herokuapp.com/users/sign_out", {
       method: "delete",
       headers: {
         Authorization: Cookies.get("token"),
