@@ -12,7 +12,8 @@ import Cookies from "js-cookie";
 
 const Landing_page = () => {
   const loged = useSelector((state) => state.user.loged);
-
+  const createdColocation = Cookies.get("flat_id")
+  
   return (
     <>
       <div id="container-lp">
@@ -66,6 +67,9 @@ const Landing_page = () => {
               </Link>
             </div>
           )}
+          {createdColocation ? (<Link to="/expense">
+                <button className="btn-cta-blue">Créer une dépense</button>
+              </Link>):("")}
         </div>
 
         <div>

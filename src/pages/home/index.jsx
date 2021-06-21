@@ -3,7 +3,7 @@ import "./home.css";
 
 const Home = () => {
   let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
-  let dateFormatDay = new Intl.DateTimeFormat("fr-FR", { day: "numeric" });
+  let dateFormatDay = new Intl.DateTimeFormat("fr-FR", { weekday:"short", day: "numeric" });
 
   let newDate = new Date();
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <div id="container-home">
         <div id="jumbo-bg-home">
           <h1 id="title-jumbo">
-            Bonjour<span id="Username"> Username,</span>{" "}
+            Bonjour<span id="Username"> Username,</span>
           </h1>
         </div>
         <hr />

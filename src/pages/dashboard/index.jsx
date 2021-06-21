@@ -19,6 +19,10 @@ const Dashboard = () => {
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
 
+  let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
+  let dateFormatDay = new Intl.DateTimeFormat("fr-FR", { weekday:"short", day: "numeric" });
+  let newDate = new Date();
+
   const changeNews = () => {
     setNews(true);
     setPicture(false);
@@ -59,6 +63,7 @@ const Dashboard = () => {
     fetch("http://localhost:3000/flatsharings/" + id + "/dashboard")
       .then((response) => response.json())
       .then((response) => {
+        Cookies.set("admin_email", response.admin.email);
         setRoom(response);
       });
   };
@@ -69,6 +74,16 @@ const Dashboard = () => {
 
   return (
     <div>
+      <h1 id="title-jumbo">Bonjour<span id="Username"> {Cookies.get('admin_email')}</span>
+      </h1>
+      <div className="card-body ">
+                <div className="card-header header-one">
+                  {dateFormatMonth.format(newDate)}
+                </div>
+                <div className="card-content">
+                  {dateFormatDay.format(newDate)}
+                </div>
+              </div>
       <div className="nav-dashboard">
         <button onClick={changeNews} className="btn-dashboard-nav">
           <span>Actus coloc</span>
@@ -128,7 +143,7 @@ const Dashboard = () => {
             </div>
 
       <div className="content-dashboard">
-        {news && <News />}
+        
         {picture && <Picture />}
         {calendar && <Calendar />}
         {expense && <Expense />}
