@@ -21,13 +21,12 @@ import AddRoomMate from "pages/addRoomMate";
 
 
 const App = () => (
-  <div >
+
     <Router>
       <Provider store={store}>
-        <div>
-          <Navbar />
-        </div>
+ 
         <div id="app-container">
+         <Navbar />
           <Switch>
             <Route path="/" exact>
               <LandingPage />
@@ -67,7 +66,7 @@ const App = () => (
         </div>
       </Provider>
     </Router>
-  </div>
+
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));

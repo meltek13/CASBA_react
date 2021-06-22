@@ -1,14 +1,7 @@
 .nav-dashboard {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 5%;
-}
-#title-jumbo {
-  position: relative;
-  z-index: 2;
-  color: black;
-  font-size: 48px;
-  margin-bottom: 0px;
 }
 
 .Mini_avatar_display {
@@ -26,7 +19,7 @@
 .btn-dashboard-nav {
   background-color: white;
   border: none;
-  font-size: 4rem;
+  font-size: 3.5rem;
   transition: all 100ms ease-in-out;
 }
 @media (max-width: 840px) {
@@ -55,11 +48,11 @@
   margin: 15px;
   width: 100px;
   position: absolute;
-  top: 15px;
-  left: -10px;
+  top: 65px;
+  left: -15px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .title-dashboard {
   margin-top: 5%;
@@ -112,7 +105,5 @@
   font-weight: 400;
   font-size: 32px;
 }
-
-
 
 

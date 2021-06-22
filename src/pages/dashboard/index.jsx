@@ -14,6 +14,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
+
 const Dashboard = () => {
   const { id } = useParams();
   const [news, setNews] = useState(true);
@@ -21,11 +22,16 @@ const Dashboard = () => {
   const [calendar, setCalendar] = useState(false);
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
+
   const [guest, setGuest] = useState('')
   const history = useHistory();
 
+
   let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
-  let dateFormatDay = new Intl.DateTimeFormat("fr-FR", { weekday:"short", day: "numeric" });
+  let dateFormatDay = new Intl.DateTimeFormat("fr-FR", {
+    weekday: "short",
+    day: "numeric",
+  });
   let newDate = new Date();
 
   const changeNews = () => {
@@ -73,19 +79,16 @@ const Dashboard = () => {
       });
   };
 
+
   useEffect(() => {
     findUserRoom();
   }, []);
 
-
-  
   return (
     <div>
-      <h1 id="title-jumbo">Bonjour<span id="Username"> {Cookies.get('admin_email')}</span>
-      </h1>
       <div className="nav-dashboard">
         <button onClick={changeNews} className="btn-dashboard-nav">
-          <span>Actus coloc</span>
+          <span>Actus</span>
           <strong>📰</strong>
         </button>
         <button onClick={changePicture} className="btn-dashboard-nav">
@@ -101,7 +104,7 @@ const Dashboard = () => {
           <span>Dépenses</span>
         </button>
       </div>
-     
+
   
             <div className="Mini_avatar_display">
                 
@@ -157,14 +160,14 @@ const Dashboard = () => {
 
             </div>
 
+
       <div className="content-dashboard">
-        {news && <News />} 
+        {news && <News />}
         {picture && <Picture />}
         {calendar && <Calendar />}
         {expense && <Expense />}
       </div>
       <div />
-      
     </div>
   );
 };
