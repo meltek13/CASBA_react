@@ -18,6 +18,7 @@ import Home from "pages/home";
 import Expenses from "pages/expense";
 import Succes from "pages/succes";
 import AddRoomMate from "pages/addRoomMate";
+import Error403 from "pages/error403"
 
 const App = () => (
   <Router>
@@ -57,6 +58,9 @@ const App = () => (
           </Route>
           <Route path="/add-room-mate/:id">
             <AddRoomMate />
+          </Route>
+          <Route path="/error-403">
+            <Error403 />
           </Route>
         </Switch>
         <Footer />
