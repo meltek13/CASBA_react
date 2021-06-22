@@ -24,7 +24,7 @@ const FlatPictureUser = ({ user }) => {
         let linkMiddle = ":3000/";
         let linkEnd = link.substring(17, link.length);
         let constructor = linkStart + linkMiddle + linkEnd;
-        setFlatPicture(constructor);
+        setFlatPicture(response.flat_picture.url);
         setEmail(response.email);
       } else {
         setFlatPicture("");

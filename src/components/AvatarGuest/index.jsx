@@ -41,7 +41,7 @@ const MiniAvatar = ({ user }) => {
                  let linkEnd = link.substring(17, link.length);
                  let constructor = linkStart + linkMiddle + linkEnd;
           
-                setAvatar(constructor)
+                setAvatar(response.flat_picture.url)
                
             } else {
                 setAvatar("https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png")
