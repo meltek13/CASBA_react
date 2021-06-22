@@ -68,21 +68,24 @@ const MiniAvatar = ({ user }) => {
 
 
   return (
-    <div>
-          
+  <div>   
       <div className="AvatarAndStatus">
+
         <Popover placement="leftBottom" content={user.email}>
           <label htmlFor="file" onClick={showModal}>
             <img className="avatar_dashboard" src={avatar} alt="avatar" />
           </label>
         </Popover>
+
         <p>Status </p>
-        <Select defaultValue={user.status}   style={{ width: 150 }} onChange={update}>
-            {data.status.map(data => 
-                <Option value={data.status} key={data.slug}>{data.status}</Option>
-             )}
-        </Select>
-        <p>Solde : 0€</p>
+          {user.id === parseInt(Cookies.get("current_user_id"))? 
+            <Select defaultValue={user.status}   style={{ width: 150 }} onChange={update}>
+              {data.status.map(data => <Option value={data.status} key={data.slug}>{data.status}</Option>)}
+            </Select>
+          :
+            <p style={{ width: 150 }}>{user.status}</p>}
+       
+            <p>Solde : 0€</p>
         
       </div>
         
