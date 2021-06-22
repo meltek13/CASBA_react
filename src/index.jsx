@@ -19,7 +19,6 @@ import Expenses from "pages/expense";
 import Succes from "pages/succes";
 import AddRoomMate from "pages/addRoomMate";
 
-
 const App = () => (
 
     <Router>

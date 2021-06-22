@@ -72,12 +72,12 @@ const MiniAvatar = ({ user }) => {
 
         <Popover placement="leftBottom" content={user.email}>
           <label htmlFor="file" onClick={showModal}>
-            <img className="avatar_dashboard" style={ user?.color ? {border: "4px solid " + user?.color} : {border:"4px solid rgb(245, 245, 38"}}
+            <img className="avatar_dashboard" style={ user?.color ? {border: "4px solid " + user?.color} : {border:"4px solid rgb(245, 245, 38)"}}
  src={avatar} alt="avatar" />
           </label>
         </Popover>
 
-        <p>Status : </p>
+        <p></p>
         {parseInt(Cookies.get("current_user_id")) === user.id? 
         <Select defaultValue={user.status}   style={{ width: 150 }} onChange={update}>
             {data.status.map(data => 
@@ -85,9 +85,9 @@ const MiniAvatar = ({ user }) => {
              )}
         </Select>
         :
-        <p style={{ width: 150 }}>{user.status}</p>}
+        <p  style={{ width: 150 }}>{user.status}</p>}
         
-        <p>Solde : 0€</p>
+        <p classeName="soldeMarge"> 0€</p>
 
         
       </div>
