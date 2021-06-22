@@ -13,6 +13,7 @@ const Profil = () => {
   const [avatar, setAvatar] = useState("");
   const history = useHistory();
   const [uploadAvatar, setUploadAvatar] = useState("");
+  const [color, setColor] = useState("")
 
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
@@ -35,10 +36,13 @@ const Profil = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
+        
         setEmail(response.email);
         if (response.nickname !== "") {
           setNickName(response.nickname);
+        }
+        if(response.color !== ""){
+          setColor(response.color);
         }
         if (response.avatar !== null) {
           setAvatar(response.avatar.url);
@@ -61,6 +65,15 @@ const Profil = () => {
         console.log(response);
       });
   };
+
+  const changeColor = () => {
+    const formData = new FormData();
+    formData.append("color", color);
+    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
+      method: "PUT",
+      body: formData,
+    })
+  }
 
   const upload = (avatar) => {
     const formData = new FormData();
@@ -101,8 +114,7 @@ const Profil = () => {
                 multiple={false}
                 onChange={(event) => upload(event.target.files[0])}
               />
-
-              <label className="avatar" htmlFor="file">
+              <label style={ color ? {border: "4px solid " + color} : {border:"4px solid rgb(245, 245, 38"}} className="avatar" htmlFor="file"> 
                 <div className="cross">
                   <div className="tt">
                     <div className="horizontal"></div>
@@ -135,12 +147,26 @@ const Profil = () => {
                 placeholder={nickName}
                 onChange={(event) => updateNickname(event.target.value)}
               />
+              
               <Link to="#" className="edit-email" onClick={borderSolid}>
                 <EditOutlined />
               </Link>
+              
               <div onClick={borderNone} type="submit"></div>
+              
             </form>
           </p>
+          <div>
+              <strong>Couleur favorite :</strong>
+                <Input 
+                  className="input-color edit-email"
+                  placeholder='color'
+                  onChange={e => setColor(e.target.value)}
+                />
+                <Link to="#" className="edit-email" onClick={changeColor}>
+                  <EditOutlined />
+                </Link>
+          </div>  
           <p>
             <strong>Email :</strong> {email}
             <Link className="edit-email" to="/edit_profil">

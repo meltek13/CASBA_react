@@ -6,9 +6,14 @@ import Calendar from "../calendar";
 import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
-import { Popover } from "antd";
+import { Popover, Button,Input   } from "antd";
 import MiniAvatar from "components/AvatarGuest";
-import url from "data/url.json";
+import url from "data/url.json"
+import { ArrowRightOutlined, CheckCircleOutlined  } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -17,7 +22,10 @@ const Dashboard = () => {
   const [calendar, setCalendar] = useState(false);
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
-  const [guest, setGuest] = useState("");
+
+  const [guest, setGuest] = useState('')
+  const history = useHistory();
+
 
   let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
   let dateFormatDay = new Intl.DateTimeFormat("fr-FR", {
@@ -71,18 +79,6 @@ const Dashboard = () => {
       });
   };
 
-  const addGuest = () => {
-    console.log(guest.toString());
-    fetch(url.url + "flatsharings/" + id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        pending_invitation: guest.toString(),
-      }),
-    });
-  };
 
   useEffect(() => {
     findUserRoom();
@@ -109,54 +105,62 @@ const Dashboard = () => {
         </button>
       </div>
 
-      <div className="Mini_avatar_display">
-        {room?.admin ? (
-          <MiniAvatar user={room.admin} key={room.admin.id} />
-        ) : (
-          <Popover placement="leftBottom" content={"non inscrit"}>
-            <label for="file">
-              <img
-                className="avatar_dashboard"
-                src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-                alt="avatar"
-              />
-            </label>
-          </Popover>
-        )}
+  
+            <div className="Mini_avatar_display">
+                
+                { room?.admin? 
+                    (< MiniAvatar user={room.admin} key={room.admin.id}/>)
+                        : 
+                    (<Popover placement="leftBottom" content={"non inscrit"}>
+                        <label for="file">
+                            <img
+                            style={{border:"4px solid rgb(245, 245, 38"}}
+                            className="avatar_dashboard"
+                            src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                            alt="avatar"
+                            />
+                        </label>
+                    </Popover> )
+                }
+               
+                 
+                {room?.guest?.map(user => 
+                    verifyPresenceOfData(user)? 
+                        <div>
+                        < MiniAvatar user={user} key={user.id}/>
+                        </div>
+                            :
+                            <div>
+                        <Popover placement="leftBottom" content={"non inscrit"}>
+                            <label for="file">
+                                <img
+                                   style={{border:"4px solid rgb(245, 245, 38"}}
+                                className="avatar_dashboard"
+                                src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                                alt="avatar"
+                                />
+                            </label>
+                        </Popover> 
+                        </div>
+                )} 
+                
+             
+              {parseInt(Cookies.get("current_user_id")) === room?.admin?.id && 
+              
+              <div className="add-guest">
+                <Link  to={'/add-room-mate/' + id }>
+                  <Popover placement="leftBottom" content="Ajouter un collocataire">
+                    <label htmlFor="file">
+                      <img className="avatar_dashboard" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1200px-OOjs_UI_icon_add.svg.png" alt="avatar" />
+                    </label>
+                  </Popover>
+                </Link>
+              </div>
+            }
 
-        {room?.guest?.map((user) =>
-          verifyPresenceOfData(user) ? (
-            <div>
-              <MiniAvatar user={user} key={user.id} />
             </div>
-          ) : (
-            <div>
-              <Popover placement="leftBottom" content={"non inscrit"}>
-                <label for="file">
-                  <img
-                    className="avatar_dashboard"
-                    src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-                    alt="avatar"
-                  />
-                </label>
-              </Popover>
-            </div>
-          )
-        )}
-      </div>
 
-      {parseInt(Cookies.get("current_user_id")) === room?.admin?.id && (
-        <div className="add-guest">
-          <input
-            className="input-guest"
-            onChange={(e) => setGuest(e.target.value)}
-            placeholder="Jean@gmail.com"
-          />
-          <button className="btn-guest" onClick={addGuest}>
-            Ajouter un collocataire
-          </button>
-        </div>
-      )}
+
       <div className="content-dashboard">
         {news && <News />}
         {picture && <Picture />}

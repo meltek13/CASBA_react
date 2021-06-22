@@ -15,46 +15,58 @@ import EditProfil from "pages/editProfil";
 import store from "./store-redux/store.js";
 import LandingPage from "./pages/landingPage/index";
 import Home from "pages/home";
-import Expense from "pages/expense";
+import Expenses from "pages/expense";
+import Succes from "pages/succes";
+import AddRoomMate from "pages/addRoomMate";
+
 
 const App = () => (
-  <Router>
-    <Provider store={store}>
-      <div id="app-container">
-        <Navbar />
-        <Switch>
-          <Route path="/" exact>
-            <LandingPage />
-          </Route>
-          <Route path="/sign_in">
-            <SignIn />
-          </Route>
-          <Route path="/sign_up">
-            <SignUp />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/profil">
-            <Profil />
-          </Route>
-          <Route path="/edit_profil">
-            <EditProfil />
-          </Route>
-          <Route path="/new_flat_sharing">
-            <NewFlatSharing />
-          </Route>
-          <Route path="/dashboard/:id">
-            <Dashboard />
-          </Route>
-          <Route path="/expense">
-            <Expense />
-          </Route>
-        </Switch>
-        <Footer />
-      </div>
-    </Provider>
-  </Router>
+
+    <Router>
+      <Provider store={store}>
+ 
+        <div id="app-container">
+         <Navbar />
+          <Switch>
+            <Route path="/" exact>
+              <LandingPage />
+            </Route>
+            <Route path="/sign_in">
+              <SignIn />
+            </Route>
+            <Route path="/sign_up">
+              <SignUp />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/profil">
+              <Profil />
+            </Route>
+            <Route path="/edit_profil">
+              <EditProfil />
+            </Route>
+            <Route path="/new_flat_sharing">
+              <NewFlatSharing />
+            </Route>
+            <Route path="/dashboard/:id">
+              <Dashboard />
+            </Route>
+            <Route path="/expenses">
+              <Expenses />
+            </Route>
+            <Route path="/succes/:email">
+              <Succes />
+            </Route>
+            <Route path="/add-room-mate/:id">
+              <AddRoomMate />
+            </Route>
+          </Switch>
+          <Footer />
+        </div>
+      </Provider>
+    </Router>
+
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
