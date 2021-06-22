@@ -160,7 +160,7 @@ const Dashboard = () => {
                       <Popover placement="leftBottom" content={"non inscrit"}>
                           <label for="file">
                               <img
-                                 style={{border:"4px solid rgb(245, 245, 38"}}
+                                 style={{border:"3px solid #FFFFB9"}}
                               className="avatar_dashboard"
                               src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
                               alt="avatar"
