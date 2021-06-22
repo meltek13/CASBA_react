@@ -16,6 +16,9 @@ import store from "./store-redux/store.js";
 import LandingPage from "./pages/landingPage/index";
 import Home from "pages/home";
 import Expenses from "pages/expense";
+import Succes from "pages/succes";
+import AddRoomMate from "pages/addRoomMate";
+
 
 const App = () => (
   <div >
@@ -52,6 +55,12 @@ const App = () => (
             </Route>
             <Route path="/expenses">
               <Expenses />
+            </Route>
+            <Route path="/succes/:email">
+              <Succes />
+            </Route>
+            <Route path="/add-room-mate/:id">
+              <AddRoomMate />
             </Route>
           </Switch>
           <Footer />

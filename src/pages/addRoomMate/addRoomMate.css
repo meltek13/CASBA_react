@@ -1,0 +1,21 @@
+.form-add-room-mate {
+    border : 1px solid lightgrey;
+    width: 100%;
+    min-height: 200px;
+    padding: 50px;
+}
+
+.add-guest{
+    display: flex;
+    align-items: baseline;
+  }
+  
+.input-guest{
+    border-radius: 5px 0px 0px 5px;
+    margin-left: 110px;
+  }
+  
+.btn-guest{
+    border-radius: 0px 5px 5px 0px;
+    
+  }

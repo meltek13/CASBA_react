@@ -6,6 +6,7 @@ import url from "data/url.json"
 const FlatPictureUser = ({ user }) => {
   const [flatPicture, setFlatPicture] = useState("");
   const [email, setEmail] = useState("");
+  
 
   fetch(url.url + "members/" + user.id, {
     method: "get",

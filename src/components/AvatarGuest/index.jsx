@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-
 import { Modal, Popover, Select } from 'antd';
 import "./avatarGuest.css"
 import data from "data/status.json";
@@ -68,21 +67,27 @@ const MiniAvatar = ({ user }) => {
 
 
   return (
-    <div>
-          
+  <div>   
       <div className="AvatarAndStatus">
+
         <Popover placement="leftBottom" content={user.email}>
           <label htmlFor="file" onClick={showModal}>
             <img className="avatar_dashboard" src={avatar} alt="avatar" />
           </label>
         </Popover>
-        <p>Status </p>
+
+        <p>Status : </p>
+        {parseInt(Cookies.get("current_user_id")) === user.id? 
         <Select defaultValue={user.status}   style={{ width: 150 }} onChange={update}>
             {data.status.map(data => 
                 <Option value={data.status} key={data.slug}>{data.status}</Option>
              )}
         </Select>
+        :
+        <p style={{ width: 150 }}>{user.status}</p>}
+        
         <p>Solde : 0€</p>
+
         
       </div>
         
