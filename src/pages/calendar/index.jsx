@@ -81,12 +81,15 @@ const Timetable = () => {
                       <p className="text-pop">
                         Description: {elem.description}
                       </p>
+                      {userCreate[0]?.users.map( user => user.id === parseInt(Cookies.get("current_user_id")) &&  user.id === elem.by  &&
+                      
                       <button
                         className="button-delete"
                         onClick={() => destroyEvent(elem.id)}
                       >
                         Supprimer l'evenement
                       </button>
+                      )}
                     </div>
                   )
               )}
