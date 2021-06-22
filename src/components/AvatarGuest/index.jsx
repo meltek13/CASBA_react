@@ -73,7 +73,8 @@ const MiniAvatar = ({ user }) => {
 
         <Popover placement="leftBottom" content={user.email}>
           <label htmlFor="file" onClick={showModal}>
-            <img className="avatar_dashboard" src={avatar} alt="avatar" />
+            <img className="avatar_dashboard" style={ user?.color ? {border: "4px solid " + user?.color} : {border:"4px solid rgb(245, 245, 38"}}
+ src={avatar} alt="avatar" />
           </label>
         </Popover>
 
