@@ -15,7 +15,7 @@ import EditProfil from "pages/editProfil";
 import store from "./store-redux/store.js";
 import LandingPage from "./pages/landingPage/index";
 import Home from "pages/home";
-import Expense from "pages/expense";
+import Expenses from "pages/expense";
 
 const App = () => (
   <div >
@@ -50,8 +50,8 @@ const App = () => (
             <Route path="/dashboard/:id">
               <Dashboard />
             </Route>
-            <Route path="/expense">
-              <Expense />
+            <Route path="/expenses">
+              <Expenses />
             </Route>
           </Switch>
           <Footer />

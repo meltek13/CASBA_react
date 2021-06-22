@@ -1,10 +1,12 @@
 import React from "react";
 import 'pages/expense/expense.css';
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import Expense_svg from 'assets/img/expenses.svg'
-import url from "data/url.json"
+import Expense_svg from 'assets/img/expenses.svg';
+import url from "data/url.json";
+import { Notif_sucess_expense } from "components/Notifications";
+import { Notif_error_expense } from "components/Notifications";
 
 const Expense = () => {
   const [titleInput, settitleInput] = useState("");
@@ -20,11 +22,9 @@ const Expense = () => {
   const [concernedColocsInput, setConcernedColocsInput] = useState([]);
   const onChangeConcernedColocs = event => setConcernedColocsInput(event.target.value);
 
-  const [onSubmit, setOnSubmit] = useState(false);
-
   const ExpenseFetch = () => {
     
-    fetch(url.url + "expenses", {
+    fetch('url.url + "expenses"', {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -43,11 +43,16 @@ const Expense = () => {
       }),
     })
       .then((response) => response.json())
-      .then((response) =>  console.log(response));
+      .then((response) =>  {
+        console.log(response)
+        // if (response.ok == true) {
+        //   Notif_sucess_expense()
+        // } else{
+        //   Notif_error_expense()
+        // }
+      });
+      Notif_sucess_expense()/* en attente de régler prob rechargement de page jute au dessus*/
   };
-
-  
-
   return(
     <>
       <div id="container_expense">
@@ -91,7 +96,7 @@ const Expense = () => {
                                     id="username"
                                     className="c-form__input"
                                     placeholder=" "
-                                    pattern="^[0-9]{1,10}\,"
+                                    pattern="[0-9]{1,5}"
                                     onChange = {onChangeTotalAmount}
                                     value={totalAmountInput}
                                     required/>
@@ -117,9 +122,7 @@ const Expense = () => {
                                     value={concernedColocsInput}
                                     required/>
 
-                  <Link to='/expense-sucess'>
-                    <input id="btn-submit-expense" type="submit" value="créer" onClick={ExpenseFetch}/>
-                  </Link>             
+                    <input id="btn-submit-expense" type="submit" value="créer" onClick={ExpenseFetch}/>          
                   
                   <span className="c-form__groupLabel">Colocs concernées</span>
                   <b className="c-form__border"></b>
