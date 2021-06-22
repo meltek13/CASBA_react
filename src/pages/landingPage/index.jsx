@@ -18,10 +18,28 @@ const Landing_page = () => {
     <>
       <div id="container-lp">
         <div id="jumbo-img">
-          <h1 id="title-page">
-            Bienvenue sur Casba
-            <img id="img-title" src={Home_svg} alt="illustration" />
+         
+          <h1 className="c" id="title-page">
+            C 
+            
           </h1>
+          <h1 className="a" id="title-page">
+            a 
+          </h1>
+          <h1 className="s" id="title-page">
+            s 
+          </h1>
+          <h1 className="b" id="title-page">
+            b
+          </h1>
+          <h1 className="a2" id="title-page">
+            a 
+          </h1>
+          <h1 className="img-effect" id="title-page">
+          <img id="img-title" src={Home_svg} alt="illustration" />
+          </h1>
+          
+
         </div>
         <hr />
         <div id="container-infos">
@@ -30,6 +48,7 @@ const Landing_page = () => {
             <h3 id="title-infos">
               Une application qui te facilite la vie au sein de ta collocation
             </h3>
+            <br/>
             <p id="text-infos">
               Casba c'est une nouvelle façon de participer, d'échanger et de
               partager <br />
@@ -37,6 +56,7 @@ const Landing_page = () => {
               de ce qui se passe dans la collocation. <br />
               Grace aux outils de l'application tu pourras:{" "}
             </p>
+            <br/>
             <ul>
               <li>
                 <strong>Gérer et suivre les dépenses</strong> (courses,
@@ -50,6 +70,7 @@ const Landing_page = () => {
               </li>
             </ul>
           </div>
+          <br/>
           {loged ? (
             !Cookies.get("flat_id") && (
               <div id="btn-cta-group">
@@ -80,9 +101,12 @@ const Landing_page = () => {
         </div>
 
         <div>
+        <br/>
           <hr />
+          <br/>
           <div id="container-cards-infos">
-            <h3 id="title-cards-infos"> Comment ça marche? </h3>
+            <h2 id="title-cards-infos"> Comment ça marche? </h2>
+            <br/>
 
             <div className="container-cards">
               {/*------------Card-----------------*/}
