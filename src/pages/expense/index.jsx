@@ -24,7 +24,7 @@ const Expense = () => {
 
   const ExpenseFetch = () => {
     
-    fetch('url.url + "expenses"', {
+    fetch(url.url + "expenses", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const Expense = () => {
                                     id="username"
                                     className="c-form__input"
                                     placeholder=" "
-                                    pattern="[a-z0-9\s]+"
+                                    pattern="[a-zA-Z0-9\s]+"
                                     onChange= {onChangetitle}
                                     required
                                     value={titleInput}/>
