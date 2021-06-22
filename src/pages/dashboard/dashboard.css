@@ -107,3 +107,47 @@
 }
 
 
+#title-expense-col{
+  position: absolute;
+  right: 0;
+  font-size: 24px;
+}
+
+/*--------Responsive Title---------*/
+
+@media (max-width: 1920px){
+  #title-expense-col{
+    top: 300px;
+    margin-right: 245px;
+  }
+}
+@media (max-width: 1850px){ /*Mac*/
+  #title-expense-col{
+    margin-right: 245px;
+  }
+}
+@media (max-width: 1395px){
+  #title-expense-col{
+    margin-right: 200px;
+  }
+}
+@media (max-width: 1250px){
+  #title-expense-col{
+    margin-right: 150px;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 1000px){
+  #title-expense-col{
+    margin-right: 330px;
+    margin-top: 210px;
+  }
+}
+@media (max-width: 840px){
+  #title-expense-col{
+    margin-right: 350px;
+    margin-top: 270px;
+  }
+}
+/*--------Responsive title---------*/

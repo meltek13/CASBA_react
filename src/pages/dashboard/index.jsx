@@ -12,7 +12,7 @@ import url from "data/url.json"
 import { ArrowRightOutlined, CheckCircleOutlined  } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import DisplayExpense from 'components/Expense'
 
 
 const Dashboard = () => {
@@ -141,6 +141,7 @@ const Dashboard = () => {
                                 />
                             </label>
                         </Popover> 
+                        <DisplayExpense/>
                         </div>
                 )} 
                 
@@ -168,6 +169,7 @@ const Dashboard = () => {
         {expense && <Expense />}
       </div>
       <div />
+      <h2 id="title-expense-col">Dépenses</h2>
     </div>
   );
 };
