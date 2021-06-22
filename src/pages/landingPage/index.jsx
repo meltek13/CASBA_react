@@ -28,7 +28,7 @@ const Landing_page = () => {
           <img id="img-infos" src={Welcome_svg} alt="illustration" />
           <div>
             <h3 id="title-infos">
-              Une application qui te facilite la vie au sein de ta cohabitation
+              Une application qui te facilite la vie au sein de ta collocation
             </h3>
             <p id="text-infos">
               Casba c'est une nouvelle façon de participer, d'échanger et de
@@ -97,7 +97,7 @@ const Landing_page = () => {
                 <div className="img-text-card">
                   <img src={Add_colocs_svg} alt="illustration" />
                 </div>
-                <p className="title-card">Crées ou trouves ta colocation</p>
+                <p className="title-card">Crée ou trouve ta colocation</p>
               </div>
               {/*------------Card-----------------*/}
               <div className="card-infos">
@@ -105,7 +105,7 @@ const Landing_page = () => {
                   <img src={Colocs_svg} alt="illustration" />
                 </div>
                 <p className="title-card">
-                  Invite ou rejoint tes colocataires{" "}
+                  Invite ou rejoins tes colocataires{" "}
                 </p>
               </div>
               {/*------------Card-----------------*/}

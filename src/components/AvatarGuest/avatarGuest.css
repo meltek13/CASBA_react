@@ -14,7 +14,12 @@
   .AvatarAndStatus{
     display:flex;
     align-items: baseline;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around
+   
+  }
+  .soldeMarge{
+    margin-left: 40px;
   }
 
 
