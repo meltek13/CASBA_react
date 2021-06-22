@@ -3,7 +3,7 @@ import 'pages/expense/expense.css';
 import {useState, useEffect} from 'react';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import Expense_svg from 'assets/img/expenses.svg';
+import Expense_svg from 'assets/img/money_colocs.svg';
 import url from "data/url.json";
 import { Notif_sucess_expense } from "components/Notifications";
 import { Notif_error_expense } from "components/Notifications";
