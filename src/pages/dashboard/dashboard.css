@@ -115,3 +115,20 @@
   font-weight: 400;
   font-size: 32px;
 }
+
+.add-guest{
+  width: 100%;
+}
+
+.input-guest{
+  width: 50%;
+}
+.btn-guest{
+  width: 50%;
+  background-color:black;
+  color: aliceblue;
+}
+
+.btn-guest:hover{
+  cursor: pointer;
+}
