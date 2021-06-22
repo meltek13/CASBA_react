@@ -18,7 +18,8 @@ const Dashboard = () => {
   const [calendar, setCalendar] = useState(false);
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
-  
+  const [guest, setGuest] = useState('')
+
   let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
   let dateFormatDay = new Intl.DateTimeFormat("fr-FR", { weekday:"short", day: "numeric" });
   let newDate = new Date();
@@ -68,10 +69,25 @@ const Dashboard = () => {
       });
   };
 
+  const addGuest = () => {
+    console.log(guest.toString())
+    fetch(url.url + "flatsharings/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pending_invitation: guest.toString()
+      }),
+    })
+  }
+
   useEffect(() => {
     findUserRoom();
   }, []);
 
+
+  
   return (
     <div>
       <h1 id="title-jumbo">Bonjour<span id="Username"> {Cookies.get('admin_email')}</span>
@@ -133,8 +149,13 @@ const Dashboard = () => {
                 )} 
  
             </div>
-           
 
+            {parseInt(Cookies.get("current_user_id")) === room?.admin?.id && 
+              <div className='add-guest'>
+                <input className='input-guest' onChange={e => setGuest(e.target.value)} placeholder="Jean@gmail.com"/>
+                <button className='btn-guest' onClick={addGuest}>Ajouter un collocataire</button>
+              </div>
+            }
       <div className="content-dashboard">
         {news && <News />} 
         {picture && <Picture />}
