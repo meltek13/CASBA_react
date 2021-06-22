@@ -126,3 +126,16 @@
   border: 1px;
   outline: none;
 }
+
+.btn-color{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+
+.btn-color:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}

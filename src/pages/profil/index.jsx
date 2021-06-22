@@ -15,6 +15,7 @@ const Profil = () => {
   const history = useHistory();
   const [uploadAvatar, setUploadAvatar] = useState("");
   const [color, setColor] = useState("")
+  const [displayColor, setDisplayColor] = useState(false)
 
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
@@ -165,7 +166,8 @@ const Profil = () => {
             </Link>
           </p>
         </div>
-        <SketchPicker color="#fff" onChange={e => setColor(e.hex)} onChangeComplete={e => changeColor(e.hex)}/>
+        <button className="btn-color" onClick={() => displayColor ?  setDisplayColor(false) : setDisplayColor(true)}>Votre couleur préférée</button>
+        {displayColor && <SketchPicker color="#fff" onChange={e => setColor(e.hex)} onChangeComplete={e => changeColor(e.hex)}/>}
       </div>
     </div>
   );
