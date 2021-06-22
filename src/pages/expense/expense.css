@@ -6,7 +6,6 @@
   align-items: center;
   width: 100% !important;
   height: 100% !important;
-  box-shadow:  1px 1px 5px rgb(201, 201, 201);
 }
 #expense-svg{
   position: relative;
@@ -258,7 +257,7 @@
   right: 1.5px;
   width: 20px;
   height: 3px;
-  background-color: currentColor;
+  background-color: #6C63FF;
 }
 .c-form__nextIcon::before, .c-form__nextIcon::after {
   content: "";
