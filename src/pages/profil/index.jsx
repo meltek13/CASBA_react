@@ -6,6 +6,7 @@ import { Input } from "antd";
 import "./profil.css";
 import { EditOutlined, SettingFilled } from "@ant-design/icons";
 import url from "data/url.json"
+import { SketchPicker } from 'react-color';
 
 const Profil = () => {
   const [email, setEmail] = useState("");
@@ -45,7 +46,7 @@ const Profil = () => {
           setColor(response.color);
         }
         if (response.avatar !== null) {
-          setAvatar(response.avatar.url);
+          setAvatar(response.avatar?.url);
         }
       });
   };
@@ -66,9 +67,9 @@ const Profil = () => {
       });
   };
 
-  const changeColor = () => {
+  const changeColor = (c) => {
     const formData = new FormData();
-    formData.append("color", color);
+    formData.append("color", c);
     fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
@@ -99,6 +100,7 @@ const Profil = () => {
     inputNickname.style.border = "none";
   };
 
+  
   return (
     <div className="center">
       <div className="profil-card">
@@ -155,18 +157,7 @@ const Profil = () => {
               <div onClick={borderNone} type="submit"></div>
               
             </form>
-          </p>
-          <div>
-              <strong>Couleur favorite :</strong>
-                <Input 
-                  className="input-color edit-email"
-                  placeholder='color'
-                  onChange={e => setColor(e.target.value)}
-                />
-                <Link to="#" className="edit-email" onClick={changeColor}>
-                  <EditOutlined />
-                </Link>
-          </div>  
+          </p> 
           <p>
             <strong>Email :</strong> {email}
             <Link className="edit-email" to="/edit_profil">
@@ -174,6 +165,7 @@ const Profil = () => {
             </Link>
           </p>
         </div>
+        <SketchPicker color="#fff" onChange={e => setColor(e.hex)} onChangeComplete={e => changeColor(e.hex)}/>
       </div>
     </div>
   );
