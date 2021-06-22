@@ -108,8 +108,9 @@
 .rightSide {
   display: flex;
   flex-direction: column;
+  margin: 0px 10px 10px 10px;
   top: 30px;
-  left: 1100px;
+  right: 0;
   position: fixed;
   z-index: 1;
   border: 1px solid lightgrey;
