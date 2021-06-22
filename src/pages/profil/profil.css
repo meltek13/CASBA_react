@@ -54,8 +54,8 @@
   position: absolute;
 }
 .avatar-img {
-  height: 200px;
-  width: 200px;
+  height: 203px;
+  width: 202px;
   border-radius: 80%;
   display: block;
   position: absolute;
@@ -111,7 +111,6 @@
   border-radius: 0px;
   width: 100px;
 }
-
 
 .edit-email {
   margin-left: 7px;
