@@ -117,9 +117,9 @@ const Expense = () => {
                                     value={concernedColocsInput}
                                     required/>
 
-                  <Link to='/expense-sucess'>
+                 
                     <input id="btn-submit-expense" type="submit" value="créer" onClick={ExpenseFetch}/>
-                  </Link>             
+                        
                   
                   <span className="c-form__groupLabel">Colocs concernées</span>
                   <b className="c-form__border"></b>
