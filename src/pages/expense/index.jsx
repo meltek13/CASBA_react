@@ -121,8 +121,8 @@ const Expense = () => {
                                     onChange={onChangeConcernedColocs}
                                     value={concernedColocsInput}
                                     required/>
-
-                    <input id="btn-submit-expense" type="submit" value="créer" onClick={ExpenseFetch}/>          
+                 
+                    <input id="btn-submit-expense" type="submit" value="créer" onClick={ExpenseFetch}/>
                   
                   <span className="c-form__groupLabel">Colocs concernées</span>
                   <b className="c-form__border"></b>
