@@ -126,7 +126,7 @@ const Profil = () => {
                 {avatar ? (
                   <img
                     className="avatar-img"
-                    src={avatar}
+                    src={decodeUrlForImage(avatar)}
                     alt="avatar"
                   />
                 ) : (
