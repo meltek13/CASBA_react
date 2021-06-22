@@ -10,17 +10,16 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
-
 const Landing_page = () => {
   const loged = useSelector((state) => state.user.loged);
-  const createdColocation = Cookies.get("flat_id")
-  
+  const createdColocation = Cookies.get("flat_id");
+
   return (
     <>
       <div id="container-lp">
         <div id="jumbo-img">
           <h1 id="title-page">
-            Bienvenue sur Casba{" "}
+            Bienvenue sur Casba
             <img id="img-title" src={Home_svg} alt="illustration" />
           </h1>
         </div>
@@ -52,12 +51,15 @@ const Landing_page = () => {
             </ul>
           </div>
           {loged ? (
-            !Cookies.get("flat_id") &&
-            <div id="btn-cta-group">
-              <Link to="/new_flat_sharing">
-                <button className="btn-cta-blue">Créer une collocation</button>
-              </Link>
-            </div>
+            !Cookies.get("flat_id") && (
+              <div id="btn-cta-group">
+                <Link to="/new_flat_sharing">
+                  <button className="btn-cta-blue">
+                    Créer une collocation
+                  </button>
+                </Link>
+              </div>
+            )
           ) : (
             <div id="btn-cta-group">
               <Link to="/sign_up">
@@ -68,9 +70,13 @@ const Landing_page = () => {
               </Link>
             </div>
           )}
-          {createdColocation ? (<Link to="/expense">
-                <button className="btn-cta-blue">Créer une dépense</button>
-              </Link>):("")}
+          {createdColocation ? (
+            <Link to="/expense">
+              <button className="btn-cta-blue">Créer une dépense</button>
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
 
         <div>
