@@ -67,7 +67,7 @@
   border-radius: 50%;
   margin-top: 5px;
   transition: all 100ms ease-in-out;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .card-body {
@@ -108,33 +108,71 @@
 .rightSide {
   display: flex;
   flex-direction: column;
+  margin: 0px 10px 10px 10px;
   top: 30px;
-  left: 1100px;
+  right: 0;
   position: fixed;
   z-index: 1;
   border: 1px solid lightgrey;
   padding: 20px;
-  box-shadow: 1px 1px 12px #DBDBDB;
+  box-shadow: 1px 1px 12px #dbdbdb;
   width: 320px;
-  
 }
-.StatusSolde{
+
+.StatusSolde {
   display: flex;
   margin-left: 84px;
   justify-content: space-between;
 }
 
-.add-guest{
+.add-guest {
   border: 1px solid lightgrey;
   margin-left: 7px;
   margin-top: 20px;
-  
 }
 
-.add-Room-mate{
-  display:flex;
+.add-Room-mate {
+  display: flex;
   align-items: baseline;
   justify-content: space-between;
   width: 68%;
 }
+.unsubscribe {
+  display: flex;
+  align-self: flex-start;
 
+  width: 100%;
+}
+@media (max-width: 1300px) {
+  .rightSide {
+    width: 310px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .rightSide {
+    width: 270px;
+  }
+}
+@media (max-width: 1000px) {
+  .rightSide {
+    width: 230px;
+  }
+}
+@media (max-width: 980px) {
+  .rightSide {
+    display: block;
+    position: static;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    width: 100%;
+  }
+  .StatusSolde {
+    display: none;
+  }
+  .AvatarAndStatus,
+  .unsubscribe {
+    width: 60% !important;
+  }
+}

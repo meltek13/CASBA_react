@@ -3,7 +3,9 @@ import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import FlatPictureUser from "components/FlatPicture";
-import url from "data/url.json"
+import url from "data/url.json";
+import { Button } from "antd";
+import { DownloadOutlined } from "@ant-design/icons";
 
 const Picture = () => {
   const { id } = useParams();
@@ -47,25 +49,31 @@ const Picture = () => {
 
   return (
     <>
-      <h1>Photos</h1>
       <form>
         <input
           type="file"
           accept="image/*"
           name="file"
           id="file"
+          className="inputfile"
           multiple={false}
           onChange={(event) => upload(event.target.files[0])}
         />
-        <button type="submit" onClick={upload}>
-          Ajouter une photo
-        </button>
+        <Button
+          type="primary"
+          shape="round"
+          icon={<DownloadOutlined />}
+          for="file"
+        >
+          <label for="file" >  Poste ta photo</label>
+        </Button>
+ 
       </form>
       <div>
         {room?.admin ? (
           <FlatPictureUser user={room.admin} key={room.admin.id} />
         ) : (
-          <div>salut</div>
+          <div></div>
         )}
 
         {room?.guest?.map((user) =>
@@ -74,7 +82,7 @@ const Picture = () => {
               <FlatPictureUser user={user} key={user.id} />
             </div>
           ) : (
-            <div>salut</div>
+            <div></div>
           )
         )}
       </div>
