@@ -6,15 +6,13 @@ import Calendar from "../calendar";
 import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
-import { Popover, Button,Input   } from "antd";
+import { Popover, Button, Input } from "antd";
 import MiniAvatar from "components/AvatarGuest";
-import url from "data/url.json"
-import { ArrowRightOutlined, CheckCircleOutlined  } from "@ant-design/icons";
+import url from "data/url.json";
+import { ArrowRightOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Error403 from "pages/error403"
-
-
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -25,9 +23,8 @@ const Dashboard = () => {
   const [room, setRoom] = useState([]);
   const [yourDashboard, setYourDashboard] = useState(false);
 
-  const [guest, setGuest] = useState('')
+  const [guest, setGuest] = useState("");
   const history = useHistory();
-
 
   let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
   let dateFormatDay = new Intl.DateTimeFormat("fr-FR", {
@@ -81,6 +78,7 @@ const Dashboard = () => {
       });
   };
 
+
   const ItisYourDashboard = () => {
     fetch(url.url + "flatsharings/" + id + "/dashboard")
       .then((response) => response.json())
@@ -108,8 +106,9 @@ const Dashboard = () => {
       });
   };
 
+
   useEffect(() => {
-    ItisYourDashboard ();
+    ItisYourDashboard();
     findUserRoom();
   }, []);
 
@@ -118,6 +117,7 @@ const Dashboard = () => {
       {yourDashboard? 
  <div>
       <div className="nav-dashboard">
+
       <button onClick={changeNews} className="btn-dashboard-nav">
         <span>Actus</span>
         <strong>📰</strong>
@@ -144,24 +144,11 @@ const Dashboard = () => {
               <h3>Solde</h3>
               
               </div>
-              <hr className="trait"/>
+      
               
               
-              { room?.admin? 
-                  (< MiniAvatar user={room.admin} key={room.admin.id}/>)
-                      : 
-                  (<Popover placement="leftBottom" content={"non inscrit"}>
-                      <label for="file">
-                          <img
-                          style={{border:"4px solid rgb(245, 245, 38"}}
-                          className="avatar_dashboard"
-                          src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
-                          alt="avatar"
-                          />
-                      </label>
-                  </Popover> )
-              }
-             
+       
+{ room.admin && < MiniAvatar user={room.admin} key={room.admin.id}/> }
                
               {room?.guest?.map(user => 
                   verifyPresenceOfData(user)? 
@@ -169,7 +156,7 @@ const Dashboard = () => {
                       < MiniAvatar user={user} key={user.id}/>
                       </div>
                           :
-                          <div>
+                          <div className="unsubscribe">
                       <Popover placement="leftBottom" content={"non inscrit"}>
                           <label for="file">
                               <img
@@ -199,10 +186,7 @@ const Dashboard = () => {
               </div>
             </div>
           }
-
           </div>
-
-
     <div className="content-dashboard">
       {news && <News />}
       {picture && <Picture />}
@@ -212,8 +196,7 @@ const Dashboard = () => {
     <div />
   </div>
   : <Error403 />}
-  </div>
-      
+  </div>      
   );
 };
 
