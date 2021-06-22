@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 5%;
-
 }
 #title-jumbo {
   position: relative;
@@ -32,7 +31,7 @@
 }
 @media (max-width: 840px) {
   .btn-dashboard-nav {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 }
 .btn-dashboard-nav span {
@@ -79,8 +78,6 @@
   transition: all 100ms ease-in-out;
   cursor:pointer;
 }
-
-
 
 .card-body {
   position: relative;

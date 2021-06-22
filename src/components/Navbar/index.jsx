@@ -6,7 +6,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
 import Home_svg from "assets/img/home.svg";
 import { useHistory } from "react-router-dom";
-import url from "data/url.json"
+import url from "data/url.json";
+import {
+  LoginOutlined,
+  LogoutOutlined,
+  HomeOutlined,
+  UserOutlined,
+  UserAddOutlined,
+  DashboardOutlined,
+} from "@ant-design/icons";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -14,7 +22,7 @@ const Navbar = () => {
   const history = useHistory();
   const flat_id = Cookies.get("flat_id");
   const url_dashboard = "/dashboard/" + flat_id;
-  console.log(flat_id)
+  console.log(flat_id);
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -44,14 +52,20 @@ const Navbar = () => {
       </div>
       {flat_id ? (
         <div className="content-link">
-          <Link className="link" to={url_dashboard}>
+          <Link className="link responsive-nav" to={url_dashboard}>
             Dashboard
+          </Link>
+          <Link className="nav-icon" to={url_dashboard}>
+            <DashboardOutlined />
           </Link>
         </div>
       ) : (
         <div className="content-link">
-          <Link className="link" to="/">
+          <Link className="link responsive-nav" to="/">
             Home
+          </Link>
+          <Link className="nav-icon" to="/">
+            <HomeOutlined />
           </Link>
         </div>
       )}
@@ -59,26 +73,38 @@ const Navbar = () => {
       {loged ? (
         <>
           <div className="content-link">
-            <Link className="link" to="/profil">
+            <Link className="link responsive-nav" to="/profil">
               Mon profil
+            </Link>
+            <Link className="nav-icon" to="/profil">
+              <UserOutlined />
             </Link>
           </div>
           <div className="content-link">
-            <Link to="/" className="link" onClick={handleClick}>
+            <Link to="/" className="link responsive-nav" onClick={handleClick}>
               Deconnecter
+            </Link>
+            <Link to="/" className="nav-icon" onClick={handleClick}>
+              <LogoutOutlined />
             </Link>
           </div>
         </>
       ) : (
         <>
           <div className="content-link">
-            <Link className="link" to="/sign_in">
+            <Link className="link responsive-nav" to="/sign_in">
               Se connecter
+            </Link>
+            <Link className="nav-icon" to="/sign_in">
+              <LoginOutlined />
             </Link>
           </div>
           <div className="content-link">
-            <Link className="link" to="/sign_up">
+            <Link className="link responsive-nav" to="/sign_up">
               S'inscrire
+            </Link>
+            <Link className="nav-icon" to="/sign_up">
+              <UserAddOutlined />
             </Link>
           </div>
         </>
