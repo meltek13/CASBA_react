@@ -3,11 +3,8 @@ html {
   margin: 0;
 }
 #app-container {
-  position: relative;
-
   align-items: center;
   width: 50%;
-  height: 100vh !important;
   margin: auto;
   border-left: 0.2px solid rgb(216, 216, 216);
   border-right: 0.2px solid rgb(216, 216, 216);
@@ -17,21 +14,14 @@ html {
   display: flex;
   justify-content: center;
 }
-@media (max-width: 1200px) {
-  #app-container {
-    height: 100vh !important;
-  }
-}
 
 @media (max-width: 950px) {
   #app-container {
-    height: 100vh !important;
     width: 600px !important;
   }
 }
 @media (max-width: 840px) {
   #app-container {
-    height: 100vh !important;
     width: 100% !important;
     margin-top: 20px;
   }

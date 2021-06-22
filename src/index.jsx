@@ -18,47 +18,43 @@ import Home from "pages/home";
 import Expense from "pages/expense";
 
 const App = () => (
-  <div >
-    <Router>
-      <Provider store={store}>
-        <div>
-          <Navbar />
-        </div>
-        <div id="app-container">
-          <Switch>
-            <Route path="/" exact>
-              <LandingPage />
-            </Route>
-            <Route path="/sign_in">
-              <SignIn />
-            </Route>
-            <Route path="/sign_up">
-              <SignUp />
-            </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/profil">
-              <Profil />
-            </Route>
-            <Route path="/edit_profil">
-              <EditProfil />
-            </Route>
-            <Route path="/new_flat_sharing">
-              <NewFlatSharing />
-            </Route>
-            <Route path="/dashboard/:id">
-              <Dashboard />
-            </Route>
-            <Route path="/expense">
-              <Expense />
-            </Route>
-          </Switch>
-          <Footer />
-        </div>
-      </Provider>
-    </Router>
-  </div>
+  <Router>
+    <Provider store={store}>
+      <div id="app-container">
+        <Navbar />
+        <Switch>
+          <Route path="/" exact>
+            <LandingPage />
+          </Route>
+          <Route path="/sign_in">
+            <SignIn />
+          </Route>
+          <Route path="/sign_up">
+            <SignUp />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/profil">
+            <Profil />
+          </Route>
+          <Route path="/edit_profil">
+            <EditProfil />
+          </Route>
+          <Route path="/new_flat_sharing">
+            <NewFlatSharing />
+          </Route>
+          <Route path="/dashboard/:id">
+            <Dashboard />
+          </Route>
+          <Route path="/expense">
+            <Expense />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </Provider>
+  </Router>
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
