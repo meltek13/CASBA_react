@@ -120,20 +120,28 @@ const Dashboard = () => {
  <div>
       <div className="nav-dashboard">
       <button onClick={changeNews} className="btn-dashboard-nav">
-        <span>Actus</span>
+        <div className="flex-column-nav">
         <strong>📰</strong>
+        <span>Actus</span>
+        </div>
       </button>
       <button onClick={changePicture} className="btn-dashboard-nav">
+      <div className="flex-column-nav">
         <strong>📷</strong>
         <span>Photos</span>
+        </div>
       </button>
-      <button onClick={changeCalendar} className="btn-dashboard-nav">
-        <strong>🗓️</strong>
-        <span>Calendrier</span>
+      <button onClick={changeCalendar} className="btn-dashboard-nav"> 
+      <div className="flex-column-nav">
+       <strong>🗓️</strong>
+       <span>Calendrier</span>
+       </div>
       </button>
       <button onClick={changeExpenses} className="btn-dashboard-nav">
+      <div className="flex-column-nav">
         <strong>💰</strong>
         <span>Dépenses</span>
+        </div>
       </button>
     </div>
     <hr/>
