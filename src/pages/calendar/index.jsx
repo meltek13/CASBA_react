@@ -166,7 +166,7 @@ const Timetable = () => {
         </>
       )}
       <h2>Evenement <strong>à venir</strong></h2>
-            <h2>Evenement <strong>déjà passé</strong></h2>
+      <h2>Evenement <strong>déjà passé</strong></h2>
     </>
   );
 };
