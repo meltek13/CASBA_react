@@ -6,11 +6,9 @@ import Calendar from "../calendar";
 import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
-import { Popover, Button, Input } from "antd";
+import { Popover} from "antd";
 import MiniAvatar from "components/AvatarGuest";
 import url from "data/url.json";
-import { ArrowRightOutlined, CheckCircleOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PageExpense from "pages/display_expense";
 import Error403 from "pages/error403";
@@ -24,15 +22,6 @@ const Dashboard = () => {
   const [room, setRoom] = useState([]);
   const [yourDashboard, setYourDashboard] = useState(false);
 
-  const [guest, setGuest] = useState("");
-  const history = useHistory();
-
-  let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
-  let dateFormatDay = new Intl.DateTimeFormat("fr-FR", {
-    weekday: "short",
-    day: "numeric",
-  });
-  let newDate = new Date();
 
   const changeNews = () => {
     setNews(true);
@@ -83,16 +72,17 @@ const Dashboard = () => {
     fetch(url.url + "flatsharings/" + id + "/dashboard")
       .then((response) => response.json())
       .then((response) => {
+
         if (Cookies.get("current_user_id")) {
           if (parseInt(Cookies.get("current_user_id")) === response.admin.id) {
-            console.log(response.admin.id);
             setYourDashboard(true);
           } else {
             response.guest.forEach((flatmate) => {
               if (flatmate !== null) {
                 if (flatmate.id === parseInt(Cookies.get("current_user_id"))) {
-                  console.log(flatmate);
                   setYourDashboard(true);
+                }
+
                 }
               }
             });
@@ -108,27 +98,38 @@ const Dashboard = () => {
 
   return (
     <div>
-      {yourDashboard ? (
-        <div>
-          <div className="nav-dashboard">
-            <button onClick={changeNews} className="btn-dashboard-nav">
-              <span>Actus</span>
-              <strong>📰</strong>
-            </button>
-            <button onClick={changePicture} className="btn-dashboard-nav">
-              <strong>📷</strong>
-              <span>Photos</span>
-            </button>
-            <button onClick={changeCalendar} className="btn-dashboard-nav">
-              <strong>🗓️</strong>
-              <span>Calendrier</span>
-            </button>
-            <button onClick={changeExpenses} className="btn-dashboard-nav">
-              <strong>💰</strong>
-              <span>Dépenses</span>
-            </button>
-          </div>
-          <hr />
+
+      {yourDashboard? 
+ <div>
+      <div className="nav-dashboard">
+      <button onClick={changeNews} className="btn-dashboard-nav">
+        <div className="flex-column-nav">
+        <strong>📰</strong>
+        <span>Actus</span>
+        </div>
+      </button>
+      <button onClick={changePicture} className="btn-dashboard-nav">
+      <div className="flex-column-nav">
+        <strong>📷</strong>
+        <span>Photos</span>
+        </div>
+      </button>
+      <button onClick={changeCalendar} className="btn-dashboard-nav"> 
+      <div className="flex-column-nav">
+       <strong>🗓️</strong>
+       <span>Calendrier</span>
+       </div>
+      </button>
+      <button onClick={changeExpenses} className="btn-dashboard-nav">
+      <div className="flex-column-nav">
+        <strong>💰</strong>
+        <span>Dépenses</span>
+        </div>
+      </button>
+    </div>
+    <hr/>
+
+
 
           <div className="Mini_avatar_display rightSide">
             <div className="scroll-colloc">

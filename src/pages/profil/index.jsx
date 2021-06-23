@@ -160,10 +160,11 @@ const Profil = () => {
                 <strong>Pseudo :</strong>
               </p>
               <p>
-                <strong>Email :</strong>
-              </p>
-              <p>
                 <strong>Couleur :</strong>
+              </p>
+              <br/>
+              <p className="strongEmail" >
+                <strong >Email :</strong>
               </p>
             </div>
 
@@ -186,14 +187,7 @@ const Profil = () => {
                 </form>
               </p>
 
-              <p className="email">
-                <div> {email}</div>
-                <div>
-                  <Link className="edit-email" to="/edit_profil">
-                    <SettingFilled />
-                  </Link>
-                </div>
-              </p>
+              
 
               <p className="color">
                 <Select
@@ -207,6 +201,15 @@ const Profil = () => {
                     </Option>
                   ))}
                 </Select>
+              </p>
+              <br/>
+              <p className="email">
+                <div> {email}</div>
+                <div>
+                  <Link className="edit-email" to="/edit_profil">
+                    <SettingFilled />
+                  </Link>
+                </div>
               </p>
             </div>
           </div>

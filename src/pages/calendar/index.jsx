@@ -18,6 +18,8 @@ const Timetable = () => {
   const [description, setDescription] = useState("");
   const [event, setEvent] = useState([]);
   const [userCreate, setUserCreate] = useState([]);
+  const [eventComing, setEventComing] = useState([]);
+  const [eventPast, setEventPast] = useState([]);
   const layout = {
     labelCol: {
       span: 8,
@@ -76,10 +78,23 @@ const Timetable = () => {
     window.location.reload(false);
   };
   
-
-  const onFinish = (values) => {
-    console.log(values);
-  };
+  const FindEvent = () =>{
+    fetch(url.url + "dashboard/" + id + "/calendars")
+        .then((response) => response.json())
+        .then((response) => {
+          const date = new Date
+          response.forEach(event => {if (parseInt(event.timedate.split(" ")[2]) > date.getDate()){
+              setEventComing((oldArray) => [...oldArray, event])
+          } } )
+          response.forEach(event => {if (parseInt(event.timedate.split(" ")[2]) < date.getDate()){
+            setEventPast((oldArray) => [...oldArray, event])
+        } } )
+        });
+      }
+  
+      useEffect(() => {
+        FindEvent();
+      }, []);
 
   return (
     <>
@@ -99,7 +114,7 @@ const Timetable = () => {
           Un nouvel évenement à venir ?
         </h2>
         <p>
-          <span className="colorBlue">{value.toISOString().slice(0, 10)}</span> (choisis une date le calendrier)
+          <span className="colorBlue">{value.toISOString().slice(0, 10)}</span> (choisis une date dans le calendrier)
         </p>
         <span>Intitulé</span>
         <Form.Item
@@ -168,8 +183,26 @@ const Timetable = () => {
           </div>
         </>
       )}
-      <h2>Evenement <strong>à venir</strong></h2>
-      <h2>Evenement <strong>déjà passé</strong></h2>
+      <h2 >Événements <strong>à venir</strong></h2>
+
+      <div className="event-coming">
+      {eventComing?.map((event)=> 
+      <div>
+      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]}</span></p> 
+      <p>{event.title} {event.description}</p>
+      </div>
+      )}
+      </div>
+
+
+      <h2>Événements <strong>déjà passé</strong></h2>
+      {eventPast?.map((event)=> 
+      <div>
+      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]}</span></p> 
+      <p>{event.title} {event.description}</p>
+      </div> 
+      )}
+
     </>
   );
 };

@@ -18,11 +18,9 @@ const PageExpense = () => {
       .then((response) => setExpense(response));
   };
 
-  console.log(
-    Expense.sort(function (a, b) {
-      return b - a;
-    })
-  );
+
+  //console.log(Expense.sort(function(a,b){return b - a}));
+
 
   useEffect(() => {
     AllExpenses();
