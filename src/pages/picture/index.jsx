@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import FlatPictureUser from "components/FlatPicture";
 import url from "data/url.json";
-import { Button } from "antd";
+import "./picture.css";
 import { DownloadOutlined } from "@ant-design/icons";
 
 const Picture = () => {
@@ -59,15 +59,10 @@ const Picture = () => {
           multiple={false}
           onChange={(event) => upload(event.target.files[0])}
         />
-        <Button
-          type="primary"
-          shape="round"
-          icon={<DownloadOutlined />}
-          for="file"
-        >
-          <label for="file" >  Poste ta photo</label>
-        </Button>
- 
+
+        <label for="file" className="post-picture">
+          <DownloadOutlined /> Poste ta photo
+        </label>
       </form>
       <div>
         {room?.admin ? (

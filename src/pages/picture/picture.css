@@ -1,0 +1,11 @@
+.post-picture {
+  background-color: rgb(69, 169, 255);
+  color: white;
+  border-radius: 100px;
+  padding: 5px;
+  font-size: 1.1rem;
+}
+.post-picture:hover {
+  background-color: rgb(54, 152, 238);
+  cursor: pointer;
+}
