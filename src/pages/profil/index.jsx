@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { Input } from "antd";
 import "./profil.css";
 import { EditOutlined, SettingFilled } from "@ant-design/icons";
-import url from "data/url.json"
+import url from "data/url.json";
 import Color from "data/colors.json";
-import { Select } from 'antd';
+import { Select } from "antd";
 
 const Profil = () => {
   const [email, setEmail] = useState("");
@@ -15,9 +15,9 @@ const Profil = () => {
   const [avatar, setAvatar] = useState("");
   const history = useHistory();
   const [uploadAvatar, setUploadAvatar] = useState("");
-  const [color, setColor] = useState("")
+  const [color, setColor] = useState("");
   const { Option } = Select;
-  console.log(Color.colors)
+  console.log(Color.colors);
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
     let link = imageUrl;
@@ -39,12 +39,11 @@ const Profil = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        
         setEmail(response.email);
         if (response.nickname !== "") {
           setNickName(response.nickname);
         }
-        if(response.color !== ""){
+        if (response.color !== "") {
           setColor(response.color);
         }
         if (response.avatar !== null) {
@@ -75,11 +74,10 @@ const Profil = () => {
     fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
       body: formData,
-    })
-    .then((response) => {
-      setColor(c)
+    }).then((response) => {
+      setColor(c);
     });
-  }
+  };
 
   const upload = (avatar) => {
     const formData = new FormData();
@@ -105,7 +103,6 @@ const Profil = () => {
     inputNickname.style.border = "none";
   };
 
-  
   return (
     <div className="center">
       <div className="profil-card">
@@ -121,7 +118,15 @@ const Profil = () => {
                 multiple={false}
                 onChange={(event) => upload(event.target.files[0])}
               />
-              <label style={ color ? {border: "4px solid " + color} : {border:"4px solid rgb(245, 245, 38)"}} className="avatar" htmlFor="file"> 
+              <label
+                style={
+                  color
+                    ? { border: "6px solid " + color }
+                    : { border: "6px solid rgb(245, 245, 38)" }
+                }
+                className="avatar"
+                htmlFor="file"
+              >
                 <div className="cross">
                   <div className="tt">
                     <div className="horizontal"></div>
@@ -145,41 +150,66 @@ const Profil = () => {
             </div>
           </form>
         </div>
-       
+
         <div className="profil-card-bottom">
-        <h2 className="title-Profil">Mes informations </h2>
-          <p className="nickname">
-            <strong>Pseudo :</strong>
-            <form>
-              <Input
-                className="input-nickname edit-email"
-                placeholder={nickName}
-                onChange={(event) => updateNickname(event.target.value)}
-              />
-              
-              <Link to="#" className="edit-email" onClick={borderSolid}>
-                <EditOutlined />
-              </Link>
-              
-              <div onClick={borderNone} type="submit"></div>
-              
-            </form>
-          </p> 
-          <p>
-          <strong>Couleur :</strong>
-          <Select defaultValue="Choisis une couleur"   style={{ width: 150 }} onChange={changeColor}>
-            {Color.colors.map(data => 
-          <Option value={data.color} key={data.slug}>{data.slug}</Option>
-             )}
-          </Select>
-          </p>
-          <p>
-            <strong>Email :</strong> {email}
-            <Link className="edit-email" to="/edit_profil">
-              <SettingFilled />
-            </Link>
-          </p>
-          
+          <h2 className="title-Profil">Mes informations </h2>
+
+          <div className="info-profil">
+            <div className="info-left">
+              <p>
+                <strong>Pseudo :</strong>
+              </p>
+              <p>
+                <strong>Email :</strong>
+              </p>
+              <p>
+                <strong>Couleur :</strong>
+              </p>
+            </div>
+
+            <div className="info-right">
+              <p>
+                <form className="pseudo">
+                  <div>
+                    <Input
+                      className="input-nickname edit-email"
+                      placeholder={nickName}
+                      onChange={(event) => updateNickname(event.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <Link to="#" className="edit-email" onClick={borderSolid}>
+                      <EditOutlined />
+                    </Link>
+                    <div onClick={borderNone} type="submit"></div>
+                  </div>
+                </form>
+              </p>
+
+              <p className="email">
+                <div> {email}</div>
+                <div>
+                  <Link className="edit-email" to="/edit_profil">
+                    <SettingFilled />
+                  </Link>
+                </div>
+              </p>
+
+              <p className="color">
+                <Select
+                  defaultValue="Choisis une couleur 🎨"
+                  style={{ width: 165 }}
+                  onChange={changeColor}
+                >
+                  {Color.colors.map((data) => (
+                    <Option value={data.color} key={data.slug}>
+                      {data.slug}
+                    </Option>
+                  ))}
+                </Select>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
