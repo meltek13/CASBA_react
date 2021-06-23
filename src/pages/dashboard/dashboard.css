@@ -109,19 +109,17 @@
   display: flex;
   flex-direction: column;
   margin: 0px 10px 10px 10px;
-  top: 30px;
+  top: 135px;
   right: 0;
   position: fixed;
   z-index: 1;
-  border: 1px solid lightgrey;
   padding: 20px;
-  box-shadow: 1px 1px 12px #dbdbdb;
   width: 320px;
 }
 
 .StatusSolde {
   display: flex;
-  margin-left: 84px;
+  margin-bottom:15px;
   justify-content: space-between;
 }
 

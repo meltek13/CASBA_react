@@ -45,8 +45,9 @@ const Landing_page = () => {
         <div id="container-infos">
           <img id="img-infos" src={Welcome_svg} alt="illustration" />
           <div>
+            <br/>
             <h3 id="title-infos">
-              Une application qui te facilite la vie au sein de ta collocation
+              Votre collocation à l'honneur
             </h3>
             <br/>
             <p id="text-infos">
@@ -59,14 +60,13 @@ const Landing_page = () => {
             <br/>
             <ul>
               <li>
-                <strong>Gérer et suivre les dépenses</strong> (courses,
-                factures...)
+                <strong>Gérer les dépenses et répartir les factures</strong> 
               </li>
               <li>
-                <strong>Poster des photos</strong>{" "}
+                <strong>Partager des photos</strong>{" "}
               </li>
               <li>
-                <strong> Mettre un évennement dans le calendrier commun</strong>
+                <strong>S'informer des evenements à venir grace à l'agenda</strong>
               </li>
             </ul>
           </div>

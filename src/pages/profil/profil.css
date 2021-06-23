@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  height: 400px;
+  width: 320px;
+  height: 470px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 70px;
 }
@@ -88,7 +88,7 @@
 
 .profil-card-bottom {
   margin-top: 25px;
-  align-self: flex-start;
+  align-self: center;
   margin-left: 20px;
 }
 
@@ -126,3 +126,5 @@
   border: 1px;
   outline: none;
 }
+
+

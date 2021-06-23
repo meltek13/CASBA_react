@@ -140,14 +140,13 @@ const Dashboard = () => {
 
           <div className="Mini_avatar_display rightSide">
             <div className="StatusSolde">
+              <h3>Colloc</h3>
               <h3>Status</h3>
               <h3>Solde</h3>
-              
+             
               </div>
-      
-              
-              
-       
+             
+
 { room.admin && < MiniAvatar user={room.admin} key={room.admin.id}/> }
                
               {room?.guest?.map(user => 

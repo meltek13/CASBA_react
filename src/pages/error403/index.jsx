@@ -15,7 +15,7 @@ const Error403 = ()=>{
    <Result
     status="403"
     title="403"
-    subTitle="Desolé, mais tu n'est pas autorisé à voir cette page"
+    subTitle="Desolé, mais tu n'est pas autorisé à aller sur cette page"
     extra={<Button type="primary" onClick={back}>Retour</Button>}
   />
 
