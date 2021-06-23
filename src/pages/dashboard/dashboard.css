@@ -12,7 +12,6 @@
   background-color: white;
   border: none;
   font-size: 3.5rem;
-  
 }
 @media (max-width: 840px) {
   .btn-dashboard-nav {
@@ -24,18 +23,18 @@
   font-size: 1rem;
   cursor: pointer;
 }
-.btn-dashboard-nav strong{
+.btn-dashboard-nav strong {
   transition: all 200ms ease-in-out;
 }
-.btn-dashboard-nav:hover strong{
+.btn-dashboard-nav:hover strong {
   cursor: pointer;
   transform: scale(1.2);
 }
 .btn-dashboard-nav:hover strong {
   filter: blur(0.5px);
 }
-.flex-column-nav{
-  display:flex;
+.flex-column-nav {
+  display: flex;
   flex-direction: column;
 }
 
@@ -46,7 +45,9 @@
 
 .avatar_dashboard {
   min-height: 40px;
-  max-height: 39px;
+  max-height: 40px;
+  min-width: 40px;
+  max-width: 40px;
   border-radius: 50%;
   transition: all 100ms ease-in-out;
   cursor: pointer;
