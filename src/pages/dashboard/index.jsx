@@ -12,7 +12,9 @@ import url from "data/url.json";
 import { ArrowRightOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import PageExpense from 'pages/display_expense';
 import Error403 from "pages/error403"
+
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -117,7 +119,6 @@ const Dashboard = () => {
       {yourDashboard? 
  <div>
       <div className="nav-dashboard">
-
       <button onClick={changeNews} className="btn-dashboard-nav">
         <span>Actus</span>
         <strong>📰</strong>
@@ -165,7 +166,8 @@ const Dashboard = () => {
                               alt="avatar"
                               />
                           </label>
-                      </Popover> 
+                      </Popover>
+                        <PageExpense/>
                       </div>
               )} 
               
@@ -193,6 +195,7 @@ const Dashboard = () => {
       {expense && <Expense />}
     </div>
     <div />
+    <h2 id="title-expense-col">Dépenses</h2>
   </div>
   : <Error403 />}
   </div>      

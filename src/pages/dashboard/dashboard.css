@@ -105,6 +105,55 @@
   font-size: 32px;
 }
 
+
+/*---------Title Expense Side---------*/
+
+#title-expense-col{
+  position: absolute;
+  right: 0;
+  font-size: 24px;
+}
+
+/*--------Responsive Title---------*/
+
+@media (max-width: 1920px){
+  #title-expense-col{
+    top: 320px;
+    margin-right: 355px;
+  }
+}
+@media (max-width: 1850px){ /*Mac*/
+  #title-expense-col{
+    margin-right: 235px;
+  }
+}
+@media (max-width: 1395px){
+  #title-expense-col{
+    margin-right: 200px;
+  }
+}
+@media (max-width: 1250px){
+  #title-expense-col{
+    margin-right: 150px;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 1000px){
+  #title-expense-col{
+    margin-right: 605px;
+    margin-top: 260px;
+  }
+}
+@media (max-width: 840px){
+  #title-expense-col{
+    margin-right: 345px;
+    margin-top: 310px;
+  }
+}
+/*--------Responsive title---------*/
+
+
 .rightSide {
   display: flex;
   flex-direction: column;
@@ -138,7 +187,6 @@
 .unsubscribe {
   display: flex;
   align-self: flex-start;
-
   width: 100%;
 }
 @media (max-width: 1300px) {
