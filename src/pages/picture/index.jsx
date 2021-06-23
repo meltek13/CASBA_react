@@ -49,7 +49,7 @@ const Picture = () => {
 
   return (
     <>
-      <form>
+      <form className="Picture">
         <input
           type="file"
           accept="image/*"
@@ -63,24 +63,25 @@ const Picture = () => {
         <label for="file" className="post-picture">
           <DownloadOutlined /> Poste ta photo
         </label>
-      </form>
-      <div>
-        {room?.admin ? (
-          <FlatPictureUser user={room.admin} key={room.admin.id} />
-        ) : (
-          <div></div>
-        )}
 
-        {room?.guest?.map((user) =>
-          verifyPresenceOfData(user) ? (
-            <div>
-              <FlatPictureUser user={user} key={user.id} />
-            </div>
+        <div className="flat-pic">
+          {room?.admin ? (
+            <FlatPictureUser user={room.admin} key={room.admin.id} />
           ) : (
             <div></div>
-          )
-        )}
-      </div>
+          )}
+
+          {room?.guest?.map((user) =>
+            verifyPresenceOfData(user) ? (
+              <div>
+                <FlatPictureUser user={user} key={user.id} />
+              </div>
+            ) : (
+              <div></div>
+            )
+          )}
+        </div>
+      </form>
     </>
   );
 };

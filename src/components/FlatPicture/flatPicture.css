@@ -1,6 +1,14 @@
 .flat-picture {
-  width: 100%;
+  width: 200px;
   height: auto;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px lightgray;
 }
 
-
+@media (max-width: 840px) {
+  .flat-picture {
+    width: 150px;
+    height: 150px;
+  }
+}
