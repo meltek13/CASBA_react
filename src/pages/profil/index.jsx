@@ -145,7 +145,9 @@ const Profil = () => {
             </div>
           </form>
         </div>
+       
         <div className="profil-card-bottom">
+        <h2 className="title-Profil">Mes informations </h2>
           <p className="nickname">
             <strong>Pseudo :</strong>
             <form>

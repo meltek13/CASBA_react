@@ -11,6 +11,15 @@ export const Notif_sucess_expense = () => {
   })
 }
 
+export const Notif_sucess_event = () => {
+  const notyf = new Notyf();
+  notyf.success({
+    message: 'Votre évenement à été ajouté au calendrier',
+    duration: 3000,
+    icon: false
+  })
+}
+
 export const Notif_error_expense = () => {
   const notyf = new Notyf();
   notyf.error({
