@@ -49,8 +49,6 @@ const MiniAvatar = ({ user }) => {
           });
         
           const update = (status) => {
-            
-            console.log(status)
             const formData = new FormData();
               formData.append("status", status);
 

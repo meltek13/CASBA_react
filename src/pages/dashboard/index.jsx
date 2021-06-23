@@ -6,11 +6,9 @@ import Calendar from "../calendar";
 import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
-import { Popover, Button, Input } from "antd";
+import { Popover} from "antd";
 import MiniAvatar from "components/AvatarGuest";
 import url from "data/url.json";
-import { ArrowRightOutlined, CheckCircleOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PageExpense from 'pages/display_expense';
 import Error403 from "pages/error403"
@@ -25,15 +23,6 @@ const Dashboard = () => {
   const [room, setRoom] = useState([]);
   const [yourDashboard, setYourDashboard] = useState(false);
 
-  const [guest, setGuest] = useState("");
-  const history = useHistory();
-
-  let dateFormatMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
-  let dateFormatDay = new Intl.DateTimeFormat("fr-FR", {
-    weekday: "short",
-    day: "numeric",
-  });
-  let newDate = new Date();
 
   const changeNews = () => {
     setNews(true);
@@ -88,14 +77,14 @@ const Dashboard = () => {
 
           if(Cookies.get("current_user_id")) {
             if (parseInt(Cookies.get("current_user_id")) === response.admin.id){
-              console.log(response.admin.id)
+              
               setYourDashboard(true)
             } 
             else {
               response.guest.forEach((flatmate)=>{
                 if (flatmate !== null){
                   if (flatmate.id === parseInt(Cookies.get("current_user_id"))){
-                    console.log(flatmate)
+                   
                     setYourDashboard(true)
                   }
                 }

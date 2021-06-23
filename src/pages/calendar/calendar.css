@@ -45,7 +45,6 @@
 .popUp{
   display: flex;
   align-content: space-between;
-  flex-direction: column;
   width: 100%;
   margin-top: 20px;
 }
@@ -83,4 +82,9 @@
 
 .colorBlue{
   color: #1990FF;
+}
+
+.event-coming{
+  margin-top: 20px;
+  border: 1px solid lightgrey;
 }
