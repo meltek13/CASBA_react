@@ -6,7 +6,7 @@ import Calendar from "../calendar";
 import News from "pages/news";
 import Picture from "pages/picture";
 import Expense from "pages/expense";
-import { Popover} from "antd";
+import { Popover } from "antd";
 import MiniAvatar from "components/AvatarGuest";
 import url from "data/url.json";
 import { Link } from "react-router-dom";
@@ -21,7 +21,6 @@ const Dashboard = () => {
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
   const [yourDashboard, setYourDashboard] = useState(false);
-
 
   const changeNews = () => {
     setNews(true);
@@ -72,7 +71,6 @@ const Dashboard = () => {
     fetch(url.url + "flatsharings/" + id + "/dashboard")
       .then((response) => response.json())
       .then((response) => {
-
         if (Cookies.get("current_user_id")) {
           if (parseInt(Cookies.get("current_user_id")) === response.admin.id) {
             console.log(response.admin.id);
@@ -82,10 +80,8 @@ const Dashboard = () => {
             response.guest.forEach((flatmate) => {
               if (flatmate !== null) {
                 if (flatmate.id === parseInt(Cookies.get("current_user_id"))) {
-
                   console.log(flatmate);
                   setYourDashboard(true);
-
                 }
               }
             });
@@ -101,13 +97,12 @@ const Dashboard = () => {
 
   return (
     <div>
-
       {yourDashboard ? (
         <div>
           <div className="nav-dashboard">
             <button onClick={changeNews} className="btn-dashboard-nav">
-              <span>Actus</span>
               <strong>📰</strong>
+              <span>Actus</span>
             </button>
             <button onClick={changePicture} className="btn-dashboard-nav">
               <strong>📷</strong>
@@ -123,8 +118,6 @@ const Dashboard = () => {
             </button>
           </div>
           <hr />
-
-
 
           <div className="Mini_avatar_display rightSide">
             <div className="scroll-colloc">
