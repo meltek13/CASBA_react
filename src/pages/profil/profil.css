@@ -54,8 +54,8 @@
   position: absolute;
 }
 .avatar-img {
-  height: 203px;
-  width: 202px;
+  height: 199px;
+  width: 199px;
   border-radius: 80%;
   display: block;
   position: absolute;
@@ -115,10 +115,6 @@
 .edit-email {
   margin-left: 7px;
 }
-.nickname {
-  display: flex;
-  align-items: baseline;
-}
 
 .border {
   border-color: rgb(208, 233, 255);
@@ -127,4 +123,33 @@
   outline: none;
 }
 
-
+.info-profil {
+  display: flex;
+  margin-top: 25px;
+}
+.info-right {
+  display: flex;
+  flex-direction: column;
+  margin-top: -5px;
+  margin-left: 10px;
+}
+.info-left {
+  text-align: right;
+  margin-left: -10px;
+}
+.email {
+  margin-top: -4px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.color {
+  margin-top: -6px;
+  margin-left: 5px;
+}
+.pseudo {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: baseline;
+}
