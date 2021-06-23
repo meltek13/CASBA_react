@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
 import "./editProfil.css";
-import { Form, Input, Button} from "antd";
-import {  MailOutlined } from "@ant-design/icons";
-import url from "data/url.json"
+import { Form, Input, Button } from "antd";
+import { MailOutlined } from "@ant-design/icons";
+import url from "data/url.json";
 
 const EditProfil = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ const EditProfil = () => {
     e.preventDefault();
 
     const formData = new FormData();
-      formData.append("email", email);
+    formData.append("email", email);
 
     fetch(url.url + "members/" + Cookies.get("current_user_id"), {
       method: "PUT",
@@ -30,9 +30,8 @@ const EditProfil = () => {
       });
   };
 
-
   const deleteAccount = () => {
-    fetch(url.url +`members/` + Cookies.get("current_user_id"), {
+    fetch(url.url + `members/` + Cookies.get("current_user_id"), {
       method: "delete",
       headers: {
         Authorization: Cookies.get("token"),
@@ -49,45 +48,47 @@ const EditProfil = () => {
   };
 
   return (
-    <div className="editProfil">
-      <Form
-        name="normal_login"
-        className="login-form"
-        initialValues={{
-          remember: true,
-        }}
-      >
-        <Form.Item
-          name="email"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Email!",
-            },
-          ]}
+    <div className="Editp">
+      <div className="editProfil">
+        <Form
+          name="normal_login"
+          className="login-form"
+          initialValues={{
+            remember: true,
+          }}
         >
-          <Input
-            prefix={<MailOutlined className="site-form-item-icon" />}
-            type="email"
-            placeholder="Email"
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </Form.Item>
-
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
-            onClick={update}
+          <Form.Item
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Email!",
+              },
+            ]}
           >
-            Modifier mon profil
-          </Button>
-          <a href="/sign_up" onClick={deleteAccount}>
-            Supprimer mon compte
-          </a>
-        </Form.Item>
-      </Form>
+            <Input
+              prefix={<MailOutlined className="site-form-item-icon" />}
+              type="email"
+              placeholder="Email"
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </Form.Item>
+
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+              onClick={update}
+            >
+              Modifier mon profil
+            </Button>
+            <a href="/sign_up" onClick={deleteAccount}>
+              Supprimer mon compte
+            </a>
+          </Form.Item>
+        </Form>
+      </div>
     </div>
   );
 };
