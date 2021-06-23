@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import "./flatPicture.css";
-import url from "data/url.json"
+import url from "data/url.json";
 
 const FlatPictureUser = ({ user }) => {
   const [flatPicture, setFlatPicture] = useState("");
   const [email, setEmail] = useState("");
-  
 
   fetch(url.url + "members/" + user.id, {
     method: "get",
@@ -39,7 +38,6 @@ const FlatPictureUser = ({ user }) => {
           src={flatPicture}
           alt="photos de la colloc"
         />
-        <p>Poste de: {email}</p>
       </>
     );
   } else {
