@@ -1,10 +1,10 @@
-.card-expense-body{
+.card-expense-body {
   position: relative;
   display: flex;
   align-items: center;
-  width: 280px;
+  width: 100%;
   height: auto;
-  background-color: #D1CEFF;
+  background-color: #d1ceff;
   border-radius: 5px;
   padding: 8px;
   top: 0px;
@@ -14,36 +14,37 @@
   transition: all 150ms ease-in-out;
   margin-bottom: 5px;
 }
-.card-expense-body:hover{
+.card-expense-body:hover {
   left: 5px;
 }
 
-#img-card-svg{
+#img-card-svg {
   width: auto;
   height: 45px;
-  background-color: #A8A2FD;
+  background-color: #a8a2fd;
   border-radius: 5px;
   margin-left: 5px;
   padding: 5px;
 }
 
-.infos-display-container{
+.infos-display-container {
   position: relative;
   margin-left: 8px;
 }
-.tile-display-expense, .text-display-expense{
+.tile-display-expense,
+.text-display-expense {
   position: relative;
   width: auto;
   height: auto;
   margin: 0;
   padding: 0;
-} 
+}
 
-.tile-display-expense{
+.tile-display-expense {
   font-size: 18px;
   bottom: 3px;
 }
-.text-display-expense{
+.text-display-expense {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,50 +55,3 @@
   padding: 1px;
   bottom: 3px;
 }
-/*--------Responsive---------*/
-
-@media (max-width: 1920px){
-  .card-expense-body{
-  margin-right: 10px;
-  width: 100%;
-  }
-  
-}
-@media (max-width: 1850px){
-  .card-expense-body{
-  margin-right: 8px;
-  width: 100%;
-  }
-}
-@media (max-width: 1395px){
-  #expense-container{
-    width: 310px;
-    height: auto;
-    margin-right:5px;
-  }
-}
-@media (max-width: 1250px){
-  .card-expense-body{
-    width: 100%;
-    height: auto;
-    margin-right:5px;
-    
-  }
-}
-
-@media (max-width: 1000px){
-  .card-expense-body{
-    width: 100%;
-    height: auto;
-    right: 0px;
-   
-  }
-}
-@media (max-width: 840px){
-  .card-expense-body{
-    width: 100%;
-    height: auto;
-    left: 0px;
-  }
-}
-/*--------Responsive---------*/

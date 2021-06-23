@@ -6,14 +6,6 @@
 
 .Mini_avatar_display {
   margin-bottom: 15px;
-  justify-content: center;
-}
-.avatar_dashboard:hover {
-  -webkit-transform: scale(1.07);
-  -moz-transform: scale(1.07);
-  -ms-transform: scale(1.07);
-  -o-transform: scale(1.07);
-  transform: scale(1.07);
 }
 
 .btn-dashboard-nav {
@@ -60,14 +52,18 @@
 }
 
 .avatar_dashboard {
-  min-width: 40px;
   min-height: 40px;
-  max-width: 40px;
-  max-height: 40px;
+  max-height: 39px;
   border-radius: 50%;
-  margin-top: 5px;
   transition: all 100ms ease-in-out;
   cursor: pointer;
+}
+.avatar_dashboard:hover {
+  -webkit-transform: scale(1.07);
+  -moz-transform: scale(1.07);
+  -ms-transform: scale(1.07);
+  -o-transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .card-body {
@@ -105,10 +101,9 @@
   font-size: 32px;
 }
 
-
 /*---------Title Expense Side---------*/
 
-#title-expense-col{
+#title-expense-col {
   position: absolute;
   right: 0;
   font-size: 24px;
@@ -116,67 +111,72 @@
 
 /*--------Responsive Title---------*/
 
-@media (max-width: 1920px){
-  #title-expense-col{
+@media (max-width: 1920px) {
+  #title-expense-col {
     top: 490px;
     margin-right: 355px;
   }
 }
-@media (max-width: 1850px){ /*Mac*/
-  #title-expense-col{
+@media (max-width: 1850px) {
+  /*Mac*/
+  #title-expense-col {
     top: 490px;
     margin-right: 250px;
   }
 }
-@media (max-width: 1395px){
-  #title-expense-col{
+@media (max-width: 1395px) {
+  #title-expense-col {
     margin-right: 200px;
   }
 }
-@media (max-width: 1250px){
-  #title-expense-col{
+@media (max-width: 1250px) {
+  #title-expense-col {
     margin-right: 155px;
     margin-top: 50px;
   }
 }
 
-@media (max-width: 1000px){
-  #title-expense-col{
+@media (max-width: 1000px) {
+  #title-expense-col {
     margin-right: 605px;
     margin-top: 205px;
   }
 }
-@media (max-width: 840px){
-  #title-expense-col{
+@media (max-width: 840px) {
+  #title-expense-col {
     margin-right: 345px;
     margin-top: 250px;
   }
 }
 /*--------Responsive title---------*/
 
-
 .rightSide {
   display: flex;
   flex-direction: column;
-  margin: 0px 10px 10px 10px;
-  top: 0;
+  top: 0px;
   right: 0;
   position: fixed;
   z-index: 1;
-  padding: 20px;
-  width: 320px;
+  margin: 20px;
+  width: 330px;
 }
 
 .StatusSolde {
-  display: flex;
-  margin-bottom:15px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.6fr 1.3fr 0.5fr;
+}
+.StatusSolde div {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.alignStatus {
+  padding-left: 45px;
 }
 
 .add-guest {
   border: 1px solid lightgrey;
-  margin-left: 7px;
-  margin-top: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
 .add-Room-mate {
@@ -222,4 +222,30 @@
   .unsubscribe {
     width: 60% !important;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(175, 175, 175);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scroll-colloc {
+  height: 225px;
+  overflow: auto;
 }
