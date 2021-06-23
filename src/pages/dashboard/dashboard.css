@@ -118,13 +118,14 @@
 
 @media (max-width: 1920px){
   #title-expense-col{
-    top: 320px;
+    top: 490px;
     margin-right: 355px;
   }
 }
 @media (max-width: 1850px){ /*Mac*/
   #title-expense-col{
-    margin-right: 235px;
+    top: 490px;
+    margin-right: 250px;
   }
 }
 @media (max-width: 1395px){
@@ -134,7 +135,7 @@
 }
 @media (max-width: 1250px){
   #title-expense-col{
-    margin-right: 150px;
+    margin-right: 155px;
     margin-top: 50px;
   }
 }
@@ -142,13 +143,13 @@
 @media (max-width: 1000px){
   #title-expense-col{
     margin-right: 605px;
-    margin-top: 260px;
+    margin-top: 205px;
   }
 }
 @media (max-width: 840px){
   #title-expense-col{
     margin-right: 345px;
-    margin-top: 310px;
+    margin-top: 250px;
   }
 }
 /*--------Responsive title---------*/
