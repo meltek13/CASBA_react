@@ -46,7 +46,7 @@ console.log(event)
           </div>
         </div>
         <div className="boxEventToday">
-          {event.length !== 0? event.map(x=><Event event={x} key={x.id}/>) : <p>Rien pour aujourd'hui ...</p>}
+          {event.length !== 0? event.map(x=><Event event={x} key={x.id}/>) : <p>Rien de prévus pour aujourd'hui ...</p>}
         </div>
       </div>
     </div>

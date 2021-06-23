@@ -3,7 +3,9 @@ import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import FlatPictureUser from "components/FlatPicture";
-import url from "data/url.json"
+import url from "data/url.json";
+import "./picture.css";
+import { DownloadOutlined } from "@ant-design/icons";
 
 const Picture = () => {
   const { id } = useParams();
@@ -47,37 +49,39 @@ const Picture = () => {
 
   return (
     <>
-      <h1>Photos</h1>
-      <form>
+      <form className="Picture">
         <input
           type="file"
           accept="image/*"
           name="file"
           id="file"
+          className="inputfile"
           multiple={false}
           onChange={(event) => upload(event.target.files[0])}
         />
-        <button type="submit" onClick={upload}>
-          Ajouter une photo
-        </button>
-      </form>
-      <div>
-        {room?.admin ? (
-          <FlatPictureUser user={room.admin} key={room.admin.id} />
-        ) : (
-          <div>salut</div>
-        )}
 
-        {room?.guest?.map((user) =>
-          verifyPresenceOfData(user) ? (
-            <div>
-              <FlatPictureUser user={user} key={user.id} />
-            </div>
+        <label for="file" className="post-picture">
+          <DownloadOutlined /> Poste ta photo
+        </label>
+
+        <div className="flat-pic">
+          {room?.admin ? (
+            <FlatPictureUser user={room.admin} key={room.admin.id} />
           ) : (
-            <div>salut</div>
-          )
-        )}
-      </div>
+            <div></div>
+          )}
+
+          {room?.guest?.map((user) =>
+            verifyPresenceOfData(user) ? (
+              <div>
+                <FlatPictureUser user={user} key={user.id} />
+              </div>
+            ) : (
+              <div></div>
+            )
+          )}
+        </div>
+      </form>
     </>
   );
 };

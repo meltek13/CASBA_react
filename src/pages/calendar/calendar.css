@@ -1,13 +1,16 @@
 .content-calendar{
   margin-top: 20px;
-  
 }
 
 .calendar{
   box-shadow: 1px 1px 12px #DBDBDB;
   border-radius: 5px;
-  
   border: 1px solid lightgray;
+  height: 320px;
+}
+
+.form-global-calendar{
+  display:flex;
 }
 
 .popUpcreate{
@@ -23,10 +26,11 @@
 }
 
 .popUp-container{
-  width: 50%;
+  width: 100%;
   margin: 10px;
   overflow-y:scroll;
   height: 150px;
+  box-shadow: 1px 1px 12px #DBDBDB;
 }
 
 .contain-text{
@@ -41,6 +45,7 @@
 .popUp{
   display: flex;
   align-content: space-between;
+  flex-direction: column;
   width: 100%;
   margin-top: 20px;
 }
@@ -64,4 +69,18 @@
 }
 .button-create:hover{
   cursor: pointer;
+}
+
+.formCalendar2{
+  display: flex;
+  border: 1px solid lightgrey;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: center;
+  margin-left: 10px;
+  box-shadow: 1px 1px 12px #DBDBDB;
+}
+
+.colorBlue{
+  color: #1990FF;
 }

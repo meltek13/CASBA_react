@@ -3,7 +3,7 @@ const Event = ({event}) =>{
 
     return (
         <div> 
-           <p>{event.title}, {event.description}</p>
+           <p>{event.title}: {event.description}</p>
            <hr/>
         </div>
        

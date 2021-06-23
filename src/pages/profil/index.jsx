@@ -6,7 +6,8 @@ import { Input } from "antd";
 import "./profil.css";
 import { EditOutlined, SettingFilled } from "@ant-design/icons";
 import url from "data/url.json"
-import { SketchPicker } from 'react-color';
+import Color from "data/colors.json";
+import { Select } from 'antd';
 
 const Profil = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +16,8 @@ const Profil = () => {
   const history = useHistory();
   const [uploadAvatar, setUploadAvatar] = useState("");
   const [color, setColor] = useState("")
-
+  const { Option } = Select;
+  console.log(Color.colors)
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
     let link = imageUrl;
@@ -74,6 +76,9 @@ const Profil = () => {
       method: "PUT",
       body: formData,
     })
+    .then((response) => {
+      setColor(c)
+    });
   }
 
   const upload = (avatar) => {
@@ -116,7 +121,7 @@ const Profil = () => {
                 multiple={false}
                 onChange={(event) => upload(event.target.files[0])}
               />
-              <label style={ color ? {border: "4px solid " + color} : {border:"4px solid rgb(245, 245, 38"}} className="avatar" htmlFor="file"> 
+              <label style={ color ? {border: "4px solid " + color} : {border:"4px solid rgb(245, 245, 38)"}} className="avatar" htmlFor="file"> 
                 <div className="cross">
                   <div className="tt">
                     <div className="horizontal"></div>
@@ -140,7 +145,9 @@ const Profil = () => {
             </div>
           </form>
         </div>
+       
         <div className="profil-card-bottom">
+        <h2 className="title-Profil">Mes informations </h2>
           <p className="nickname">
             <strong>Pseudo :</strong>
             <form>
@@ -159,13 +166,21 @@ const Profil = () => {
             </form>
           </p> 
           <p>
+          <strong>Couleur :</strong>
+          <Select defaultValue="Choisis une couleur"   style={{ width: 150 }} onChange={changeColor}>
+            {Color.colors.map(data => 
+          <Option value={data.color} key={data.slug}>{data.slug}</Option>
+             )}
+          </Select>
+          </p>
+          <p>
             <strong>Email :</strong> {email}
             <Link className="edit-email" to="/edit_profil">
               <SettingFilled />
             </Link>
           </p>
+          
         </div>
-        <SketchPicker color="#fff" onChange={e => setColor(e.hex)} onChangeComplete={e => changeColor(e.hex)}/>
       </div>
     </div>
   );

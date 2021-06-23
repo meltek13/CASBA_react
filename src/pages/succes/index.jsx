@@ -17,7 +17,7 @@ const backdashboard = () => {
     history.push("/");
     }
 
-
+console.log(email)
 return (
     <div>
     {email === "bad-request"?
@@ -35,7 +35,7 @@ return (
     <Result
      status="success"
      title="Email envoyé"
-     subTitle="Une invitation à été envoyé à {email}" 
+     subTitle={"Une invitation à été envoyé à " + email}
      extra={[
        <Button type="primary" key="back" onClick={backLastPage}>
          Ajouter un autre collocataire

@@ -10,27 +10,46 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
-
 const Landing_page = () => {
   const loged = useSelector((state) => state.user.loged);
-  const createdColocation = Cookies.get("flat_id")
-  
+  const createdColocation = Cookies.get("flat_id");
+
   return (
     <>
       <div id="container-lp">
         <div id="jumbo-img">
-          <h1 id="title-page">
-            Bienvenue sur Casba{" "}
-            <img id="img-title" src={Home_svg} alt="illustration" />
+         
+          <h1 className="c" id="title-page">
+            C 
+            
           </h1>
+          <h1 className="a" id="title-page">
+            a 
+          </h1>
+          <h1 className="s" id="title-page">
+            s 
+          </h1>
+          <h1 className="b" id="title-page">
+            b
+          </h1>
+          <h1 className="a2" id="title-page">
+            a 
+          </h1>
+          <h1 className="img-effect" id="title-page">
+          <img id="img-title" src={Home_svg} alt="illustration" />
+          </h1>
+          
+
         </div>
         <hr />
         <div id="container-infos">
           <img id="img-infos" src={Welcome_svg} alt="illustration" />
           <div>
+            <br/>
             <h3 id="title-infos">
-              Une application qui te facilite la vie au sein de ta cohabitation
+              Votre collocation à l'honneur
             </h3>
+            <br/>
             <p id="text-infos">
               Casba c'est une nouvelle façon de participer, d'échanger et de
               partager <br />
@@ -38,26 +57,30 @@ const Landing_page = () => {
               de ce qui se passe dans la collocation. <br />
               Grace aux outils de l'application tu pourras:{" "}
             </p>
+            <br/>
             <ul>
               <li>
-                <strong>Gérer et suivre les dépenses</strong> (courses,
-                factures...)
+                <strong>Gérer les dépenses et répartir les factures</strong> 
               </li>
               <li>
-                <strong>Poster des photos</strong>{" "}
+                <strong>Partager des photos</strong>{" "}
               </li>
               <li>
-                <strong> Mettre un évennement dans le calendrier commun</strong>
+                <strong>S'informer des evenements à venir grace à l'agenda</strong>
               </li>
             </ul>
           </div>
+          <br/>
           {loged ? (
-            !Cookies.get("flat_id") &&
-            <div id="btn-cta-group">
-              <Link to="/new_flat_sharing">
-                <button className="btn-cta-blue">Créer une collocation</button>
-              </Link>
-            </div>
+            !Cookies.get("flat_id") && (
+              <div id="btn-cta-group">
+                <Link to="/new_flat_sharing">
+                  <button className="btn-cta-blue">
+                    Créer une collocation
+                  </button>
+                </Link>
+              </div>
+            )
           ) : (
             <div id="btn-cta-group">
               <Link to="/sign_up">
@@ -68,15 +91,22 @@ const Landing_page = () => {
               </Link>
             </div>
           )}
-          {createdColocation ? (<Link to="/expense">
-                <button className="btn-cta-blue">Créer une dépense</button>
-              </Link>):("")}
+          {createdColocation ? (
+            <Link to="/expense">
+              <button className="btn-cta-blue">Créer une dépense</button>
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
 
         <div>
+        <br/>
           <hr />
+          <br/>
           <div id="container-cards-infos">
-            <h3 id="title-cards-infos"> Comment ça marche? </h3>
+            <h2 id="title-cards-infos"> Comment ça marche? </h2>
+            <br/>
 
             <div className="container-cards">
               {/*------------Card-----------------*/}
@@ -91,7 +121,7 @@ const Landing_page = () => {
                 <div className="img-text-card">
                   <img src={Add_colocs_svg} alt="illustration" />
                 </div>
-                <p className="title-card">Crées ou trouves ta colocation</p>
+                <p className="title-card">Crée ou trouve ta colocation</p>
               </div>
               {/*------------Card-----------------*/}
               <div className="card-infos">
@@ -99,7 +129,7 @@ const Landing_page = () => {
                   <img src={Colocs_svg} alt="illustration" />
                 </div>
                 <p className="title-card">
-                  Invite ou rejoint tes colocataires{" "}
+                  Invite ou rejoins tes colocataires{" "}
                 </p>
               </div>
               {/*------------Card-----------------*/}
