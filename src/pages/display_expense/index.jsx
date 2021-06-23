@@ -19,7 +19,11 @@ const PageExpense = () => {
   };
 
 
-  //console.log(Expense.sort(function(a,b){return b - a}));
+  //console.log(
+   // Expense.sort(function (a, b) {
+   //   return b - a;
+    //})
+  //);
 
 
   useEffect(() => {

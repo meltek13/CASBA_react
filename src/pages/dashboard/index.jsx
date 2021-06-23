@@ -75,13 +75,16 @@ const Dashboard = () => {
 
         if (Cookies.get("current_user_id")) {
           if (parseInt(Cookies.get("current_user_id")) === response.admin.id) {
+            console.log(response.admin.id);
+
             setYourDashboard(true);
           } else {
             response.guest.forEach((flatmate) => {
               if (flatmate !== null) {
                 if (flatmate.id === parseInt(Cookies.get("current_user_id"))) {
+
+                  console.log(flatmate);
                   setYourDashboard(true);
-                }
 
                 }
               }
@@ -99,35 +102,27 @@ const Dashboard = () => {
   return (
     <div>
 
-      {yourDashboard? 
- <div>
-      <div className="nav-dashboard">
-      <button onClick={changeNews} className="btn-dashboard-nav">
-        <div className="flex-column-nav">
-        <strong>📰</strong>
-        <span>Actus</span>
-        </div>
-      </button>
-      <button onClick={changePicture} className="btn-dashboard-nav">
-      <div className="flex-column-nav">
-        <strong>📷</strong>
-        <span>Photos</span>
-        </div>
-      </button>
-      <button onClick={changeCalendar} className="btn-dashboard-nav"> 
-      <div className="flex-column-nav">
-       <strong>🗓️</strong>
-       <span>Calendrier</span>
-       </div>
-      </button>
-      <button onClick={changeExpenses} className="btn-dashboard-nav">
-      <div className="flex-column-nav">
-        <strong>💰</strong>
-        <span>Dépenses</span>
-        </div>
-      </button>
-    </div>
-    <hr/>
+      {yourDashboard ? (
+        <div>
+          <div className="nav-dashboard">
+            <button onClick={changeNews} className="btn-dashboard-nav">
+              <span>Actus</span>
+              <strong>📰</strong>
+            </button>
+            <button onClick={changePicture} className="btn-dashboard-nav">
+              <strong>📷</strong>
+              <span>Photos</span>
+            </button>
+            <button onClick={changeCalendar} className="btn-dashboard-nav">
+              <strong>🗓️</strong>
+              <span>Calendrier</span>
+            </button>
+            <button onClick={changeExpenses} className="btn-dashboard-nav">
+              <strong>💰</strong>
+              <span>Dépenses</span>
+            </button>
+          </div>
+          <hr />
 
 
 

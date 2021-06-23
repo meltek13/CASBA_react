@@ -40,38 +40,19 @@ const MiniAvatar = ({ user }) => {
         let constructor = linkStart + linkMiddle + linkEnd;
 
 
-        fetch(url.url + "members/" + user.id, {
-          method: "get",
-          headers: {
-            Authorization: Cookies.get("token"),
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            if (response.avatar) {
-                 let link = response.avatar.url;
-                 let linkStart = link.substring(0, 16);
-                 let linkMiddle = ":3000/";
-                 let linkEnd = link.substring(17, link.length);
-                 let constructor = linkStart + linkMiddle + linkEnd;
-          
-                setAvatar(constructor)
-               
-            } else {
-                setAvatar("https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png");
-            }
-          });
-        
-          const update = (status) => {
-            const formData = new FormData();
-              formData.append("status", status);
-
+        setAvatar(constructor);
+      } else {
+        setAvatar(
+          "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+        );
+      }
+    });
 
   const update = (status) => {
     console.log(status);
     const formData = new FormData();
     formData.append("status", status);
+
 
     fetch(url.url + "members/" + user.id, {
       method: "PUT",
