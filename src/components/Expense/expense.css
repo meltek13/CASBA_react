@@ -29,9 +29,10 @@
 
 .infos-display-container{
   position: relative;
-  margin-left: 5px;
+  margin-left: 8px;
 }
 .tile-display-expense, .text-display-expense{
+  position: relative;
   width: auto;
   height: auto;
   margin: 0;
@@ -40,9 +41,9 @@
 
 .tile-display-expense{
   font-size: 18px;
+  bottom: 3px;
 }
 .text-display-expense{
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,6 +52,7 @@
   width: 40px;
   border-radius: 5px;
   padding: 1px;
+  bottom: 3px;
 }
 /*--------Responsive---------*/
 
