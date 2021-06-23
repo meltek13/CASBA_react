@@ -197,7 +197,7 @@ const Profil = () => {
 
               <p className="color">
                 <Select
-                  defaultValue="Choisis une couleur"
+                  defaultValue="Choisis une couleur 🎨"
                   style={{ width: 165 }}
                   onChange={changeColor}
                 >
