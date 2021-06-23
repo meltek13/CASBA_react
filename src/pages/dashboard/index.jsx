@@ -12,8 +12,7 @@ import url from "data/url.json"
 import { ArrowRightOutlined, CheckCircleOutlined  } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import DisplayExpense from 'components/Expense'
-
+import PageExpense from 'pages/display_expense'
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -140,8 +139,8 @@ const Dashboard = () => {
                                 alt="avatar"
                                 />
                             </label>
-                        </Popover> 
-                        <DisplayExpense/>
+                        </Popover>
+                          <PageExpense/>
                         </div>
                 )} 
                 

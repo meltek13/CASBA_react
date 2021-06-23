@@ -106,6 +106,7 @@
   font-size: 32px;
 }
 
+/*---------Title Expense Side---------*/
 
 #title-expense-col{
   position: absolute;
@@ -117,13 +118,13 @@
 
 @media (max-width: 1920px){
   #title-expense-col{
-    top: 300px;
-    margin-right: 245px;
+    top: 320px;
+    margin-right: 355px;
   }
 }
 @media (max-width: 1850px){ /*Mac*/
   #title-expense-col{
-    margin-right: 245px;
+    margin-right: 235px;
   }
 }
 @media (max-width: 1395px){
@@ -140,14 +141,16 @@
 
 @media (max-width: 1000px){
   #title-expense-col{
-    margin-right: 330px;
-    margin-top: 210px;
+    margin-right: 605px;
+    margin-top: 260px;
   }
 }
 @media (max-width: 840px){
   #title-expense-col{
-    margin-right: 350px;
-    margin-top: 270px;
+    margin-right: 345px;
+    margin-top: 310px;
   }
 }
 /*--------Responsive title---------*/
+
+

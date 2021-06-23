@@ -1,5 +1,5 @@
-#expense-container{
-  position: absolute;
+.card-expense-body{
+  position: relative;
   display: flex;
   align-items: center;
   width: 280px;
@@ -7,14 +7,15 @@
   background-color: #D1CEFF;
   border-radius: 5px;
   padding: 8px;
-  right: 0;
-  top: 350px;
+  top: 0px;
+  left: inherit;
   margin-bottom: 5px;
   cursor: pointer;
   transition: all 150ms ease-in-out;
+  margin-bottom: 5px;
 }
-#expense-container:hover{
-  top:345px;
+.card-expense-body:hover{
+  left: 5px;
 }
 
 #img-card-svg{
@@ -38,24 +39,32 @@
 } 
 
 .tile-display-expense{
-  font-size: 16px;
+  font-size: 18px;
 }
 .text-display-expense{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 13px;
-  color: rgb(72, 72, 72);
+  background-color: #fee686;
+  width: 40px;
+  border-radius: 5px;
+  padding: 1px;
 }
 /*--------Responsive---------*/
 
 @media (max-width: 1920px){
-  #expense-container{
+  .card-expense-body{
   margin-right: 10px;
-  width: 460px;
+  width: 100%;
   }
+  
 }
 @media (max-width: 1850px){
-  #expense-container{
+  .card-expense-body{
   margin-right: 8px;
-  width: 345px;
+  width: 100%;
   }
 }
 @media (max-width: 1395px){
@@ -66,29 +75,27 @@
   }
 }
 @media (max-width: 1250px){
-  #expense-container{
-    width: 250px;
+  .card-expense-body{
+    width: 100%;
     height: auto;
     margin-right:5px;
-    margin-top: 50px;
+    
   }
 }
 
 @media (max-width: 1000px){
-  #expense-container{
-    width: 250px;
+  .card-expense-body{
+    width: 100%;
     height: auto;
-    margin-right:5px;
-    right: 185px;
-    margin-top: 200px;
+    right: 0px;
+   
   }
 }
 @media (max-width: 840px){
-  #expense-container{
-    width: 90%;
+  .card-expense-body{
+    width: 100%;
     height: auto;
-    margin-top: 260px;
-    left: 25px;
+    left: 0px;
   }
 }
 /*--------Responsive---------*/

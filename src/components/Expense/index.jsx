@@ -3,17 +3,17 @@ import 'components/Expense/expense.css';
 import Expense_svg from 'assets/img/money_colocs.svg';
 
 
-const DisplayExpense = ({title,text}) => {
+const DisplayExpense = ({title,price}) => {
 
 
   return( <>
-    <div id="expense-container">
+      <div className="card-expense-body">
       <img src={Expense_svg} id="img-card-svg" alt="illustration portefeuille"/>
-      <div className="infos-display-container">
-        <h4 className="tile-display-expense">{title}</h4>
-        <p className="text-display-expense">{text}€</p>
+        <div className="infos-display-container">
+          <h4 className="tile-display-expense">{title}</h4>
+          <p className="text-display-expense">{price}€</p>
+        </div>
       </div>
-    </div>
   </>)
 }
 
