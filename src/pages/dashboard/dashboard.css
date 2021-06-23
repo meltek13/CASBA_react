@@ -20,7 +20,7 @@
   background-color: white;
   border: none;
   font-size: 3.5rem;
-  transition: all 100ms ease-in-out;
+  
 }
 @media (max-width: 840px) {
   .btn-dashboard-nav {
@@ -28,32 +28,25 @@
   }
 }
 .btn-dashboard-nav span {
-  display: none;
+  display: block;
   font-size: 1rem;
+  cursor: pointer;
 }
-
-.btn-dashboard-nav:hover {
+.btn-dashboard-nav strong{
+  transition: all 200ms ease-in-out;
+}
+.btn-dashboard-nav:hover strong{
   cursor: pointer;
   transform: scale(1.2);
 }
 .btn-dashboard-nav:hover strong {
-  filter: blur(1px);
+  filter: blur(0.5px);
+}
+.flex-column-nav{
+  display:flex;
+  flex-direction: column;
 }
 
-.btn-dashboard-nav:hover span {
-  border-radius: 5px;
-  padding: 5px 20px 5px 5px;
-  display: block;
-  z-index: 100;
-  margin: 15px;
-  width: 100px;
-  position: absolute;
-  top: 65px;
-  left: -15px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
 .title-dashboard {
   margin-top: 5%;
   text-align: center;
