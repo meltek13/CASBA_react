@@ -44,7 +44,7 @@ const Expense = () => {
     })
       .then((response) => response.json())
       .then((response) =>  {
-        console.log(response)
+      
         // if (response.ok == true) {
         //   Notif_sucess_expense()
         // } else{
