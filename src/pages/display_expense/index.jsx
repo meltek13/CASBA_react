@@ -3,9 +3,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import CardExpense from "components/Expense";
 import "pages/display_expense/display_expense.css";
+import { useParams } from "react-router-dom";
 
 const PageExpense = () => {
   const [Expense, setExpense] = useState([]);
+  const { id } = useParams();
 
   const AllExpenses = () => {
     fetch(url.url + "expenses", {
@@ -15,7 +17,12 @@ const PageExpense = () => {
       },
     })
       .then((response) => response.json())
-      .then((response) => setExpense(response));
+      .then((response) => {
+             response.forEach(x =>{
+                if (x.flatsharing_id === parseInt(id)){
+                  setExpense((oldArray) => [...oldArray, x])  
+                  }
+      })});
   };
 
 
@@ -29,6 +36,7 @@ const PageExpense = () => {
   useEffect(() => {
     AllExpenses();
   }, []);
+  
   return (
     <div id="expense-container">
       <h2>Dépenses</h2>
