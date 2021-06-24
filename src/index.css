@@ -5,12 +5,15 @@ html {
 #app-container {
   font-family: "Monsterrat", sans-serif;
   align-items: center;
-  width: 58%;
+  width: 52%;
   height: auto;
-  margin-left: 250px;
+  margin-left: 300px;
   border-left: 0.2px solid rgb(216, 216, 216);
   border-right: 0.2px solid rgb(216, 216, 216);
   padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+
 }
 .center {
   display: flex;
@@ -19,10 +22,10 @@ html {
 
 @media (max-width: 1400px) {
   #app-container {
-    margin-left: 200px;
+    margin-left: 250px;
   }
 }
-@media (max-width: 980px) {
+@media (max-width: 1150px) {
   #app-container {
     border-right: none;
     margin-right: 0;
