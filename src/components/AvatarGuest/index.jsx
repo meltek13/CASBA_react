@@ -98,7 +98,7 @@ const MiniAvatar = ({ user }) => {
           <p style={{ width: 150 }}>{user.status}</p>
         )}
 
-        <p> 0€</p>
+        <p> {user.solde} €</p>
         <div></div>
       </div>
 

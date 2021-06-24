@@ -22,8 +22,8 @@ const Expense = () => {
   const [concernedColocsInput, setConcernedColocsInput] = useState([]);
   const onChangeConcernedColocs = event => setConcernedColocsInput(event.target.value);
 
-  const ExpenseFetch = () => {
-    
+  const ExpenseFetch = (e) => {
+    e.preventDefault()
     fetch(url.url + "expenses", {
       method: "post",
       headers: {
@@ -44,7 +44,9 @@ const Expense = () => {
     })
       .then((response) => response.json())
       .then((response) =>  {
-      
+        
+           updateSoldePositif(response)
+           updateSoldeNegatif(response)
         // if (response.ok == true) {
         //   Notif_sucess_expense()
         // } else{
@@ -53,6 +55,60 @@ const Expense = () => {
       });
       Notif_sucess_expense()/* en attente de régler prob rechargement de page jute au dessus*/
   };
+
+
+  const updateSoldePositif = (expense) => {
+
+    fetch(url.url + "members/" + expense.expense.user_id, {
+      method: "get",
+      headers: {
+        Authorization: Cookies.get("token"),
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+
+    const formData = new FormData();
+    formData.append("solde", response.solde + expense.expense.split_amount_to_colocs );
+    fetch(url.url + "members/" + expense.expense.user_id, {
+      method: "PUT",
+      body: formData,
+    })
+      .catch((error) => console.log(error))
+      .then((response) => {
+        console.log(response);
+      });
+    });
+  };
+
+  const updateSoldeNegatif = (expense) => {
+    expense.expense.concerned_colocs.forEach( colloc_id => {
+      fetch(url.url + "members/" + colloc_id, {
+        method: "get",
+        headers: {
+          Authorization: Cookies.get("token"),
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+  
+      const formData = new FormData();
+      formData.append("solde", response.solde - expense.expense.split_amount_to_colocs );
+      fetch(url.url + "members/" + colloc_id, {
+        method: "PUT",
+        body: formData,
+      })
+        .catch((error) => console.log(error))
+        .then((response) => {
+          console.log(response);
+        });
+      });
+    })
+    
+  };
+
   return(
     <>
       <div id="container_expense">
