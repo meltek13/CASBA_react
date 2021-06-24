@@ -52,6 +52,7 @@
   transition: all 100ms ease-in-out;
   cursor: pointer;
 }
+
 .avatar_dashboard:hover {
   -webkit-transform: scale(1.07);
   -moz-transform: scale(1.07);
@@ -150,7 +151,8 @@
   position: fixed;
   z-index: 1;
   margin: 20px;
-  width: 330px;
+  margin-right:40px;
+  width: 320px;
 }
 
 .StatusSolde {
@@ -184,21 +186,21 @@
 }
 @media (max-width: 1300px) {
   .rightSide {
-    width: 290px;
+    width: 320px;
   }
 }
 
 @media (max-width: 1200px) {
   .rightSide {
-    width: 234px;
+    width: 264px;
   }
 }
 @media (max-width: 1000px) {
   .rightSide {
-    width: 215px;
+    width: 245px;
   }
 }
-@media (max-width: 980px) {
+@media (max-width: 1150px) {
   .rightSide {
     display: block;
     position: static;
