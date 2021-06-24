@@ -50,6 +50,10 @@ const Picture = () => {
 
   return (
     <>
+     <h1>Les photos</h1>
+       <h2>
+         Partagez vos souvenirs ensemble
+       </h2>
       <form className="Picture">
         <input
           type="file"

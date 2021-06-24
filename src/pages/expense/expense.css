@@ -1,4 +1,5 @@
 #container_expense{
+  margin-top: 30px;
   display: flex;
   position: relative;
   flex-direction: column;
