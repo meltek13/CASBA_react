@@ -6,8 +6,13 @@ import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import Add_colocs_svg from "assets/img/add_coloc.svg";
 import "./new_flatSharing.css";
 import url from "data/url.json"
+import { useDispatch} from "react-redux";
+import { connect } from "store-redux/room";
+
 
 const NewFlatSharing = () => {
+
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const history = useHistory();
@@ -31,9 +36,10 @@ const NewFlatSharing = () => {
     })
       .then((response) => response.json())
       .then((userdata) => {
-
+      
         console.log(userdata)
-        Cookies.set("flat_id", userdata.flatsharing.id);   
+        Cookies.set("flat_id", userdata.flatsharing.id);  
+        dispatch(connect()) 
         associateFlatToAdmin( userdata.flatsharing.id)
         history.push("/dashboard/" + userdata.flatsharing.id);
       })
