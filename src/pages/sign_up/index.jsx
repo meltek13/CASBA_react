@@ -128,8 +128,7 @@ const SignUp = () => {
   return (
     <div className="center">
       <div className="Register">
-        <h1>Inscription</h1>
-        <Alert
+      <Alert
           className="invisible2"
           message="cet email est déjà associé à un compte"
           type="warning"
@@ -143,6 +142,7 @@ const SignUp = () => {
           showIcon
           closable
         />
+        <h1>Inscription</h1>
         <Form
           {...layout}
           name="basic"

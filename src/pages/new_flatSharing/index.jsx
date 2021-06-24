@@ -18,7 +18,21 @@ const NewFlatSharing = () => {
   const history = useHistory();
   const admin_id = Cookies.get("current_user_id");
   const { TextArea } = Input;
- 
+  const [email, setEmail] = useState("");
+  
+
+  const verifyEmail = () => {
+    let re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(email)) {
+      return "success";
+    } else if (email.length === 0) {
+      return "";
+    } else {
+      return "error";
+    }
+  };
+
   const fetchFunction = (array_email_invitation) => {
     fetch(url.url + "flatsharings", {
       method: "post",
@@ -62,12 +76,17 @@ const NewFlatSharing = () => {
 
   const SetEmailRoomMate = (values) => {
     const array_email_invitation = [];
-    values.users.forEach((roommate) =>
+    if (values.users !== undefined){
+      values.users.forEach((roommate) =>
       array_email_invitation.push(roommate.email)
     );
+    }
+    
     fetchFunction(array_email_invitation);
   };
-
+ const test = (e) => {
+   console.log(e.target.value)
+ }
   return (
     <div>
       <img id="page-svg" src={Add_colocs_svg} alt="illustration" />
@@ -81,6 +100,7 @@ const NewFlatSharing = () => {
         <Input
           placeholder="Le nom de votre collocation"
           value={title}
+          rules={[{ required: true, message: "Quel est le nom de votre colloc ?" }]}
           onChange={(e) => setTitle(e.target.value)}
         />
         <br />
@@ -89,6 +109,7 @@ const NewFlatSharing = () => {
         <TextArea
           placeholder="Description ..."
           value={description}
+          rules={[{ required: true, message: "Une petite description" }]}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
         />
@@ -103,8 +124,11 @@ const NewFlatSharing = () => {
                   <Form.Item
                     {...restField}
                     name={[name, "email"]}
+                    validateStatus={verifyEmail()}
+                    onChange={verifyEmail()}
+                    onChange={(e) => setEmail(e.target.value)}
                     fieldKey={[fieldKey, "email"]}
-                    rules={[{ required: true, message: "email manquant" }]}
+                    rules={[{ required: false, message: "email manquant" }]}
                   >
                     <Input placeholder="Jean@gmail.com" />
                   </Form.Item>
