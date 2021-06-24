@@ -183,28 +183,43 @@ const Timetable = () => {
           </div>
         </>
       )}
-      <h2 >Événements <strong>à venir</strong></h2>
 
-      <div className="event-coming">
-      {eventComing?.map((event)=> 
-      <div>
-      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]} {event.timedate.split(" ")[3]}</span></p> 
-      <p>{event.title} {event.description}</p>
-      </div>
+      <div id="all-events">
+      <h2>Événements <strong>à venir</strong></h2>
+      <div className="event-coming-container">                 
+        {eventComing?.reverse().map((event)=>
+        <div className="event-coming">
+        <div className="event-dotted-coming"></div>
+          <div className="event-content-coming">
+            <h2>{event.title}</h2>
+            <p>{event.description}</p>
+          </div>
+          <span className="cd-date">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]} {event.timedate.split(" ")[3]}</span>
+          </div>
       )}
-      </div>
-
-
-      <h2>Événements <strong>déjà passé</strong></h2>
-      {eventPast?.map((event)=> 
-      <div>
-      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]} {event.timedate.split(" ")[3]}</span></p> 
-      <p>{event.title} {event.description}</p>
       </div> 
-      )}
 
+      <hr />      
+      <h2>Événements <strong>passés</strong></h2>
+
+      <div className="event-past-container">                 
+        {eventPast?.reverse().map((event)=>
+        <div className="event-past">
+        <div className="event-dotted-past"></div>
+       
+          <div className="event-content-past">
+            <h2>{event.title}</h2>
+            <p>{event.description}</p>
+          </div>
+          <span className="cd-date">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]} {event.timedate.split(" ")[3]}</span>
+          </div>
+      )}
+      </div> 
+    </div>    
     </>
+    
   );
+  
 };
 
 export default Timetable;
