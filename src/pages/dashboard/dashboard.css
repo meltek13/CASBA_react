@@ -235,13 +235,13 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(175, 175, 175);
+  background: rgb(201, 200, 200);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgb(113, 112, 112);
 }
 
 .scroll-colloc {
