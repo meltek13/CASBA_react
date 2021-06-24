@@ -8,11 +8,10 @@ import Add_colocs_svg from "assets/img/add_coloc.svg";
 import Enjoy_svg from "assets/img/enjoy.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Cookies from "js-cookie";
+
 
 const Landing_page = () => {
   const loged = useSelector((state) => state.user.loged);
-  const createdColocation = Cookies.get("flat_id");
 
   return (
     <>
@@ -90,13 +89,6 @@ const Landing_page = () => {
                 <button className="btn-cta">Se connecter</button>
               </Link>
             </div>
-          )}
-          {createdColocation ? (
-            <Link to="/expense">
-              <button className="btn-cta-blue">Créer une dépense</button>
-            </Link>
-          ) : (
-            ""
           )}
         </div>
 
