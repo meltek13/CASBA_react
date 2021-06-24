@@ -83,8 +83,78 @@
 .colorBlue{
   color: #1990FF;
 }
-
+.event-past-container, .event-coming-container{
+overflow-y: scroll;
+height: 100px;
+margin: 0;
+padding: 0;
+}
+.event-past-container{
+  margin-bottom: 50px;
+}
 .event-coming{
+  display: flex;
+  align-items: center;
+}
+.event-past{
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+}
+.event-dotted-coming{
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: #F5A623 ;
+  margin-right: 10px;
+}
+.event-dotted-past{
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: #61AAFF ;
+  margin-right: 10px;
+}
+
+.event-content-coming{
+  background-color: rgb(255, 248, 226);
+  width: 90%;
+  height: 30px;
+  display: flex;
+  align-items: center;  
+}
+
+.event-content-past{
+  background-color: #d8eaff;
+  width: 90%;
+  height: 30px;
+  display: flex;
+  align-items: center;  
+}
+.event-content-coming h2 ,.event-content-coming p,
+.event-content-past h2 ,.event-content-past p{
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+.event-content-coming h2, .event-content-past h2{
+  position: relative;
+  left: 20px;
+  margin-right: 200px;
+}
+.cd-date{
+  position: relative;
+  margin-bottom: 60px;
+  margin-left: 22px;
+  color: #1990FF;
+  right: 558px;
+  width: 100px;
+  margin-left: 0;
+
+}
+
+#all-events{
+  position: relative;
   margin-top: 20px;
-  border: 1px solid lightgrey;
+  margin-bottom: 50px;
 }
