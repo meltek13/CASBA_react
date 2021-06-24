@@ -1,17 +1,15 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  width: 150px;
-  top: 62px;
-  left: 250px;
+  margin-left: 60px;
+  top: 55px;
+  left: 0;
   position: fixed;
   z-index: 1;
 }
 
 .content-link {
-  text-align: left;
-  width: 100%;
-  height: 40px;
+  height: 50px;
 }
 
 .link {
@@ -21,6 +19,7 @@
   font-weight: 600;
   border-radius: 15px;
   transition: all 100ms ease-in-out;
+  font-size: 1.2rem;
 }
 
 .link:hover {
@@ -31,32 +30,9 @@
   display: none;
 }
 
-@media (max-width: 1600px) {
-  .navbar {
-    border: none;
-    margin-left: -50px;
-  }
-  .link {
-    font-size: 18px !important;
-  }
-}
-
 @media (max-width: 1400px) {
-  .link {
-    font-size: 15px !important;
-  }
-}
-@media (max-width: 1200px) {
   .navbar {
-    border: none;
-    margin-left: -150px;
-  }
-}
-
-@media (max-width: 965px) {
-  .navbar {
-    border: none;
-    margin-left: -240px;
+    margin-left: 35px;
   }
 }
 
