@@ -141,7 +141,7 @@ const Dashboard = () => {
               <button className="btn-dashboard-nav ">
                 <Link to={"/add-room-mate/" + id}>
                   <Popover
-                    placement="leftBottom"
+                    placement="bottom"
                     content="Ajouter un collocataire"
                   >
                     <img

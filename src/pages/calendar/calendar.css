@@ -27,10 +27,13 @@
 
 .popUp-container{
   width: 100%;
-  margin: 10px;
   overflow-y:scroll;
   height: 150px;
-  box-shadow: 1px 1px 12px #DBDBDB;
+  border-top: none;
+  border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .contain-text{
@@ -44,6 +47,7 @@
 }
 .popUp{
   display: flex;
+  flex-direction: column;
   align-content: space-between;
   width: 100%;
   margin-top: 20px;
@@ -85,9 +89,15 @@
 }
 .event-past-container, .event-coming-container{
 overflow-y: scroll;
-height: 100px;
+height: 160px;
 margin: 0;
 padding: 0;
+border-top: none;
+border-left: 1px solid lightgrey;
+border-bottom: 1px solid lightgrey;
+border-right: 1px solid lightgrey;
+border-radius: 0px 0px 5px 5px;
+
 }
 .event-past-container{
   margin-bottom: 50px;
@@ -157,4 +167,15 @@ padding: 0;
   position: relative;
   margin-top: 20px;
   margin-bottom: 50px;
+}
+.title-calendar-event{
+  margin-top: 20px;
+  margin-bottom: 0px;
+  background-color: whitesmoke;
+  padding: 15px;
+  border-radius:5px 5px 0px 0px  ;
+  border-bottom: none;
+  border-left: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
 }

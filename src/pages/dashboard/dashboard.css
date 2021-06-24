@@ -28,11 +28,10 @@
 }
 .btn-dashboard-nav:hover strong {
   cursor: pointer;
+  filter: blur(0.5px);
   transform: scale(1.2);
 }
-.btn-dashboard-nav:hover strong {
-  filter: blur(0.5px);
-}
+
 .add-roomate {
   border: black 3px dotted;
   border-radius: 100px;
@@ -250,3 +249,5 @@
   overflow: auto;
   margin-bottom: 25px;
 }
+
+
