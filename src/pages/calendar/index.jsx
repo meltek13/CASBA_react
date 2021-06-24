@@ -150,10 +150,9 @@ const Timetable = () => {
       </Form>
       </div>
       </div>
-      {popUp && (
-        <>
+     
           <div className="popUp">
-          <h2>Evenement du <strong>{parseInt(value.toISOString().slice(8, 10)) + 1}-{value.toISOString().slice(5, 7)}-{value.toISOString().slice(0, 4)}</strong></h2>
+          <h2 className="title-calendar-event">Événements du <strong>{parseInt(value.toISOString().slice(8, 10)) + 1}-{value.toISOString().slice(5, 7)}-{value.toISOString().slice(0, 4)}</strong></h2>
             <div className="popUp-container">
               {event.map(
                 (elem) =>
@@ -181,11 +180,11 @@ const Timetable = () => {
               )}
             </div>
           </div>
-        </>
-      )}
+    
+      
 
       <div id="all-events">
-      <h2>Événements <strong>à venir</strong></h2>
+      <h2 className="title-calendar-event">Événements <strong>à venir</strong></h2>
       <div className="event-coming-container">                 
         {eventComing?.reverse().map((event)=>
         <div className="event-coming">
@@ -199,8 +198,8 @@ const Timetable = () => {
       )}
       </div> 
 
-      <hr />      
-      <h2>Événements <strong>passés</strong></h2>
+          
+      <h2 className="title-calendar-event" >Événements <strong>passés</strong></h2>
 
       <div className="event-past-container">                 
         {eventPast?.reverse().map((event)=>
