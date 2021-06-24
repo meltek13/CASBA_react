@@ -8,7 +8,7 @@ import Add_colocs_svg from "assets/img/add_coloc.svg";
 import Enjoy_svg from "assets/img/enjoy.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import Cookies from "js-cookie";
 
 const Landing_page = () => {
   const loged = useSelector((state) => state.user.loged);
