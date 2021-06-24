@@ -39,7 +39,6 @@ const MiniAvatar = ({ user }) => {
         let linkEnd = link.substring(17, link.length);
         let constructor = linkStart + linkMiddle + linkEnd;
 
-
         setAvatar(constructor);
       } else {
         setAvatar(
@@ -52,7 +51,6 @@ const MiniAvatar = ({ user }) => {
     console.log(status);
     const formData = new FormData();
     formData.append("status", status);
-
 
     fetch(url.url + "members/" + user.id, {
       method: "PUT",
@@ -108,7 +106,16 @@ const MiniAvatar = ({ user }) => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <img className="avatar_modal" src={avatar} alt="avatar" />
+        <img
+          style={
+            user?.color
+              ? { border: "3px solid " + user?.color }
+              : { border: "3px solid rgb(245, 245, 38)" }
+          }
+          className="avatar_modal"
+          src={avatar}
+          alt="avatar"
+        />
       </Modal>
     </div>
   );
