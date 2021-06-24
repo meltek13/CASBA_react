@@ -144,6 +144,10 @@ const Expense = () => {
 
   return(
     <>
+    <h1>Les dépenses</h1>
+       <h2>
+        Les bons comptes font les bons collocs
+       </h2>
       <div id="container_expense">
         <img id="expense-svg" src={Expense_svg} alt="illustration tirelire cochon " />
        

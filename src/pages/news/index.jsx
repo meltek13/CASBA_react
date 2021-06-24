@@ -35,7 +35,10 @@ console.log(event)
 
   return (
     <div>
-      <h1>actu</h1>
+      <h1>Les actus</h1>
+       <h2>
+         Qu'est ce qui se passe à la casba ?
+       </h2>
       <div className="calendarDisplay">
         <div className="tool">
           <div className="card-body ">

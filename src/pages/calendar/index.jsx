@@ -98,6 +98,10 @@ const Timetable = () => {
 
   return (
     <>
+    <h1>L'agenda </h1>
+    <h2>
+          Un nouvel évenement à venir ?
+        </h2>
     <div className="form-global-calendar">
       <div className="content-calendar">
         <Calendar
@@ -107,11 +111,11 @@ const Timetable = () => {
           onClickDay={changePopUp}
         />
       </div>
-
+      
       <div className="formCalendar2">
       <Form {...layout}  name="control-ref" >
-        <h2>
-          Un nouvel évenement à venir ?
+      <h2 className="centerTitle">
+          Enregistre ton événement ici 
         </h2>
         <p>
           <span className="colorBlue"><strong>{parseInt(value.toISOString().slice(8, 10)) + 1}-{value.toISOString().slice(5, 7)}-{value.toISOString().slice(0, 4)}</strong></span> (choisis une date dans le calendrier)

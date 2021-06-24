@@ -93,7 +93,7 @@ const Landing_page = () => {
         </div>
 
         <div>
-        <br/>
+        
           <hr />
           <br/>
           <div id="container-cards-infos">
