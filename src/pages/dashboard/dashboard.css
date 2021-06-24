@@ -209,11 +209,15 @@
     margin: auto;
   }
   .StatusSolde {
-    display: none;
+    display: grid;
+    grid-template-columns: 0.6fr 1.3fr 0.7fr;
   }
   .AvatarAndStatus,
   .unsubscribe {
-    width: 60% !important;
+    width: 100% !important;
+  }
+  .add-Room-mate {
+    width: 58%;
   }
 }
 
