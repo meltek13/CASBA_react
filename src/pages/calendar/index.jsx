@@ -114,9 +114,9 @@ const Timetable = () => {
           Un nouvel évenement à venir ?
         </h2>
         <p>
-          <span className="colorBlue">{value.toISOString().slice(0, 10)}</span> (choisis une date dans le calendrier)
+          <span className="colorBlue"><strong>{parseInt(value.toISOString().slice(8, 10)) + 1}-{value.toISOString().slice(5, 7)}-{value.toISOString().slice(0, 4)}</strong></span> (choisis une date dans le calendrier)
         </p>
-        <span>Intitulé</span>
+        <span>Intitulé :</span>
         <Form.Item
           name="title"
           label=""
@@ -129,7 +129,7 @@ const Timetable = () => {
         >
           <Input />
         </Form.Item>
-        <span>Description</span>
+        <span>Description :</span>
         <Form.Item
           name="description"
           label=""
@@ -153,7 +153,7 @@ const Timetable = () => {
       {popUp && (
         <>
           <div className="popUp">
-          <h2>Evenement du <strong>{value.toISOString().slice(0, 10)}</strong></h2>
+          <h2>Evenement du <strong>{parseInt(value.toISOString().slice(8, 10)) + 1}-{value.toISOString().slice(5, 7)}-{value.toISOString().slice(0, 4)}</strong></h2>
             <div className="popUp-container">
               {event.map(
                 (elem) =>
@@ -188,7 +188,7 @@ const Timetable = () => {
       <div className="event-coming">
       {eventComing?.map((event)=> 
       <div>
-      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]}</span></p> 
+      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]} {event.timedate.split(" ")[3]}</span></p> 
       <p>{event.title} {event.description}</p>
       </div>
       )}
@@ -198,7 +198,7 @@ const Timetable = () => {
       <h2>Événements <strong>déjà passé</strong></h2>
       {eventPast?.map((event)=> 
       <div>
-      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]}</span></p> 
+      <p><span className="colorBlue">{event.timedate.split(" ")[2]} {event.timedate.split(" ")[1]} {event.timedate.split(" ")[3]}</span></p> 
       <p>{event.title} {event.description}</p>
       </div> 
       )}

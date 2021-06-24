@@ -20,9 +20,17 @@ const Dashboard = () => {
   const [calendar, setCalendar] = useState(false);
   const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
+  const [span1, setSpan1] = useState('#3FA9FF')
+  const [span2, setSpan2] = useState('black')
+  const [span3, setSpan3] = useState('black')
+  const [span4, setSpan4] = useState('black')
   const [yourDashboard, setYourDashboard] = useState(false);
 
   const changeNews = () => {
+    setSpan1('#3FA9FF')
+    setSpan2('black')
+    setSpan3('black')
+    setSpan4('black')
     setNews(true);
     setPicture(false);
     setCalendar(false);
@@ -30,6 +38,10 @@ const Dashboard = () => {
   };
 
   const changePicture = () => {
+    setSpan1('black')
+    setSpan2('#3FA9FF')
+    setSpan3('black')
+    setSpan4('black')
     setNews(false);
     setPicture(true);
     setCalendar(false);
@@ -37,6 +49,10 @@ const Dashboard = () => {
   };
 
   const changeCalendar = () => {
+    setSpan1('black')
+    setSpan2('black')
+    setSpan3('#3FA9FF')
+    setSpan4('black')
     setNews(false);
     setPicture(false);
     setCalendar(true);
@@ -44,6 +60,10 @@ const Dashboard = () => {
   };
 
   const changeExpenses = () => {
+    setSpan1('black')
+    setSpan2('black')
+    setSpan3('black')
+    setSpan4('#3FA9FF')
     setNews(false);
     setPicture(false);
     setCalendar(false);
@@ -102,19 +122,19 @@ const Dashboard = () => {
           <div className="nav-dashboard">
             <button onClick={changeNews} className="btn-dashboard-nav">
               <strong>📰</strong>
-              <span>Actus</span>
+              <span style={{color:span1}}>Actus</span>
             </button>
             <button onClick={changePicture} className="btn-dashboard-nav">
               <strong>📷</strong>
-              <span>Photos</span>
+              <span style={{color:span2}}>Photos</span>
             </button>
             <button onClick={changeCalendar} className="btn-dashboard-nav">
               <strong>🗓️</strong>
-              <span>Calendrier</span>
+              <span style={{color:span3}}>Calendrier</span>
             </button>
             <button onClick={changeExpenses} className="btn-dashboard-nav">
               <strong>💰</strong>
-              <span>Dépenses</span>
+              <span style={{color:span4}}>Dépenses</span>
             </button>
           </div>
           <hr />

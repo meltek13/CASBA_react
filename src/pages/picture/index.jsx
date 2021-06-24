@@ -7,6 +7,7 @@ import url from "data/url.json";
 import "./picture.css";
 import { DownloadOutlined } from "@ant-design/icons";
 
+
 const Picture = () => {
   const { id } = useParams();
   const [flatPicture, setFlatPicture] = useState("");
