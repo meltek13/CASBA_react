@@ -172,6 +172,7 @@ const Dashboard = () => {
                 )
               )}
             </div>
+            
             {parseInt(Cookies.get("current_user_id")) === room?.admin?.id && (
               <div>
                 <div className="add-guest">
@@ -193,10 +194,12 @@ const Dashboard = () => {
                     <Link to={"/add-room-mate/" + id}>Ajouter un colloc</Link>
                   </div>
                 </div>
-                <PageExpense />
+                
               </div>
             )}
+            <PageExpense />
           </div>
+          
           <div className="content-dashboard">
             {news && <News />}
             {picture && <Picture />}

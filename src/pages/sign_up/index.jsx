@@ -67,8 +67,8 @@ const SignUp = () => {
           flat.flat_mate.forEach((mate) => {
             if (mate !== null) {
               if (mate.id === parseInt(user_id)) {
-                dispatch(connect())
                 Cookies.set("flat_id", flat.id);
+                dispatch(connect())
                 history.push("/dashboard/" + flat.id);
               }
             }
