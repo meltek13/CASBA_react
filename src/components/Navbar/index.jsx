@@ -4,6 +4,7 @@ import "./navbar.css";
 import Cookies from "js-cookie";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "store-redux/index";
+import { disconnect } from 'store-redux/room'
 import Home_svg from "assets/img/home.svg";
 import { useHistory } from "react-router-dom";
 import url from "data/url.json";
@@ -19,6 +20,7 @@ import {
 const Navbar = () => {
   const dispatch = useDispatch();
   const loged = useSelector((state) => state.user.loged);
+  const roomConnect = useSelector((state) => state.room.connect);
   const history = useHistory();
   const flat_id = Cookies.get("flat_id");
   const url_dashboard = "/dashboard/" + flat_id;
@@ -39,6 +41,7 @@ const Navbar = () => {
         Cookies.remove("token");
         Cookies.remove("flat_id");
         dispatch(logOut());
+        dispatch(disconnect())
         history.push("/sign_in");
       });
   };
@@ -50,7 +53,7 @@ const Navbar = () => {
           <img id="home-logo" src={Home_svg} alt="home logo" />
         </Link>
       </div>
-      {flat_id ? (
+      {roomConnect || flat_id ? (
         <div className="content-link">
           <Link className="link responsive-nav" to={url_dashboard}>
             Dashboard

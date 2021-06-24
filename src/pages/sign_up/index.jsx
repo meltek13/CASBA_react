@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logIn } from "store-redux/index";
+import { connect } from 'store-redux/room' 
 import "./sign_up.css";
 import { Link } from "react-router-dom";
 import { Form, Input, Button, Checkbox, Alert } from "antd";
@@ -66,6 +67,7 @@ const SignUp = () => {
           flat.flat_mate.forEach((mate) => {
             if (mate !== null) {
               if (mate.id === parseInt(user_id)) {
+                dispatch(connect())
                 Cookies.set("flat_id", flat.id);
                 history.push("/dashboard/" + flat.id);
               }
