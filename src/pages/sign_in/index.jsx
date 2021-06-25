@@ -67,7 +67,7 @@ const SignIn = (user_id) => {
       });
   };
 
-  const fetchFunction = (e) => {
+  const signIn = (e) => {
     const data = {
       email,
       password,
@@ -120,7 +120,7 @@ const SignIn = (user_id) => {
           initialValues={{
             remember: true,
           }}
-          onFinish={fetchFunction}
+          onFinish={signIn}
         >
           <Form.Item
             label="Email"
