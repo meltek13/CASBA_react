@@ -78,16 +78,40 @@ const Dashboard = () => {
       {yourDashboard ? (
         <div>
           <div className="nav-dashboard">
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=actu`}><strong>📰</strong>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=actu`}>
+            <Popover
+                    placement="bottom"
+                    content="Actualités de la coloc"
+                  >
+                    <strong>📰</strong>
+                  </Popover>
               <span>Actus</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=picture`}><strong>📷</strong>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=picture`}>
+            <Popover
+                    placement="bottom"
+                    content="Photos de la coloc"
+                  >
+                   <strong>📷</strong>
+                  </Popover>
               <span>Photos</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=calendar`}><strong>🗓️</strong>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=calendar`}>
+            <Popover
+                    placement="bottom"
+                    content="Évévenements de la coloc"
+                  >
+                   <strong>🗓️</strong>
+                  </Popover>
               <span>Calendar</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=expense`}> <strong>💰</strong>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=expense`}>
+            <Popover
+                    placement="bottom"
+                    content="Dépenses de la coloc"
+                  >
+                    <strong>💰</strong>
+                  </Popover>
               <span>Dépenses</span>
             </Link>
 
@@ -96,11 +120,11 @@ const Dashboard = () => {
                 <Link to={"/add-room-mate/" + id}>
                   <Popover
                     placement="bottom"
-                    content="Ajouter un collocataire"
+                    content="Inviter un colocataire"
                   >
                     <img
                       className=" add-roomate"
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1200px-OOjs_UI_icon_add.svg.png"
+                      src="https://img.icons8.com/ios-filled/50/000000/add-user-group-man-man--v2.png"
                       alt="avatar"
                     />
                   </Popover>
