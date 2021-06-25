@@ -218,7 +218,7 @@ const Expense = () => {
                         lineHeight: '32px',
                       }}
                     >
-                      {user.email}
+                      {user.nickname ? user.nickname :user.email}
                     </Checkbox>
                   </Col>
                 </Row>
