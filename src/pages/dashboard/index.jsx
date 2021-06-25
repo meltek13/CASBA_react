@@ -152,10 +152,10 @@ console.log(colors[Math.floor(Math.random() * (6 - 0 + 1)) + 0])
             {parseInt(Cookies.get("current_user_id")) === room?.admin?.id && (
               <button className="btn-dashboard-nav ">
                 <Link to={`/add-room-mate/${id}`}>
-                  <Popover placement="bottom" content="Inviter une/un coloc">
+                  <Popover placement="bottom" content="Inviter un/une coloc">
                     <img
                       className=" add-roomate"
-                      src="https://img.icons8.com/ios-filled/50/000000/add-user-group-man-man--v2.png"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1200px-OOjs_UI_icon_add.svg.png"
                       alt="avatar"
                     />
                   </Popover>
