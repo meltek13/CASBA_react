@@ -6,7 +6,7 @@ html {
   font-family: "Monsterrat", sans-serif;
   align-items: center;
   width: 52%;
-  height: auto;
+  height: 100vh;
   margin-left: 300px;
   border-left: 0.2px solid rgb(216, 216, 216);
   border-right: 0.2px solid rgb(216, 216, 216);

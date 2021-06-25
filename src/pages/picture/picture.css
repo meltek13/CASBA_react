@@ -29,3 +29,10 @@
     padding: 60px 0px 0px 10px;
   }
 }
+@media (max-width: 330px) {
+  .Picture {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

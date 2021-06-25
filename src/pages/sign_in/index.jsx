@@ -51,14 +51,14 @@ const SignIn = (user_id) => {
           if (flat.admin_id === parseInt(user_id)) {
             dispatch(connect());
             Cookies.set('flat_id', flat.id);
-            history.push(`/dashboard/${flat.id}`);
+            history.push(`/dashboard/${flat.id}?name=actu`);
           } else {
             flat.flat_mate.forEach((mate) => {
               if (mate !== null) {
                 if (mate.id === parseInt(user_id)) {
                   Cookies.set('flat_id', flat.id);
                   dispatch(connect());
-                  history.push(`/dashboard/${flat.id}`);
+                  history.push(`/dashboard/${flat.id}?name=actu`);
                 }
               }
             });
