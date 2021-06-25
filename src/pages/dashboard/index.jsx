@@ -103,6 +103,11 @@ const Dashboard = () => {
     findUserRoom();
   }, []);
 
+
+const colors = ["3px solid #1C1C1C", "3px solid #957DAD", "3px solid #10c4c7", "3px solid #73dc95", "3px solid #f6e766", "3px solid #da7a3f", "#d95f67"]
+console.log(colors[Math.floor(Math.random() * (6 - 0 + 1)) + 0])
+
+
   return (
     <div>
       {yourDashboard ? (
@@ -187,7 +192,7 @@ const Dashboard = () => {
                         <img
                           style={{ border: "3px solid #FFFFB9" }}
                           className="avatar_dashboard"
-                          src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                          src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png"
                           alt="avatar"
                         />
                       </label>
