@@ -186,8 +186,9 @@ const Expense = () => {
             <InputNumber />
           </Form.Item>
           </div>
-          <div className="TitleexpenseForm borderCheckBox">
           <span className="colorBlue">Pour qui ?</span>
+          <div className="TitleexpenseForm borderCheckBox">
+          
           <Form.Item name="checkbox-group" label="">
             <Checkbox.Group> <br></br>
               {flatMates?.admin ? (
@@ -216,7 +217,7 @@ const Expense = () => {
                         lineHeight: '32px',
                       }}
                     >
-                      {user.nickname ? user.nickname :user.email}
+                      {user.nickname ? user.nickname  :user.email} 
                     </Checkbox>
                   </Col>
                 </Row>
@@ -230,6 +231,7 @@ const Expense = () => {
               Enregistrer
             </Button>
           </Form.Item>
+          
           
         </Form>
         </div>
