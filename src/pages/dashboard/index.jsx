@@ -120,7 +120,7 @@ const Dashboard = () => {
                 <Link to={"/add-room-mate/" + id}>
                   <Popover
                     placement="bottom"
-                    content="Inviter un colocataire"
+                    content="Inviter une/un coloc"
                   >
                     <img
                       className=" add-roomate"
