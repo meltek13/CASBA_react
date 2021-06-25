@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRightOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { Button, Input, Modal } from 'antd';
 import { useHistory, useParams } from 'react-router-dom';
@@ -8,6 +8,7 @@ import './addRoomMate.css';
 import { disconnect } from 'store-redux/room';
 import { useDispatch } from 'react-redux';
 import Email_svg from "assets/img/email.svg";
+import Error403 from 'pages/error403';
 
 const AddRoomMate = () => {
   const history = useHistory();
@@ -15,7 +16,7 @@ const AddRoomMate = () => {
   const { id } = useParams();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const dispatch = useDispatch();
-
+  const [yourDashboard, setYourDashboard] = useState(false);
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -46,6 +47,36 @@ const AddRoomMate = () => {
     }
   };
 
+  const ItisYourDashboard = () => {
+    
+    fetch(`${url.url}flatsharings/${id}/dashboard`)
+      .then((response) => response.json())
+      .then((response) => {
+        if (response?.status === 404 ){
+          setYourDashboard(false);
+        } else {
+          if (Cookies.get('current_user_id')) {
+            if (parseInt(Cookies.get('current_user_id')) === response.admin.id) {
+              setYourDashboard(true);
+            } else {
+              response.guest.forEach((flatmate) => {
+                if (flatmate !== null) {
+                  if (flatmate.id === parseInt(Cookies.get('current_user_id'))) {
+                    setYourDashboard(true);
+                  }
+                }
+              });
+            }
+          }
+        }
+        
+      });
+  };
+
+  useEffect(() => {
+    ItisYourDashboard();
+  }, []);
+
   const deleteFlatsharing = () => {
     fetch(`${url.url}flatsharings/${id}`  , {
       method: 'delete',
@@ -64,7 +95,10 @@ const AddRoomMate = () => {
   };
 
   return (
+    <>
+    {yourDashboard ? (
     <div>
+       
       <img id="email-svg" src={Email_svg} alt="illustration enveloppe avec femme sur un skate" />
       <h1>Invitation</h1>
       <muted>(Invite tes collocs à rejoindre Casba)</muted>
@@ -81,7 +115,9 @@ const AddRoomMate = () => {
       <Modal title="Supprimer la colloc" visible={isModalVisible} onOk={deleteFlatsharing} onCancel={handleCancel}>
         <p>Cette action est irréversible, est-tu sûre de vouloir supprimer la collocation ?</p>
       </Modal>
-    </div>
+    </div>)
+    :(<Error403 />)}
+    </>
 
   );
 };
