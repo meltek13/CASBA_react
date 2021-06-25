@@ -15,7 +15,6 @@ const Succes = () => {
     history.push('/');
   };
 
-  console.log(email);
   return (
     <div>
       {email === 'bad-request'

@@ -41,7 +41,6 @@ const Picture = () => {
     })
       .catch((error) => console.log(error))
       .then((response) => {
-        console.log(response);
         history.go(0);
       });
   };

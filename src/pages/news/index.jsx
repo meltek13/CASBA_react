@@ -32,8 +32,6 @@ const News = () => {
     FindEvent();
   }, []);
 
-  console.log(event);
-
   return (
     <div>
       <h1>Les actus</h1>

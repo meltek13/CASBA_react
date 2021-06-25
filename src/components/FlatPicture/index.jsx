@@ -16,7 +16,6 @@ const FlatPictureUser = ({ user }) => {
   })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
       if (response.flat_picture) {
         const link = response.flat_picture.url;
         const linkStart = link.substring(0, 16);

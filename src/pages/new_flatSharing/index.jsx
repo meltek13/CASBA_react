@@ -47,7 +47,6 @@ const NewFlatSharing = () => {
     })
       .then((response) => response.json())
       .then((userdata) => {
-        console.log(userdata);
         Cookies.set('flat_id', userdata.flatsharing.id);
         dispatch(connect());
         associateFlatToAdmin(userdata.flatsharing.id);
@@ -63,9 +62,6 @@ const NewFlatSharing = () => {
       body: formData,
     })
       .catch((error) => console.log(error))
-      .then((response) => {
-        console.log(response);
-      });
   };
 
   const SetEmailRoomMate = (values) => {
@@ -76,9 +72,7 @@ const NewFlatSharing = () => {
 
     createFlatsharing(array_email_invitation);
   };
-  const test = (e) => {
-    console.log(e.target.value);
-  };
+
   return (
     <div>
       <img id="page-svg" src={Add_colocs_svg} alt="illustration" />
