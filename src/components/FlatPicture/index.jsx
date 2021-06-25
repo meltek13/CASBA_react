@@ -22,7 +22,7 @@ const FlatPictureUser = ({ user }) => {
         const linkMiddle = ':3000/';
         const linkEnd = link.substring(17, link.length);
         const constructor = linkStart + linkMiddle + linkEnd;
-        setFlatPicture(constructor);
+        setFlatPicture(response.flat_picture.url);
         setEmail(response.email);
       } else {
         setFlatPicture('');
