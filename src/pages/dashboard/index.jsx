@@ -103,41 +103,41 @@ const Dashboard = () => {
         <div>
 
           <div className="nav-dashboard">
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=actu`}>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=actu`} onClick={changeColor1}>
             <Popover
                     placement="bottom"
                     content="Actualités de la coloc"
                   >
                     <strong>📰</strong>
                   </Popover>
-              <span>Actus</span>
+              <span style={{color: span1}}> Actus</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=picture`}>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=picture`} onClick={changeColor2}>
             <Popover
                     placement="bottom"
                     content="Photos de la coloc"
                   >
                    <strong>📷</strong>
                   </Popover>
-              <span>Photos</span>
+              <span style={{color: span2}}>Photos</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=calendar`}>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=calendar`} onClick={changeColor3}>
             <Popover
                     placement="bottom"
                     content="Évévenements de la coloc"
                   >
                    <strong>🗓️</strong>
                   </Popover>
-              <span>Calendar</span>
+              <span style={{color: span3}}>Calendar</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=expense`}>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=expense`} onClick={changeColor4}>
             <Popover
                     placement="bottom"
                     content="Dépenses de la coloc"
                   >
                     <strong>💰</strong>
                   </Popover>
-              <span>Dépenses</span>
+              <span style={{color: span4}}>Dépenses</span>
             </Link>
 
             {parseInt(Cookies.get('current_user_id')) === room?.admin?.id && (
