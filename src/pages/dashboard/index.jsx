@@ -67,7 +67,6 @@ const Dashboard = () => {
     fetch(`${url.url}flatsharings/${id}/dashboard`)
       .then((response) => response.json())
       .then((response) => {
-        Cookies.set('admin_email', response.admin.email);
         setRoom(response);
       });
   };
@@ -76,19 +75,24 @@ const Dashboard = () => {
     fetch(`${url.url}flatsharings/${id}/dashboard`)
       .then((response) => response.json())
       .then((response) => {
-        if (Cookies.get('current_user_id')) {
-          if (parseInt(Cookies.get('current_user_id')) === response.admin.id) {
-            setYourDashboard(true);
-          } else {
-            response.guest.forEach((flatmate) => {
-              if (flatmate !== null) {
-                if (flatmate.id === parseInt(Cookies.get('current_user_id'))) {
-                  setYourDashboard(true);
+        if (response?.status === 404 ){
+          setYourDashboard(false);
+        } else {
+          if (Cookies.get('current_user_id')) {
+            if (parseInt(Cookies.get('current_user_id')) === response.admin.id) {
+              setYourDashboard(true);
+            } else {
+              response.guest.forEach((flatmate) => {
+                if (flatmate !== null) {
+                  if (flatmate.id === parseInt(Cookies.get('current_user_id'))) {
+                    setYourDashboard(true);
+                  }
                 }
-              }
-            });
+              });
+            }
           }
         }
+        
       });
   };
 
