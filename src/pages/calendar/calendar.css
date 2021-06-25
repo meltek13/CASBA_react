@@ -2,9 +2,8 @@
   margin-top: 20px;
 }
 
-
-.calendar{
-  box-shadow: 1px 1px 8px #F7F7F7;
+.calendar {
+  box-shadow: 1px 1px 8px #f7f7f7;
 
   border-radius: 5px;
   border: 1px solid lightgray;
@@ -53,7 +52,7 @@
 .popUp-container {
   width: 100%;
   overflow-y: scroll;
-  height: 150px;
+  height: 179px;
   border-top: none;
   border-left: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
@@ -64,6 +63,8 @@
 .contain-text {
   border: 1px solid lightgray;
   padding: 5px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 .text-pop {
@@ -76,17 +77,6 @@
   align-content: space-between;
   width: 100%;
   margin-top: 20px;
-}
-
-.button-delete {
-  background-color: tomato;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.button-delete:hover {
-  cursor: pointer;
 }
 
 .button-create {
