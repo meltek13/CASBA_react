@@ -118,7 +118,7 @@ const Profil = () => {
                 style={
                   color
                     ? { border: `6px solid ${color}` }
-                    : { border: '6px solid rgb(245, 245, 38)' }
+                    : { border: '6px solid rgb(255, 255, 185)' }
                 }
                 className="avatar"
                 htmlFor="file"
@@ -138,7 +138,7 @@ const Profil = () => {
                 ) : (
                   <img
                     className="avatar-img"
-                    src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+                    src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png"
                     alt="avatar par defaut"
                   />
                 )}

@@ -42,7 +42,7 @@ const MiniAvatar = ({ user }) => {
         setAvatar(constructor);
       } else {
         setAvatar(
-          'https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png',
+          'https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png',
         );
       }
     });
@@ -68,7 +68,7 @@ const MiniAvatar = ({ user }) => {
               style={
                 user?.color
                   ? { border: `3px solid ${user?.color}` }
-                  : { border: '3px solid rgb(245, 245, 38)' }
+                  : { border: '3px solid rgb(255, 255, 185)' }
               }
               src={avatar}
               alt="avatar"
@@ -111,7 +111,7 @@ const MiniAvatar = ({ user }) => {
           style={
             user?.color
               ? { border: `3px solid ${user?.color}` }
-              : { border: '3px solid rgb(245, 245, 38)' }
+              : { border: '3px solid rgb(255, 255, 185)' }
           }
           className="avatar_modal"
           src={avatar}
