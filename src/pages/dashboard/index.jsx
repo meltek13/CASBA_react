@@ -157,7 +157,7 @@ const Dashboard = () => {
                 </div>
               ) : (
                 <div className="unsubscribe">
-                  <Popover placement="leftBottom" content="non inscrit">
+                  <Popover placement="leftBottom" content="Pas encore inscrit">
                     <label htmlFor="file">
                       <img
                         style={{ border: '3px solid #FFFFB9' }}

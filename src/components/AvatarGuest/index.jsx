@@ -65,7 +65,7 @@ const MiniAvatar = ({ user }) => {
   return (
     <div>
       <div className="AvatarAndStatus">
-        <Popover placement="leftBottom" content={user.email}>
+        <Popover placement="leftBottom" content={user.nickname ? user.nickname : user.email}>
           <label htmlFor="file" onClick={showModal}>
             <img
               className="avatar_dashboard"
