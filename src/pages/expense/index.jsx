@@ -146,7 +146,7 @@ const Expense = () => {
         });
     });
   };
-
+  console.log(flatMates?.guest)
   return (
     <>
       <h1>Les dépenses</h1>
@@ -184,7 +184,7 @@ const Expense = () => {
             <InputNumber />
           </Form.Item>
           <Form.Item name="checkbox-group" label="Pour qui ?">
-            <Checkbox.Group>
+            <Checkbox.Group> <br></br>{}
               {flatMates?.admin ? (
                 <Row>
                   <Col span={8}>
@@ -200,161 +200,22 @@ const Expense = () => {
                   </Col>
                 </Row>
               ) : <p>non</p>}
-              {flatMates?.guest?.[0] ? (
-                <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[0].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[0].email}
-                    </Checkbox>
-                  </Col>
-                </Row>
-              ) : <span />}
-              {flatMates?.guest?.[1] ? (
-                <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[1].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[1].email}
-                    </Checkbox>
-                  </Col>
-                </Row>
-              ) : <span />}
-              {flatMates?.guest?.[2] ? (
-                <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[2].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[2].email}
-                    </Checkbox>
-                  </Col>
-                </Row>
-              ) : <span />}
-              {flatMates?.guest?.[3] ? (
-                <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[3].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[3].email}
-                    </Checkbox>
-                  </Col>
-                </Row>
-              ) : <span />}
-              {flatMates?.guest?.[4] ? (
-                <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[4].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[4].email}
-                    </Checkbox>
-                  </Col>
-                </Row>
-              ) : <span />}
-              {flatMates?.guest?.[5] ? <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[5].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[5].email}
-                    </Checkbox>
-                  </Col>
-                </Row> : <span />}
-              {flatMates?.guest?.[6] ? <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[6].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[6].email}
-                    </Checkbox>
-                  </Col>
-                </Row>  : <span />}
-              {flatMates?.guest?.[7] ? <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[7].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[7].email}
-                    </Checkbox>
-                  </Col>
-                </Row> : <span />}
-              {flatMates?.guest?.[8] ? <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[8].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[8].email}
-                    </Checkbox>
-                  </Col>
-                </Row> : <span />}
-              {flatMates?.guest?.[9] ? <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[9].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[9].email}
-                    </Checkbox>
-                  </Col>
-                </Row> : <span />}
-              {flatMates?.guest?.[10] ? <Row>
-                  <Col span={8}>
-                    <Checkbox
-                      value={flatMates.guest[10].id}
-                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                    >
-                      {flatMates.guest[10].email}
-                    </Checkbox>
-                  </Col>
-                </Row> : <span />}
              
-
+              {flatMates?.guest?.map( user => user ? (
+                <Row>
+                  <Col span={8}>
+                    <Checkbox
+                      value={user.id}
+                      onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
+                      style={{
+                        lineHeight: '32px',
+                      }}
+                    >
+                      {user.email}
+                    </Checkbox>
+                  </Col>
+                </Row>
+              ) : <span />)}
             </Checkbox.Group>
           </Form.Item>
 
