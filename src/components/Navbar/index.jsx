@@ -23,7 +23,7 @@ const Navbar = () => {
   const roomConnect = useSelector((state) => state.room.connect);
   const history = useHistory();
   const flat_id = Cookies.get("flat_id");
-  const url_dashboard = "/dashboard/" + flat_id;
+  const url_dashboard = "/dashboard/" + flat_id + "?name=actu";
 
   const handleClick = (e) => {
     e.preventDefault();
