@@ -9,66 +9,25 @@ import Expense from "pages/expense";
 import { Popover } from "antd";
 import MiniAvatar from "components/AvatarGuest";
 import url from "data/url.json";
-import { Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  useLocation
+} from "react-router-dom";
 import PageExpense from "pages/display_expense";
 import Error403 from "pages/error403";
 
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+}
+
 const Dashboard = () => {
+
+  let query = useQuery();
   const { id } = useParams();
-  const [news, setNews] = useState(true);
-  const [picture, setPicture] = useState(false);
-  const [calendar, setCalendar] = useState(false);
-  const [expense, setExpense] = useState(false);
   const [room, setRoom] = useState([]);
-  const [span1, setSpan1] = useState("#3FA9FF");
-  const [span2, setSpan2] = useState("black");
-  const [span3, setSpan3] = useState("black");
-  const [span4, setSpan4] = useState("black");
   const [yourDashboard, setYourDashboard] = useState(false);
 
-  const changeNews = () => {
-    setSpan1("#3FA9FF");
-    setSpan2("black");
-    setSpan3("black");
-    setSpan4("black");
-    setNews(true);
-    setPicture(false);
-    setCalendar(false);
-    setExpense(false);
-  };
-
-  const changePicture = () => {
-    setSpan1("black");
-    setSpan2("#3FA9FF");
-    setSpan3("black");
-    setSpan4("black");
-    setNews(false);
-    setPicture(true);
-    setCalendar(false);
-    setExpense(false);
-  };
-
-  const changeCalendar = () => {
-    setSpan1("black");
-    setSpan2("black");
-    setSpan3("#3FA9FF");
-    setSpan4("black");
-    setNews(false);
-    setPicture(false);
-    setCalendar(true);
-    setExpense(false);
-  };
-
-  const changeExpenses = () => {
-    setSpan1("black");
-    setSpan2("black");
-    setSpan3("black");
-    setSpan4("#3FA9FF");
-    setNews(false);
-    setPicture(false);
-    setCalendar(false);
-    setExpense(true);
-  };
 
   const verifyPresenceOfData = (data) => {
     if (JSON.stringify(data) === "null") {
@@ -93,14 +52,11 @@ const Dashboard = () => {
       .then((response) => {
         if (Cookies.get("current_user_id")) {
           if (parseInt(Cookies.get("current_user_id")) === response.admin.id) {
-            console.log(response.admin.id);
-
             setYourDashboard(true);
           } else {
             response.guest.forEach((flatmate) => {
               if (flatmate !== null) {
                 if (flatmate.id === parseInt(Cookies.get("current_user_id"))) {
-                  console.log(flatmate);
                   setYourDashboard(true);
                 }
               }
@@ -115,27 +71,25 @@ const Dashboard = () => {
     findUserRoom();
   }, []);
 
+
+  
   return (
     <div>
       {yourDashboard ? (
         <div>
           <div className="nav-dashboard">
-            <button onClick={changeNews} className="btn-dashboard-nav">
-              <strong>📰</strong>
-              <span style={{ color: span1 }}>Actus</span>
-            </button>
-            <button onClick={changePicture} className="btn-dashboard-nav">
-              <strong>📷</strong>
-              <span style={{ color: span2 }}>Photos</span>
-            </button>
-            <button onClick={changeCalendar} className="btn-dashboard-nav">
-              <strong>🗓️</strong>
-              <span style={{ color: span3 }}>Calendrier</span>
-            </button>
-            <button onClick={changeExpenses} className="btn-dashboard-nav">
-              <strong>💰</strong>
-              <span style={{ color: span4 }}>Dépenses</span>
-            </button>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=actu`}><strong>📰</strong>
+              <span>Actus</span>
+            </Link>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=picture`}><strong>📷</strong>
+              <span>Photos</span>
+            </Link>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=calendar`}><strong>🗓️</strong>
+              <span>Calendar</span>
+            </Link>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=expense`}> <strong>💰</strong>
+              <span>Dépenses</span>
+            </Link>
 
             {parseInt(Cookies.get("current_user_id")) === room?.admin?.id && (
               <button className="btn-dashboard-nav ">
@@ -194,10 +148,7 @@ const Dashboard = () => {
           </div>
 
           <div className="content-dashboard">
-            {news && <News />}
-            {picture && <Picture />}
-            {calendar && <Calendar />}
-            {expense && <Expense />}
+            <Child name={query.get("name")} />
           </div>
           <div />
         </div>
@@ -209,3 +160,15 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+const Child = ({ name }) => {
+ 
+  return (
+    <div>
+      {name === "actu" && <News key="actu"/>}
+      {name === "picture" && <Picture key="picture"/>}
+      {name === "calendar" && <Calendar key="calendar"/>}
+      {name === "expense" && <Expense key="expense"/>}
+    </div>
+  );
+}
