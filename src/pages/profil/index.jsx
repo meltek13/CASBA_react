@@ -28,7 +28,7 @@ const Profil = () => {
     return constructor;
   };
 
-  const fetchFunction = () => {
+  const currentUser = () => {
     fetch(`${url.url}members/${Cookies.get('current_user_id')}`, {
       method: 'get',
       headers: {
@@ -51,7 +51,7 @@ const Profil = () => {
       });
   };
   useEffect(() => {
-    fetchFunction();
+    currentUser();
   }, []);
 
   const updateNickname = (nickname) => {

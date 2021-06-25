@@ -30,7 +30,7 @@ const NewFlatSharing = () => {
     return 'error';
   };
 
-  const fetchFunction = (array_email_invitation) => {
+  const createFlatsharing = (array_email_invitation) => {
     fetch(`${url.url}flatsharings`, {
       method: 'post',
       headers: {
@@ -74,7 +74,7 @@ const NewFlatSharing = () => {
       values.users.forEach((roommate) => array_email_invitation.push(roommate.email));
     }
 
-    fetchFunction(array_email_invitation);
+    createFlatsharing(array_email_invitation);
   };
   const test = (e) => {
     console.log(e.target.value);
