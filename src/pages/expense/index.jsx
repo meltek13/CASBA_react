@@ -52,6 +52,9 @@ const Expense = () => {
   console.log(flatMates)
 
   const ExpenseFetch = (e) => {
+    if (titleInput.length < 1 || input_total_corrected.length <1 || concernedColocsInput2.length < 1 ){
+      Notif_error_expense()
+    }else {
     fetch(url.url + "expenses", {
       method: "post",
       headers: {
@@ -76,6 +79,7 @@ const Expense = () => {
            updateSoldePositif(response)
       });
       Notif_sucess_expense()
+    }
   };
 
     const deleteFlatMate = (flatmate) =>{

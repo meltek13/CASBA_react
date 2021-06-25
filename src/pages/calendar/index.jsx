@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import url from "data/url.json"
 import { Form, Input, Button, Select } from 'antd';
-import { Notif_sucess_event } from "components/Notifications";
+import { Notif_sucess_event, Notif_error_calendar } from "components/Notifications";
 
 
 const Timetable = () => {
@@ -40,6 +40,9 @@ const Timetable = () => {
   };
 
   const createEvent = () => {
+    if (title.length < 1 || description.length < 1){
+      Notif_error_calendar()
+    } else {
     fetch(url.url + "dashboard/" + id + "/calendars", {
       method: "post",
       headers: {
@@ -54,9 +57,10 @@ const Timetable = () => {
       }),
     })
       .then((response) =>  {
+        console.log(response)
         Notif_sucess_event()
       });
-    
+    }
   };
  
   useEffect(() => {

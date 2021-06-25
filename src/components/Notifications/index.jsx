@@ -23,7 +23,16 @@ export const Notif_sucess_event = () => {
 export const Notif_error_expense = () => {
   const notyf = new Notyf();
   notyf.error({
-    message: 'Une erreur à été détecté..',
+    message: 'Une erreur à été détectée..',
+    duration: 3000,
+    icon: false
+  })
+}
+
+export const Notif_error_calendar = () => {
+  const notyf = new Notyf();
+  notyf.error({
+    message: "nous n'avons pas pu sauvegarder votre événement",
     duration: 3000,
     icon: false
   })
