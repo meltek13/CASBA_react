@@ -194,7 +194,7 @@ const Timetable = () => {
                         (user) => user.id === elem.by && (
                         <p>
                           {' '}
-                          {user.email}
+                          {user.nickname ? user.nickname : user.email}
                         </p>
                         ),
                       )}

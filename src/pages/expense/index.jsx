@@ -195,7 +195,7 @@ const Expense = () => {
                         lineHeight: '32px',
                       }}
                     >
-                      {flatMates.admin.email}
+                      {flatMates.admin.nickname ? flatMates.admin.nickname :flatMates.admin.email}
                     </Checkbox>
                   </Col>
                 </Row>
