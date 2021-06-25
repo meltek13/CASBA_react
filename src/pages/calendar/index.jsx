@@ -122,7 +122,7 @@ const Timetable = () => {
         </div>
 
         <div className="formCalendar2">
-          <Form {...layout} name="control-ref">
+          <Form {...layout} name="control-ref" className="create-event">
             <h2 className="centerTitle">
               Enregistre ton événement ici
             </h2>

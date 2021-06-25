@@ -8,6 +8,25 @@
   border: 1px solid lightgray;
   height: 320px;
 }
+@media (max-width: 1500px) {
+  .create-event{
+    padding: 15px;
+  }
+}
+
+@media (max-width: 530px) {
+  .create-event{
+    padding: 20px;
+  }
+  .calendar{
+    width: 220px;
+  }
+  .form-global-calendar{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
 
 .form-global-calendar{
   margin-top:30px;

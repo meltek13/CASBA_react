@@ -163,7 +163,7 @@
   position: fixed;
   z-index: 1;
   margin: 20px;
-  margin-right: 40px;
+  margin-right: 10%;
   width: 320px;
 }
 
@@ -184,9 +184,22 @@
   align-self: flex-start;
   width: 100%;
 }
+
+@media (max-width: 1500px) {
+  .rightSide {
+    margin-right: 2%;
+  }
+}
+
+@media (max-width: 1350px) {
+  .rightSide {
+    margin-right: 0px;
+  }
+}
+
 @media (max-width: 1300px) {
   .rightSide {
-    width: 320px;
+    width: 310px;
   }
 }
 
