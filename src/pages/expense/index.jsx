@@ -155,9 +155,13 @@ const Expense = () => {
       </h2>
       <div id="container_expense">
         <img id="expense-svg" src={Expense_svg} alt="illustration tirelire cochon " />
-
-        <Form {...layout} name="control-ref">
-          <span>Intitulé de la dépense ?</span>
+        
+        <Form {...layout} name="control-ref" className="expense-form">
+          <h2>Course, factures ... rentre tes depenses ici</h2>
+          <muted>(On s'occupe des calculs !)</muted>
+          <br/>
+          <div className="TitleexpenseForm">
+          <span className="colorBlue" >Intitulé de la dépense </span>
           <Form.Item
             name="title"
             label=""
@@ -170,7 +174,9 @@ const Expense = () => {
           >
             <Input />
           </Form.Item>
-          <span>Montant ? </span>
+          </div>
+          <div className="TitleexpenseForm">
+          <span className="colorBlue">Montant ? </span>
           <Form.Item
             name="montant"
             label=""
@@ -183,8 +189,11 @@ const Expense = () => {
           >
             <InputNumber />
           </Form.Item>
-          <Form.Item name="checkbox-group" label="Pour qui ?">
-            <Checkbox.Group> <br></br>{}
+          </div>
+          <div className="TitleexpenseForm borderCheckBox">
+          <span className="colorBlue">Pour qui ?</span>
+          <Form.Item name="checkbox-group" label="">
+            <Checkbox.Group> <br></br>
               {flatMates?.admin ? (
                 <Row>
                   <Col span={8}>
@@ -218,14 +227,17 @@ const Expense = () => {
               ) : <span />)}
             </Checkbox.Group>
           </Form.Item>
-
+          </div>
+          
           <Form.Item {...tailLayout}>
             <Button type="primary" htmlType="submit" onClick={ExpenseFetch}>
               Enregistrer
             </Button>
           </Form.Item>
+          
         </Form>
-      </div>
+        </div>
+      
     </>
   );
 };
