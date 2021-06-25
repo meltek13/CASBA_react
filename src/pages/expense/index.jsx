@@ -76,9 +76,9 @@ const Expense = () => {
         .then((response) => response.json())
         .then((response) => {
           updateSoldePositif(response);
-          window.location.reload(false);
+         
         });
-      Notif_sucess_expense();
+      
     }
   };
 
@@ -137,7 +137,11 @@ const Expense = () => {
           })
             .catch((error) => console.log(error))
             .then((response) => {
-              console.log(response);
+
+              Notif_sucess_expense();
+              window.location.reload(false);
+
+              
             });
         });
     });
