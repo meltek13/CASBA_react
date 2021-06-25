@@ -41,7 +41,7 @@ const Timetable = () => {
   };
 
   const createEvent = () => {
-    if (title.length < 1 || description.length < 1) {
+    if ( title.length < 1  || title.length > 15 || description.length < 1 || description.length > 94 ) {
       Notif_error_calendar();
     } else {
       fetch(`${url.url}dashboard/${id}/calendars`, {
@@ -147,6 +147,7 @@ const Timetable = () => {
               rules={[
                 {
                   required: true,
+                  max: 15, message: '15 caractères maximum'
                 },
               ]}
             >
@@ -160,6 +161,7 @@ const Timetable = () => {
               rules={[
                 {
                   required: true,
+                  max: 94, message: '94 caractères maximum'
                 },
               ]}
             >
