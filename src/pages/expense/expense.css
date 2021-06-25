@@ -30,12 +30,8 @@
 }
 
 .borderCheckBox{
-  border:1px solid lightgrey;
-  padding: 16px;
+  border: 1px solid lightgrey;
+  min-width: 170px;
   margin-bottom: 10px;
 }
-
-
-
-
 
