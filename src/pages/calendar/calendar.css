@@ -2,8 +2,10 @@
   margin-top: 20px;
 }
 
-.calendar {
-  box-shadow: 1px 1px 12px #dbdbdb;
+
+.calendar{
+  box-shadow: 1px 1px 8px #F7F7F7;
+
   border-radius: 5px;
   border: 1px solid lightgray;
   height: 320px;

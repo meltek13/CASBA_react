@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import 'pages/expense/expense.css';
-
 import Cookies from 'js-cookie';
 import { Link, useParams } from 'react-router-dom';
 import Expense_svg from 'assets/img/money_colocs.svg';
 import url from 'data/url.json';
 import { Notif_sucess_expense, Notif_error_expense } from 'components/Notifications';
-
 import {
   Form, Input, Button, Select, InputNumber, Checkbox, Row, Col,
 } from 'antd';
@@ -67,7 +65,7 @@ const Expense = () => {
             concerned_colocs: concernedColocsInput2,
             user_id: Cookies.get('current_user_id'),
             flatsharing_id: Cookies.get('flat_id'),
-            split_amount_to_colocs: Math.ceil(input_total_corrected / (concernedColocsInput2.length)),
+            split_amount_to_colocs: (input_total_corrected / (concernedColocsInput2.length)),
           },
         }),
       })
@@ -188,8 +186,9 @@ const Expense = () => {
             <InputNumber />
           </Form.Item>
           </div>
-          <div className="TitleexpenseForm borderCheckBox">
           <span className="colorBlue">Pour qui ?</span>
+          <div className="TitleexpenseForm borderCheckBox">
+          
           <Form.Item name="checkbox-group" label="">
             <Checkbox.Group> <br></br>
               {flatMates?.admin ? (
@@ -218,7 +217,7 @@ const Expense = () => {
                         lineHeight: '32px',
                       }}
                     >
-                      {user.nickname ? user.nickname :user.email}
+                      {user.nickname ? user.nickname  :user.email} 
                     </Checkbox>
                   </Col>
                 </Row>
@@ -232,6 +231,7 @@ const Expense = () => {
               Enregistrer
             </Button>
           </Form.Item>
+          
           
         </Form>
         </div>

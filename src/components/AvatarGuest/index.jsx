@@ -94,7 +94,7 @@ const MiniAvatar = ({ user }) => {
 
         <p>
           {' '}
-          {user.solde}
+          {JSON.stringify(user.solde).substr(0,6)}
           {' '}
           €
         </p>
