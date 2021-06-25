@@ -1,57 +1,58 @@
-.content-calendar{
+.content-calendar {
   margin-top: 20px;
 }
 
+
 .calendar{
   box-shadow: 1px 1px 8px #F7F7F7;
+
   border-radius: 5px;
   border: 1px solid lightgray;
   height: 320px;
 }
 @media (max-width: 1500px) {
-  .create-event{
+  .create-event {
     padding: 15px;
   }
 }
 
 @media (max-width: 530px) {
-  .create-event{
+  .create-event {
     padding: 20px;
   }
-  .calendar{
+  .calendar {
     width: 220px;
   }
-  .form-global-calendar{
+  .form-global-calendar {
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
 }
 
-.form-global-calendar{
-  margin-top:30px;
-  display:flex;
+.form-global-calendar {
+  margin-top: 30px;
+  display: flex;
 }
 
-.centerTitle{
+.centerTitle {
   text-align: center;
   padding-top: 5px;
 }
-.popUpcreate{
+.popUpcreate {
   width: 50%;
   margin: 10px;
 }
 
-.form-calendar{
+.form-calendar {
   display: block;
   margin-bottom: 20px;
   width: 100%;
- 
 }
 
-.popUp-container{
+.popUp-container {
   width: 100%;
-  overflow-y:scroll;
+  overflow-y: scroll;
   height: 150px;
   border-top: none;
   border-left: 1px solid lightgrey;
@@ -60,16 +61,16 @@
   border-radius: 0px 0px 5px 5px;
 }
 
-.contain-text{
+.contain-text {
   border: 1px solid lightgray;
   padding: 5px;
 }
 
-.text-pop{
+.text-pop {
   display: flex;
   justify-content: center;
 }
-.popUp{
+.popUp {
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -77,127 +78,142 @@
   margin-top: 20px;
 }
 
-.button-delete{
-  background-color:tomato;
+.button-delete {
+  background-color: tomato;
   border: none;
   border-radius: 5px;
   padding: 5px;
 }
 
-.button-delete:hover{
+.button-delete:hover {
   cursor: pointer;
 }
 
-.button-create{
-  background-color:skyblue;
+.button-create {
+  background-color: skyblue;
   border: none;
   border-radius: 5px;
   padding: 5px;
 }
-.button-create:hover{
+.button-create:hover {
   cursor: pointer;
 }
 
-.formCalendar2{
+.formCalendar2 {
   display: flex;
   border: 1px solid lightgrey;
   width: 100%;
   margin-top: 20px;
   justify-content: center;
   margin-left: 10px;
-  box-shadow: 1px 1px 12px #DBDBDB;
+  box-shadow: 1px 1px 12px #dbdbdb;
 }
 
-.colorBlue{
-  color: #1990FF;
+.colorBlue {
+  color: #1990ff;
 }
-.event-past-container, .event-coming-container{
-overflow-y: scroll;
-height: 160px;
-margin: 0;
-padding: 0;
-border-top: none;
-border-left: 1px solid lightgrey;
-border-bottom: 1px solid lightgrey;
-border-right: 1px solid lightgrey;
-border-radius: 0px 0px 5px 5px;
-
+.event-past-container,
+.event-coming-container {
+  overflow-y: scroll;
+  overflow-x: auto;
+  height: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: none;
+  border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-radius: 0px 0px 5px 5px;
 }
-.event-past-container{
+.event-past-container {
   margin-bottom: 50px;
 }
-.event-coming{
-  display: flex;
-  align-items: center;
-}
-.event-past{
+
+.event-past {
   display: flex;
   align-items: center;
   margin-top: 0px;
 }
-.event-dotted-coming{
-  width: 12px;
-  height: 12px;
-  border-radius: 10px;
-  background-color: #F5A623 ;
-  margin-right: 10px;
+.event-dotted-coming {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #f5a623;
+  margin: 30px;
 }
-.event-dotted-past{
-  width: 12px;
-  height: 12px;
-  border-radius: 10px;
-  background-color: #61AAFF ;
-  margin-right: 10px;
+.event-dotted-past {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #61aaff;
+  margin: 30px;
 }
-
-.event-content-coming{
+.title-event {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-top: 13px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  min-width: 168.89px;
+  overflow-wrap: anywhere;
+}
+.description-event {
+  padding: 5px;
+  min-width: 337.78px;
+  overflow-wrap: anywhere;
+}
+.event-content-coming {
+  margin-top: 15px;
   background-color: rgb(255, 248, 226);
-  width: 90%;
-  height: 30px;
-  display: flex;
-  align-items: center;  
+  width: 100%;
+  height: 72px;
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 0.5fr 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+.cd-date {
+  padding-top: 25px;
+  min-width: 101px;
 }
 
-.event-content-past{
+.event-content-past {
   background-color: #d8eaff;
-  width: 90%;
-  height: 30px;
-  display: flex;
-  align-items: center;  
+  margin-top: 15px;
+
+  width: 100%;
+  height: 72px;
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 0.5fr 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
 }
-.event-content-coming h2 ,.event-content-coming p,
-.event-content-past h2 ,.event-content-past p{
+
+.event-content-past h2,
+.event-content-past p {
   padding: 0;
   margin-top: 10px;
   text-align: left;
 }
-.event-content-coming h2, .event-content-past h2{
+.event-content-coming h2,
+.event-content-past h2 {
   position: relative;
   left: 20px;
   margin-right: 200px;
 }
-.cd-date{
-  position: relative;
-  margin-bottom: 60px;
-  margin-left: 22px;
-  color: #1990FF;
-  right: 558px;
-  width: 100px;
-  margin-left: 0;
 
-}
-
-#all-events{
+#all-events {
   position: relative;
   margin-top: 20px;
   margin-bottom: 50px;
 }
-.title-calendar-event{
+.title-calendar-event {
   margin-top: 40px;
   margin-bottom: 0px;
   background-color: whitesmoke;
   padding: 15px;
-  border-radius:5px 5px 0px 0px  ;
+  border-radius: 5px 5px 0px 0px;
   border-bottom: none;
   border-left: 1px solid lightgrey;
   border-top: 1px solid lightgrey;
