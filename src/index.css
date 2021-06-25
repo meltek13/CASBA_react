@@ -6,12 +6,10 @@ html {
   font-family: "Monsterrat", sans-serif;
   align-items: center;
   width: 52%;
-  height: 100vh;
   margin-left: 300px;
   padding: 10px;
   padding-left: 30px;
   padding-right: 30px;
-
 }
 .center {
   display: flex;

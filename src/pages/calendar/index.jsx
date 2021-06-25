@@ -42,7 +42,12 @@ const Timetable = () => {
   };
 
   const createEvent = () => {
-    if ( title.length < 1  || title.length > 15 || description.length < 1 || description.length > 94 ) {
+    if (
+      title.length < 1 ||
+      title.length > 15 ||
+      description.length < 1 ||
+      description.length > 94
+    ) {
       Notif_error_calendar();
     } else {
       fetch(`${url.url}dashboard/${id}/calendars`, {
@@ -140,7 +145,8 @@ const Timetable = () => {
               rules={[
                 {
                   required: true,
-                  max: 15, message: '15 caractères maximum'
+                  max: 15,
+                  message: "15 caractères maximum",
                 },
               ]}
             >
@@ -154,7 +160,8 @@ const Timetable = () => {
               rules={[
                 {
                   required: true,
-                  max: 94, message: '94 caractères maximum'
+                  max: 94,
+                  message: "94 caractères maximum",
                 },
               ]}
             >
@@ -184,12 +191,6 @@ const Timetable = () => {
               elem.timedate === value.toString() &&
               event.length > 0 && (
                 <div className="contain-text" key={elem.id}>
-                  {userCreate[0]?.users.map(
-                    (user) =>
-                      user.id === elem.by && (
-                        <p> {user.nickname ? user.nickname : user.email}</p>
-                      )
-                  )}
                   <p className="text-pop">
                     <span className="colorBlue">Intitulé</span> : {elem.title}
                   </p>
@@ -197,16 +198,27 @@ const Timetable = () => {
                     <span className="colorBlue">Description </span> :
                     {elem.description}
                   </p>
+                  <p className="text-pop">
+                    <span className="colorBlue">Créer par </span> :
+                    {userCreate[0]?.users.map(
+                      (user) =>
+                        user.id === elem.by && (
+                          <p> {user.nickname ? user.nickname : user.email}</p>
+                        )
+                    )}
+                  </p>
                   {userCreate[0]?.users.map(
                     (user) =>
                       user.id === parseInt(Cookies.get("current_user_id")) &&
                       user.id === elem.by && (
-                        <button
+                        <Button
+                          type="link"
+                          danger
                           className="button-delete"
                           onClick={() => destroyEvent(elem.id)}
                         >
                           Supprimer
-                        </button>
+                        </Button>
                       )
                   )}
                 </div>
