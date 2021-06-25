@@ -37,7 +37,6 @@ const Navbar = () => {
     })
       .then((response) => response.json())
       .then((userdata) => {
-        console.log(userdata);
         Cookies.remove('token');
         Cookies.remove('flat_id');
         dispatch(logOut());

@@ -93,7 +93,6 @@ const SignIn = (user_id) => {
         if (Cookies.get('token') === 'null') {
           document.querySelector('.alert').classList.remove('invisible');
         } else {
-          console.log(userdata);
           Cookies.set('current_user_id', userdata.user.id);
           dispatch(logIn());
           findFlat(Cookies.get('current_user_id'));

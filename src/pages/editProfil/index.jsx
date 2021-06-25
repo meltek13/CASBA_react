@@ -25,7 +25,6 @@ const EditProfil = () => {
     })
       .catch((error) => console.log(error))
       .then((response) => {
-        console.log(response);
         history.push('/profil');
       });
   };

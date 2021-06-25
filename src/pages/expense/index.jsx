@@ -49,8 +49,6 @@ const Expense = () => {
     findFlatMates();
   }, []);
 
-  console.log(flatMates);
-
   const ExpenseFetch = (e) => {
     if (titleInput.length < 1 || input_total_corrected.length < 1 || concernedColocsInput2.length < 1) {
       Notif_error_expense();
@@ -146,7 +144,7 @@ const Expense = () => {
         });
     });
   };
-  console.log(flatMates?.guest)
+
   return (
     <>
       <h1>Les dépenses</h1>

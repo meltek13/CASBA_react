@@ -16,7 +16,6 @@ const Profil = () => {
   const [uploadAvatar, setUploadAvatar] = useState('');
   const [color, setColor] = useState('');
   const { Option } = Select;
-  console.log(Color.colors);
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
     const link = imageUrl;
@@ -63,7 +62,6 @@ const Profil = () => {
     })
       .catch((error) => console.log(error))
       .then((response) => {
-        console.log(response);
       });
   };
 
@@ -87,7 +85,6 @@ const Profil = () => {
     })
       .catch((error) => console.log(error))
       .then((response) => {
-        console.log(response);
         history.go(0);
       });
   };

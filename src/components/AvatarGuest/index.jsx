@@ -48,7 +48,6 @@ const MiniAvatar = ({ user }) => {
     });
 
   const update = (status) => {
-    console.log(status);
     const formData = new FormData();
     formData.append('status', status);
 
@@ -57,9 +56,6 @@ const MiniAvatar = ({ user }) => {
       body: formData,
     })
       .catch((error) => console.log(error))
-      .then((response) => {
-        console.log(response);
-      });
   };
 
   return (
