@@ -176,8 +176,9 @@ const Timetable = () => {
 
       <div className="popUp">
         <h2 className="title-calendar-event">
-          Événements du
+          Événements du 
           <strong>
+          &nbsp;
             {parseInt(value.toISOString().slice(8, 10)) + 1}
             -
             {value.toISOString().slice(5, 7)}
@@ -230,7 +231,7 @@ const Timetable = () => {
       <div id="all-events">
         <h2 className="title-calendar-event">
           Événements
-          <strong>à venir</strong>
+          <strong>&nbsp;à venir</strong>
         </h2>
         <div className="event-coming-container">
           {eventComing?.reverse().map((event) => (
@@ -253,7 +254,7 @@ const Timetable = () => {
 
         <h2 className="title-calendar-event">
           Événements
-          <strong>passés</strong>
+          <strong>&nbsp;passés</strong>
         </h2>
 
         <div className="event-past-container">
