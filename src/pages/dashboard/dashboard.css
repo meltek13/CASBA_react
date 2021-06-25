@@ -12,7 +12,9 @@
   background-color: white;
   border: none;
   font-size: 3.5rem;
+  text-align: center;
 }
+
 @media (max-width: 840px) {
   .btn-dashboard-nav {
     margin-top: 30px;
@@ -23,14 +25,6 @@
   font-size: 1rem;
   cursor: pointer;
 }
-.btn-dashboard-nav strong {
-  transition: all 200ms ease-in-out;
-}
-.btn-dashboard-nav:hover strong {
-  cursor: pointer;
-  filter: blur(0.5px);
-  transform: scale(1.2);
-}
 
 .add-roomate {
   min-height: 50px;
@@ -38,11 +32,14 @@
   min-width: 50px;
   max-width: 50px;
   cursor: pointer;
-  margin-bottom: 30px;
-  margin-left: -30px;
+  transition: all 0.2s;
 }
 .add-roomate:hover {
   color: #3fa9ff !important;
+  min-height: 60px;
+  max-height: 60px;
+  min-width: 60px;
+  max-width: 60px;
 }
 .flex-column-nav {
   display: flex;
@@ -248,5 +245,3 @@
   overflow: auto;
   margin-bottom: 25px;
 }
-
-
