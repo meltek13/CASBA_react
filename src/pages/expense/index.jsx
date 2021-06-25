@@ -75,8 +75,8 @@ const Expense = () => {
       })
         .then((response) => response.json())
         .then((response) => {
-          console.log(response);
           updateSoldePositif(response);
+          window.location.reload(false);
         });
       Notif_sucess_expense();
     }
