@@ -106,7 +106,7 @@ const MiniAvatar = ({ user }) => {
       </div>
 
       <Modal
-        title={user.email}
+        title={user.nickname ? user.nickname : user.email}
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
