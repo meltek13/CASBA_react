@@ -1,13 +1,13 @@
-import { React } from "react";
-import { Link } from "react-router-dom";
-import "./navbar.css";
-import Cookies from "js-cookie";
-import { useSelector, useDispatch } from "react-redux";
-import { logOut } from "store-redux/index";
-import { disconnect } from 'store-redux/room'
-import Home_svg from "assets/img/home.svg";
-import { useHistory } from "react-router-dom";
-import url from "data/url.json";
+import { React } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import './navbar.css';
+import Cookies from 'js-cookie';
+import { useSelector, useDispatch } from 'react-redux';
+import { logOut } from 'store-redux/index';
+import { disconnect } from 'store-redux/room';
+import HomeSvg from 'assets/img/home.svg';
+
+import url from 'data/url.json';
 import {
   LoginOutlined,
   LogoutOutlined,
@@ -15,34 +15,34 @@ import {
   UserOutlined,
   UserAddOutlined,
   DashboardOutlined,
-} from "@ant-design/icons";
+} from '@ant-design/icons';
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const loged = useSelector((state) => state.user.loged);
   const roomConnect = useSelector((state) => state.room.connect);
   const history = useHistory();
-  const flat_id = Cookies.get("flat_id");
-  const url_dashboard = "/dashboard/" + flat_id + "?name=actu";
+  const flatId = Cookies.get('flat_id');
+  const urlDashboard = `/dashboard/${flatId}?name=actu`;
 
   const handleClick = (e) => {
     e.preventDefault();
 
-    fetch(url.url + "users/sign_out", {
-      method: "delete",
+    fetch(`${url.url}users/sign_out`, {
+      method: 'delete',
       headers: {
-        Authorization: Cookies.get("token"),
-        "Content-Type": "application/json",
+        Authorization: Cookies.get('token'),
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
       .then((userdata) => {
         console.log(userdata);
-        Cookies.remove("token");
-        Cookies.remove("flat_id");
+        Cookies.remove('token');
+        Cookies.remove('flat_id');
         dispatch(logOut());
-        dispatch(disconnect())
-        history.push("/sign_in");
+        dispatch(disconnect());
+        history.push('/sign_in');
       });
   };
 
@@ -50,15 +50,15 @@ const Navbar = () => {
     <div className="navbar">
       <div className="content-link first">
         <Link className=" home-link" to="/">
-          <img id="home-logo" src={Home_svg} alt="home logo" />
+          <img id="home-logo" src={HomeSvg} alt="home logo" />
         </Link>
       </div>
-      {roomConnect || flat_id ? (
+      {roomConnect || flatId ? (
         <div className="content-link">
-          <Link className="link responsive-nav" to={url_dashboard}>
+          <Link className="link responsive-nav" to={urlDashboard}>
             Dashboard
           </Link>
-          <Link className="nav-icon" title="Dashboard" to={url_dashboard}>
+          <Link className="nav-icon" title="Dashboard" to={urlDashboard}>
             <DashboardOutlined />
           </Link>
         </div>

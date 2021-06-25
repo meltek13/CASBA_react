@@ -1,29 +1,31 @@
-import React from "react";
-import {useState} from 'react';
-import { Form, Input, Button, Select, InputNumber, Checkbox,Row , Col } from 'antd';
+import React, { useState } from 'react';
 
-const CheckboxDisplay = ({flatmate}) =>{
+import {
+  Form, Input, Button, Select, InputNumber, Checkbox, Row, Col,
+} from 'antd';
+
+const CheckboxDisplay = ({ flatmate }) => {
   const [concernedColocsInput2, setConcernedColocsInput2] = useState([]);
 
-  const deleteFlatMate = (flatmate) =>{
-    const array = []
-    concernedColocsInput2.forEach(x=>{
-      if (x !== flatmate){
-        array.push(x)
+  const deleteFlatMate = (flatmate) => {
+    const array = [];
+    concernedColocsInput2.forEach((x) => {
+      if (x !== flatmate) {
+        array.push(x);
       }
-    })
-    setConcernedColocsInput2([])
-    array.forEach(x=>{
-      setConcernedColocsInput2((oldArray) => [...oldArray, x])
-    })  
-}
+    });
+    setConcernedColocsInput2([]);
+    array.forEach((x) => {
+      setConcernedColocsInput2((oldArray) => [...oldArray, x]);
+    });
+  };
 
-    return (
-        <Row>
-        <Col span={8}>
+  return (
+    <Row>
+      <Col span={8}>
         <Checkbox
           value={flatmate.id}
-          onChange={e=> e.target.checked? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]): deleteFlatMate(e.target.value)}
+          onChange={(e) => (e.target.checked ? setConcernedColocsInput2((oldArray) => [...oldArray, e.target.value]) : deleteFlatMate(e.target.value))}
           style={{
             lineHeight: '32px',
           }}
@@ -32,7 +34,7 @@ const CheckboxDisplay = ({flatmate}) =>{
         </Checkbox>
       </Col>
     </Row>
-    )
-}
+  );
+};
 
-export default CheckboxDisplay
+export default CheckboxDisplay;

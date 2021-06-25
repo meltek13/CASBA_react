@@ -2,25 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import { Result, Button } from 'antd';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
-const Error403 = ()=>{
-    const history = useHistory();
+const Error403 = () => {
+  const history = useHistory();
 
-    const back = ()=>{
+  const back = () => {
     history.goBack();
-    }
-    return (
+  };
+  return (
 
-   <Result
-    status="403"
-    title="403"
-    subTitle="Desolé, mais tu n'est pas autorisé à aller sur cette page"
-    extra={<Button type="primary" onClick={back}>Retour</Button>}
-  />
+    <Result
+      status="403"
+      title="403"
+      subTitle="Desolé, mais tu n'est pas autorisé à aller sur cette page"
+      extra={<Button type="primary" onClick={back}>Retour</Button>}
+    />
 
-    );
+  );
 };
 
 export default Error403;
-  
