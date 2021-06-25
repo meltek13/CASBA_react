@@ -3,23 +3,23 @@
     "colors": [
       {
         "slug": "Rose",
-        "color": "#FFB3BA"
+        "color": "#d95f67"
       },
       {
         "slug": "Orange",
-        "color": "#FFDFBB"
+        "color": "#da7a3f"
       },
       {
         "slug": "Jaune",
-        "color": "#FFFFB9"
+        "color": "#f6e766"
       },
      {
       "slug": "Vert",
-      "color": "#BAFFC8"
+      "color": "#73dc95"
     },
       {
         "slug": "Bleu",
-        "color": "#BAE1FF"
+        "color": "#10c4c7"
       },
       {
         "slug": "Violet",
