@@ -1,18 +1,20 @@
-import { React, useState } from "react";
-import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logIn } from "store-redux/index";
-import { connect } from 'store-redux/room' 
-import "./sign_up.css";
-import { Link } from "react-router-dom";
-import { Form, Input, Button, Checkbox, Alert } from "antd";
-import url from "data/url.json"
+import { React, useState } from 'react';
+import Cookies from 'js-cookie';
+import { useHistory, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'store-redux/index';
+import { connect } from 'store-redux/room';
+import './sign_up.css';
+
+import {
+  Form, Input, Button, Checkbox, Alert,
+} from 'antd';
+import url from 'data/url.json';
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
   const layout = {
@@ -32,34 +34,30 @@ const SignUp = () => {
 
   const verifyPassword = () => {
     if (password.length < 6 && password.length > 0) {
-      return "error";
-    } else {
-      return "success";
+      return 'error';
     }
+    return 'success';
   };
   const verifyConfirmationPassword = () => {
     if (confirmPassword !== password) {
-      return "error";
-    } else {
-      return "validating";
+      return 'error';
     }
+    return 'validating';
   };
 
   const verifyEmail = () => {
-    let re =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(email)) {
-      return "success";
-    } else if (email.length === 0) {
-      return "";
-    } else {
-      return "error";
+      return 'success';
+    } if (email.length === 0) {
+      return '';
     }
+    return 'error';
   };
 
   const findFlat = (user_id) => {
-    fetch(url.url + "flatsharings", {
-      method: "get",
+    fetch(`${url.url}flatsharings`, {
+      method: 'get',
     })
       .then((response) => response.json())
       .then((response) => {
@@ -67,9 +65,9 @@ const SignUp = () => {
           flat.flat_mate.forEach((mate) => {
             if (mate !== null) {
               if (mate.id === parseInt(user_id)) {
-                Cookies.set("flat_id", flat.id);
-                dispatch(connect())
-                history.push("/dashboard/" + flat.id);
+                Cookies.set('flat_id', flat.id);
+                dispatch(connect());
+                history.push(`/dashboard/${flat.id}`);
               }
             }
           });
@@ -77,9 +75,8 @@ const SignUp = () => {
       });
   };
 
-  const fetchFunction = (e) => {
-    let re =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const createUser = (e) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (confirmPassword === password && re.test(email)) {
       const data = {
@@ -87,10 +84,10 @@ const SignUp = () => {
         password,
       };
 
-      fetch(url.url + "users", {
-        method: "post",
+      fetch(`${url.url}users`, {
+        method: 'post',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           user: {
@@ -100,26 +97,26 @@ const SignUp = () => {
         }),
       })
         .then((response) => {
-          Cookies.set("token", response.headers.get("authorization"));
+          Cookies.set('token', response.headers.get('authorization'));
           return response.json();
         })
         .then((userdata) => {
-          if (Cookies.get("token") === "null") {
-            if (userdata.exception.includes("UniqueViolation")) {
+          if (Cookies.get('token') === 'null') {
+            if (userdata.exception.includes('UniqueViolation')) {
               document
-                .querySelector(".invisible2")
-                .classList.remove("invisible2");
+                .querySelector('.invisible2')
+                .classList.remove('invisible2');
             } else {
               document
-                .querySelector(".invisible")
-                .classList.remove("invisible");
+                .querySelector('.invisible')
+                .classList.remove('invisible');
             }
           } else {
             console.log(userdata);
-            Cookies.set("current_user_id", userdata.user.id);
+            Cookies.set('current_user_id', userdata.user.id);
             dispatch(logIn());
-            findFlat(Cookies.get("current_user_id"));
-            history.push("/");
+            findFlat(Cookies.get('current_user_id'));
+            history.push('/');
           }
         });
     }
@@ -128,7 +125,7 @@ const SignUp = () => {
   return (
     <div className="center">
       <div className="Register">
-      <Alert
+        <Alert
           className="invisible2"
           message="cet email est déjà associé à un compte"
           type="warning"
@@ -149,7 +146,7 @@ const SignUp = () => {
           initialValues={{
             remember: true,
           }}
-          onFinish={fetchFunction}
+          onFinish={createUser}
         >
           <Form.Item
             label="Email"
@@ -162,7 +159,7 @@ const SignUp = () => {
             rules={[
               {
                 required: true,
-                message: "Email invalide",
+                message: 'Email invalide',
               },
             ]}
           >
@@ -179,7 +176,7 @@ const SignUp = () => {
             rules={[
               {
                 required: true,
-                message: "Mot de passe invalide",
+                message: 'Mot de passe invalide',
               },
             ]}
           >
@@ -196,7 +193,7 @@ const SignUp = () => {
             rules={[
               {
                 required: true,
-                message: "Mot de passe invalide",
+                message: 'Mot de passe invalide',
               },
             ]}
           >
@@ -214,7 +211,9 @@ const SignUp = () => {
             <br />
             <br />
             <p>
-              Déjà inscrit ? <Link to="/sign_in">connectez-vous</Link>
+              Déjà inscrit ?
+              {' '}
+              <Link to="/sign_in">connectez-vous</Link>
             </p>
           </Form.Item>
         </Form>

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Cookies from "js-cookie";
-import { Modal, Popover, Select } from "antd";
-import "./avatarGuest.css";
-import data from "data/status.json";
-import url from "data/url.json";
+import React, { useState } from 'react';
+import Cookies from 'js-cookie';
+import { Modal, Popover, Select } from 'antd';
+import './avatarGuest.css';
+import data from 'data/status.json';
+import url from 'data/url.json';
 
 const MiniAvatar = ({ user }) => {
-  const [avatar, setAvatar] = useState("");
-  const [status, setStatus] = useState("status :");
+  const [avatar, setAvatar] = useState('');
+  const [status, setStatus] = useState('status :');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { Option } = Select;
 
@@ -23,26 +23,26 @@ const MiniAvatar = ({ user }) => {
     setIsModalVisible(false);
   };
 
-  fetch(url.url + "members/" + user.id, {
-    method: "get",
+  fetch(`${url.url}members/${user.id}`, {
+    method: 'get',
     headers: {
-      Authorization: Cookies.get("token"),
-      "Content-Type": "application/json",
+      Authorization: Cookies.get('token'),
+      'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
     .then((response) => {
       if (response.avatar) {
-        let link = response.avatar.url;
-        let linkStart = link.substring(0, 16);
-        let linkMiddle = ":3000/";
-        let linkEnd = link.substring(17, link.length);
-        let constructor = linkStart + linkMiddle + linkEnd;
+        const link = response.avatar.url;
+        const linkStart = link.substring(0, 16);
+        const linkMiddle = ':3000/';
+        const linkEnd = link.substring(17, link.length);
+        const constructor = linkStart + linkMiddle + linkEnd;
 
         setAvatar(constructor);
       } else {
         setAvatar(
-          "https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png"
+          'https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png',
         );
       }
     });
@@ -50,10 +50,10 @@ const MiniAvatar = ({ user }) => {
   const update = (status) => {
     console.log(status);
     const formData = new FormData();
-    formData.append("status", status);
+    formData.append('status', status);
 
-    fetch(url.url + "members/" + user.id, {
-      method: "PUT",
+    fetch(`${url.url}members/${user.id}`, {
+      method: 'PUT',
       body: formData,
     })
       .catch((error) => console.log(error))
@@ -71,8 +71,8 @@ const MiniAvatar = ({ user }) => {
               className="avatar_dashboard"
               style={
                 user?.color
-                  ? { border: "3px solid " + user?.color }
-                  : { border: "3px solid rgb(245, 245, 38)" }
+                  ? { border: `3px solid ${user?.color}` }
+                  : { border: '3px solid rgb(245, 245, 38)' }
               }
               src={avatar}
               alt="avatar"
@@ -80,7 +80,7 @@ const MiniAvatar = ({ user }) => {
           </label>
         </Popover>
 
-        {parseInt(Cookies.get("current_user_id")) === user.id ? (
+        {parseInt(Cookies.get('current_user_id')) === user.id ? (
           <Select
             defaultValue={user.status}
             style={{ width: 150 }}
@@ -96,12 +96,17 @@ const MiniAvatar = ({ user }) => {
           <p style={{ width: 150 }}>{user.status}</p>
         )}
 
-        <p> {user.solde} €</p>
-        <div></div>
+        <p>
+          {' '}
+          {user.solde}
+          {' '}
+          €
+        </p>
+        <div />
       </div>
 
       <Modal
-        title={user.email}
+        title={user.nickname ? user.nickname : user.email}
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -109,8 +114,8 @@ const MiniAvatar = ({ user }) => {
         <img
           style={
             user?.color
-              ? { border: "3px solid " + user?.color }
-              : { border: "3px solid rgb(245, 245, 38)" }
+              ? { border: `3px solid ${user?.color}` }
+              : { border: '3px solid rgb(245, 245, 38)' }
           }
           className="avatar_modal"
           src={avatar}

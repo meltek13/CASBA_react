@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logOut } from "store-redux/index";
-import "./editProfil.css";
-import { Form, Input, Button } from "antd";
-import { MailOutlined } from "@ant-design/icons";
-import url from "data/url.json";
+import React, { useState } from 'react';
+import Cookies from 'js-cookie';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'store-redux/index';
+import './editProfil.css';
+import { Form, Input, Button } from 'antd';
+import { MailOutlined } from '@ant-design/icons';
+import url from 'data/url.json';
 
 const EditProfil = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -17,33 +17,33 @@ const EditProfil = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("email", email);
+    formData.append('email', email);
 
-    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
-      method: "PUT",
+    fetch(`${url.url}members/${Cookies.get('current_user_id')}`, {
+      method: 'PUT',
       body: formData,
     })
       .catch((error) => console.log(error))
       .then((response) => {
         console.log(response);
-        history.push("/profil");
+        history.push('/profil');
       });
   };
 
   const deleteAccount = () => {
-    fetch(url.url + `members/` + Cookies.get("current_user_id"), {
-      method: "delete",
+    fetch(`${url.url}members/${Cookies.get('current_user_id')}`, {
+      method: 'delete',
       headers: {
-        Authorization: Cookies.get("token"),
-        "Content-Type": "application/json",
+        Authorization: Cookies.get('token'),
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
       .then((response) => {
-        Cookies.remove("token");
-        Cookies.remove("current_user_id");
+        Cookies.remove('token');
+        Cookies.remove('current_user_id');
         dispatch(logOut());
-        history.push("/");
+        history.push('/');
       });
   };
 
@@ -62,7 +62,7 @@ const EditProfil = () => {
             rules={[
               {
                 required: true,
-                message: "Please input your Email!",
+                message: 'Please input your Email!',
               },
             ]}
           >

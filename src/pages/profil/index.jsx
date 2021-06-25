@@ -1,49 +1,48 @@
-import React, { useState, useEffect } from "react";
-import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { Input } from "antd";
-import "./profil.css";
-import { EditOutlined, SettingFilled } from "@ant-design/icons";
-import url from "data/url.json";
-import Color from "data/colors.json";
-import { Select } from "antd";
+import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
+import { useHistory, Link } from 'react-router-dom';
+
+import { Input, Select } from 'antd';
+import './profil.css';
+import { EditOutlined, SettingFilled } from '@ant-design/icons';
+import url from 'data/url.json';
+import Color from 'data/colors.json';
 
 const Profil = () => {
-  const [email, setEmail] = useState("");
-  const [nickName, setNickName] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [email, setEmail] = useState('');
+  const [nickName, setNickName] = useState('');
+  const [avatar, setAvatar] = useState('');
   const history = useHistory();
-  const [uploadAvatar, setUploadAvatar] = useState("");
-  const [color, setColor] = useState("");
+  const [uploadAvatar, setUploadAvatar] = useState('');
+  const [color, setColor] = useState('');
   const { Option } = Select;
   console.log(Color.colors);
   // fonction a  utiliser en local pour les images
   const decodeUrlForImage = (imageUrl) => {
-    let link = imageUrl;
-    let linkStart = link.substring(0, 16);
-    let linkMiddle = ":3000/";
-    let linkEnd = link.substring(17, link.length);
-    let constructor = linkStart + linkMiddle + linkEnd;
+    const link = imageUrl;
+    const linkStart = link.substring(0, 16);
+    const linkMiddle = ':3000/';
+    const linkEnd = link.substring(17, link.length);
+    const constructor = linkStart + linkMiddle + linkEnd;
 
     return constructor;
   };
 
-  const fetchFunction = () => {
-    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
-      method: "get",
+  const currentUser = () => {
+    fetch(`${url.url}members/${Cookies.get('current_user_id')}`, {
+      method: 'get',
       headers: {
-        Authorization: Cookies.get("token"),
-        "Content-Type": "application/json",
+        Authorization: Cookies.get('token'),
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
       .then((response) => {
         setEmail(response.email);
-        if (response.nickname !== "") {
+        if (response.nickname !== '') {
           setNickName(response.nickname);
         }
-        if (response.color !== "") {
+        if (response.color !== '') {
           setColor(response.color);
         }
         if (response.avatar !== null) {
@@ -52,14 +51,14 @@ const Profil = () => {
       });
   };
   useEffect(() => {
-    fetchFunction();
+    currentUser();
   }, []);
 
   const updateNickname = (nickname) => {
     const formData = new FormData();
-    formData.append("nickname", nickname);
-    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
-      method: "PUT",
+    formData.append('nickname', nickname);
+    fetch(`${url.url}members/${Cookies.get('current_user_id')}`, {
+      method: 'PUT',
       body: formData,
     })
       .catch((error) => console.log(error))
@@ -70,9 +69,9 @@ const Profil = () => {
 
   const changeColor = (c) => {
     const formData = new FormData();
-    formData.append("color", c);
-    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
-      method: "PUT",
+    formData.append('color', c);
+    fetch(`${url.url}members/${Cookies.get('current_user_id')}`, {
+      method: 'PUT',
       body: formData,
     }).then((response) => {
       setColor(c);
@@ -81,9 +80,9 @@ const Profil = () => {
 
   const upload = (avatar) => {
     const formData = new FormData();
-    formData.append("avatar", avatar);
-    fetch(url.url + "members/" + Cookies.get("current_user_id"), {
-      method: "PUT",
+    formData.append('avatar', avatar);
+    fetch(`${url.url}members/${Cookies.get('current_user_id')}`, {
+      method: 'PUT',
       body: formData,
     })
       .catch((error) => console.log(error))
@@ -93,14 +92,14 @@ const Profil = () => {
       });
   };
 
-  const inputNickname = document.querySelector(".input-nickname");
+  const inputNickname = document.querySelector('.input-nickname');
 
   const borderSolid = () => {
-    inputNickname.style.border = "1px solid rgb(208, 233, 255)";
+    inputNickname.style.border = '1px solid rgb(208, 233, 255)';
   };
 
   const borderNone = () => {
-    inputNickname.style.border = "none";
+    inputNickname.style.border = 'none';
   };
 
   return (
@@ -121,16 +120,16 @@ const Profil = () => {
               <label
                 style={
                   color
-                    ? { border: "6px solid " + color }
-                    : { border: "6px solid rgb(245, 245, 38)" }
+                    ? { border: `6px solid ${color}` }
+                    : { border: '6px solid rgb(245, 245, 38)' }
                 }
                 className="avatar"
                 htmlFor="file"
               >
                 <div className="cross">
                   <div className="tt">
-                    <div className="horizontal"></div>
-                    <div className="vertical"></div>
+                    <div className="horizontal" />
+                    <div className="vertical" />
                   </div>
                 </div>
                 {avatar ? (
@@ -162,9 +161,9 @@ const Profil = () => {
               <p>
                 <strong>Couleur :</strong>
               </p>
-              <br/>
-              <p className="strongEmail" >
-                <strong >Email :</strong>
+              <br />
+              <p className="strongEmail">
+                <strong>Email :</strong>
               </p>
             </div>
 
@@ -182,12 +181,10 @@ const Profil = () => {
                     <Link to="#" className="edit-email" onClick={borderSolid}>
                       <EditOutlined />
                     </Link>
-                    <div onClick={borderNone} type="submit"></div>
+                    <div onClick={borderNone} type="submit" />
                   </div>
                 </form>
               </p>
-
-              
 
               <p className="color">
                 <Select
@@ -202,9 +199,12 @@ const Profil = () => {
                   ))}
                 </Select>
               </p>
-              <br/>
+              <br />
               <p className="email">
-                <div> {email}</div>
+                <div>
+                  {' '}
+                  {email}
+                </div>
                 <div>
                   <Link className="edit-email" to="/edit_profil">
                     <SettingFilled />
