@@ -102,22 +102,42 @@ const Dashboard = () => {
       {yourDashboard ? (
         <div>
 
-          <div className="nav-dashboard" >
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=actu`} onClick={changeColor1}>
-              <strong>📰</strong>
-              <span style={{color: span1}}>Actus</span>
+          <div className="nav-dashboard">
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=actu`}>
+            <Popover
+                    placement="bottom"
+                    content="Actualités de la coloc"
+                  >
+                    <strong>📰</strong>
+                  </Popover>
+              <span>Actus</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=picture`} onClick={changeColor2}>
-              <strong>📷</strong>
-              <span  style={{color: span2}}>Photos</span>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=picture`}>
+            <Popover
+                    placement="bottom"
+                    content="Photos de la coloc"
+                  >
+                   <strong>📷</strong>
+                  </Popover>
+              <span>Photos</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=calendar`} onClick={changeColor3}>
-              <strong>🗓️</strong>
-              <span  style={{color: span3}}>Calendar</span>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=calendar`}>
+            <Popover
+                    placement="bottom"
+                    content="Évévenements de la coloc"
+                  >
+                   <strong>🗓️</strong>
+                  </Popover>
+              <span>Calendar</span>
             </Link>
-            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=expense`} onClick={changeColor4}> 
-              <strong>💰</strong>
-              <span  style={{color: span4}}>Dépenses</span>
+            <Link className="btn-dashboard-nav" to={`/dashboard/${id}?name=expense`}>
+            <Popover
+                    placement="bottom"
+                    content="Dépenses de la coloc"
+                  >
+                    <strong>💰</strong>
+                  </Popover>
+              <span>Dépenses</span>
             </Link>
 
             {parseInt(Cookies.get('current_user_id')) === room?.admin?.id && (
@@ -125,11 +145,11 @@ const Dashboard = () => {
                 <Link to={`/add-room-mate/${id}`}>
                   <Popover
                     placement="bottom"
-                    content="Ajouter un collocataire"
+                    content="Inviter une/un coloc"
                   >
                     <img
                       className=" add-roomate"
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1200px-OOjs_UI_icon_add.svg.png"
+                      src="https://img.icons8.com/ios-filled/50/000000/add-user-group-man-man--v2.png"
                       alt="avatar"
                     />
                   </Popover>

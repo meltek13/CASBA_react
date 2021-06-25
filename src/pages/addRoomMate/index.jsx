@@ -7,6 +7,7 @@ import url from 'data/url.json';
 import './addRoomMate.css';
 import { disconnect } from 'store-redux/room';
 import { useDispatch } from 'react-redux';
+import Email_svg from "assets/img/email.svg";
 
 const AddRoomMate = () => {
   const history = useHistory();
@@ -64,6 +65,7 @@ const AddRoomMate = () => {
 
   return (
     <div>
+      <img id="email-svg" src={Email_svg} alt="illustration enveloppe avec femme sur un skate" />
       <h1>Invitation</h1>
       <form className="form-add-room-mate">
         <Input className="input-guest" placeholder="Jean@gmail.com" style={{ width: 150 }} onChange={(e) => setGuest(e.target.value)} />
@@ -84,3 +86,4 @@ const AddRoomMate = () => {
 };
 
 export default AddRoomMate;
+
