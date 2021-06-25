@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import 'pages/expense/expense.css';
-
 import Cookies from 'js-cookie';
 import { Link, useParams } from 'react-router-dom';
 import Expense_svg from 'assets/img/money_colocs.svg';
 import url from 'data/url.json';
 import { Notif_sucess_expense, Notif_error_expense } from 'components/Notifications';
-
 import {
   Form, Input, Button, Select, InputNumber, Checkbox, Row, Col,
 } from 'antd';
@@ -67,7 +65,7 @@ const Expense = () => {
             concerned_colocs: concernedColocsInput2,
             user_id: Cookies.get('current_user_id'),
             flatsharing_id: Cookies.get('flat_id'),
-            split_amount_to_colocs: Math.ceil(input_total_corrected / (concernedColocsInput2.length)),
+            split_amount_to_colocs: (input_total_corrected / (concernedColocsInput2.length)),
           },
         }),
       })
