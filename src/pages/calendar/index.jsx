@@ -57,7 +57,7 @@ const Timetable = () => {
       }),
     })
       .then((response) =>  {
-        console.log(response)
+        window.location.reload(false);
         Notif_sucess_event()
       });
     }
