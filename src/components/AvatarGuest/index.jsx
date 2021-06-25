@@ -39,7 +39,7 @@ const MiniAvatar = ({ user }) => {
         const linkEnd = link.substring(17, link.length);
         const constructor = linkStart + linkMiddle + linkEnd;
 
-        setAvatar(constructor);
+        setAvatar(response.avatar.url);
       } else {
         setAvatar(
           'https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png',
