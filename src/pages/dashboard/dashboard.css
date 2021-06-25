@@ -162,7 +162,7 @@
   position: fixed;
   z-index: 1;
   margin: 20px;
-  margin-right: 10%;
+  margin-right: 40px;
   width: 320px;
 }
 
@@ -261,5 +261,3 @@
   overflow: auto;
   margin-bottom: 25px;
 }
-
-
