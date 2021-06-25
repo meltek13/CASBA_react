@@ -67,6 +67,7 @@ const AddRoomMate = () => {
     <div>
       <img id="email-svg" src={Email_svg} alt="illustration enveloppe avec femme sur un skate" />
       <h1>Invitation</h1>
+      <muted>(Invite tes collocs à rejoindre Casba)</muted>
       <form className="form-add-room-mate">
         <Input className="input-guest" placeholder="Jean@gmail.com" style={{ width: 150 }} onChange={(e) => setGuest(e.target.value)} />
         <Button className="btn-guest" type="primary" onClick={addGuest}>
