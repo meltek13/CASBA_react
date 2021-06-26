@@ -38,3 +38,11 @@ Lorsqu’un utilisateur se connecte pour la première fois, il accède à la pag
 [@Théo CAZENAVE-COUPET](https://github.com/Kelvi3 "@Théo CAZENAVE-COUPET")
 [@Boris N'KUAKO](https://github.com/bnthp16 "@Boris N'KUAKO")
 [Frédéric SEGUIER](https://github.com/fred75013 "Frédéric SEGUIER")
+
+#### -Compte utilisateur
+
+admin : email: fred@yopmail.com password: coucou
+roomate : 
+email: theo@yopmail.com password:coucou
+email: melvin@yopmail.com password:coucou
+email: boris@yopmail.com password:coucou
